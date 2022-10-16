@@ -1,6 +1,6 @@
 #include "classes.h"
 
-void Classes::void csv_classes_reader(const string& filename, vector <string>& v_class_code[], vector <string>& v_uc_code[], vector <string>& v_weekday[], vector <string>& v_start_hour[], vector <string>& v_duration[], vector <string> v_type[])
+void Classes::csv_classes_reader(const string& filename, vector <string>& v_class_code[], vector <string>& v_uc_code[], vector <string>& v_weekday[], vector <string>& v_start_hour[], vector <string>& v_duration[], vector <string> v_type[])
 {
 
     #include <fstream>

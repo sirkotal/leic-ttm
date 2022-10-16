@@ -12,4 +12,6 @@ class Student {
     private:
     string name;
     string id;
-}
+};
+
+#endif
