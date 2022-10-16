@@ -32,7 +32,8 @@ void Classes::csv_classes_reader(const string& filename, vector <string>& v_clas
         getline(coeff, line);
 
         // While the end of the file is not reached.
-        while (!coeff.eof()) {
+        while (!coeff.eof())
+        {
             //{class_code, uc_code, weekday, start_hour, duration, type}
             getline(coeff, class_code, ',');
             v_class_code.push_back(class_code);
