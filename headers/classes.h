@@ -5,11 +5,11 @@
 
 using namespace std;
 
-class Class {
+class Classes {
     public:
-
+        void csv_classes_reader(const string& filename);
 
     private:
-    string id;
-    vector<Student> students;
+        string id;
+        vector<Student> students;
 }
