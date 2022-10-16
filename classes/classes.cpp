@@ -1,6 +1,6 @@
 #include "classes.h"
 
-void Classes::csv_classes_reader(const string& filename, vector <string>& v_class_code[], vector <string>& v_uc_code[], vector <string>& v_weekday[], vector <string>& v_start_hour[], vector <string>& v_duration[], vector <string> v_type[])
+void Classes::csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type)
 {
 
     #include <fstream>
@@ -23,8 +23,6 @@ void Classes::csv_classes_reader(const string& filename, vector <string>& v_clas
      */
 
     // Filename
-    cin >> filename;
-
     ifstream coeff(filename); // Opens the file.
 
     if (coeff.is_open()) // Checks if the file is open.
@@ -62,6 +60,4 @@ void Classes::csv_classes_reader(const string& filename, vector <string>& v_clas
     {
         cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
     }
-
-    return 0;
 }
