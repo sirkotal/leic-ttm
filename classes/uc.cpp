@@ -23,7 +23,7 @@ void UC::csv_classes_per_uc_reader(const string& filename, vector <string>& v_uc
         // While the end of the file is not reached.
         while (!coeff.eof())
         {
-            //{class_code, uc_code, weekday, start_hour, duration, type}
+            //{uc_code,class_code}
             getline(coeff, uc_code, ',');
             v_uc_code.push_back(uc_code);
 
