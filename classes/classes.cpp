@@ -1,6 +1,7 @@
 #include "classes.h"
 
-void Classes::void csv_classes_reader(const string& filename) {
+void Classes::void csv_classes_reader(const string& filename, vector <string>& v_class_code[], vector <string>& v_uc_code[], vector <string>& v_weekday[], vector <string>& v_start_hour[], vector <string>& v_duration[], vector <string> v_type[])
+{
 
     #include <fstream>
     #include <sstream>
@@ -8,32 +9,59 @@ void Classes::void csv_classes_reader(const string& filename) {
     #include <iomanip>
     #include <vector>
 
-    // The following arrays will store the corresponding information from the classes.csv file.
-    string class_code[];
-    string uc_code[];
-    string weekday[];
-    string start_hour[];
-    string duration[];
-    string type[];
+    // File variables.
+    string class_code, uc_code, weekday, start_hour, duration, type;
 
-    // file pointer
-    fstream fout;
+    /*
+    // The following vectors will store the corresponding information from the classes.csv file.
+    vector <string> v_class_code[];
+    vector <string> v_uc_code[];
+    vector <string> v_weekday[];
+    vector <string> v_start_hour[];
+    vector <string> v_duration[];
+    vector <string> v_type[];
+     */
 
-    // opens an existing csv file or creates a new file.
-    fout.open(filename, ios::out | ios::app);
+    // Filename
+    cin >> filename;
 
-    string class_code,uc_code,weekday,start_hour,duration,type;
+    ifstream coeff(filename); // Opens the file.
 
-    // Read the input
-    for (i = 0; i < 5; i++) {
+    if (coeff.is_open()) // Checks if the file is open.
+    {
+        // Skip the first line (ClassCode,UcCode,Weekday,StartHour,Duration,Type).
+        string line;
+        getline(coeff, line);
 
-        cin >> class_code
-            >> uc_code
-            >> weekday
-            >> start_hour
-            >> duration
-            >> type
+        // While the end of the file is not reached.
+        while (!coeff.eof()) {
+            //{class_code, uc_code, weekday, start_hour, duration, type}
+            getline(coeff, class_code, ',');
+            v_class_code.push_back(class_code);
+
+            getline(coeff, uc_code, ',');
+            v_uc_code.push_back(uc_code);
+
+            getline(coeff, weekday, ',');
+
+            v_weekday.push_back(weekday);
+
+            getline(coeff, start_hour, ',');
+            v_start_hour.push_back(start_hour);
+
+            getline(coeff, duration, ',');
+            v_duration.push_back(duration);
+
+            getline(coeff, type, '\n');
+            v_type.push_back(type);
+        }
+
+        coeff.close(); // Closing the file.
     }
+    else
+    {
+        cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
+    }
+
+    return 0;
 }
-
-
