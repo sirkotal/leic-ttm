@@ -14,6 +14,8 @@ void Student::void csv_students_classes_reader(const string& filename, vector <s
     // Filename
     ifstream coeff(filename); // Opens the file.
 
+    int number_students = 0;
+
     if (coeff.is_open()) // Checks if the file is open.
     {
         // Skip the first line (ClassCode,UcCode,Weekday,StartHour,Duration,Type).
@@ -35,6 +37,8 @@ void Student::void csv_students_classes_reader(const string& filename, vector <s
 
             getline(coeff, class_code, ',');
             v_class_code.push_back(class_code);
+
+            number_students++;
         }
 
         coeff.close(); // Closing the file.
