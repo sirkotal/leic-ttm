@@ -1,6 +1,6 @@
-#include "classes.h"
+#include "../headers/class.h"
 
-void Classes::csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type)
+void Class::csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type)
 {
 
     //#include <fstream>
@@ -11,6 +11,7 @@ void Classes::csv_classes_reader(const string& filename, vector <string>& v_clas
 
     // File variables.
     string class_code, uc_code, weekday, start_hour, duration, type;
+
 
     // Filename
     ifstream coeff(filename); // Opens the file.

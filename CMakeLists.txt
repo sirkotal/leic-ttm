@@ -6,8 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(headers)
 
 add_executable(leic_ttm
-        classes/classes.cpp
-        headers/classes.h
+        classes/class.cpp
+        classes/student.cpp
+        classes/uc.cpp
+        headers/class.h
         headers/student.h
         headers/uc.h
         src/main.cpp)

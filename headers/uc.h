@@ -2,7 +2,13 @@
 #define UC_H
 
 #include <bits/stdc++.h>
-#include "classes.h"
+#include <string>
+#include <vector>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+
+#include "class.h"
 
 using namespace std;
 
@@ -12,7 +18,7 @@ class UC {
 
     private:
     string id;
-    vector<Classes> classes;
+    vector<Class> classes;
 };
 
 #endif

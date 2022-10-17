@@ -1,13 +1,7 @@
-#include "student.h"
+#include "../headers/student.h"
 
-void Student::void csv_students_classes_reader(const string& filename, vector <string>& v_student_code, vector <string>& v_student_name, vector <string>& v_uc_code, vector <string>& v_class_code)
+void Student::csv_students_classes_reader(const string& filename, vector <string>& v_student_code, vector <string>& v_student_name, vector <string>& v_uc_code, vector <string>& v_class_code)
 {
-    //#include <fstream>
-    //#include <sstream>
-    #include <iostream>
-    //#include <iomanip>
-    #include <vector>
-
     // File variables.
     string student_code, student_name, uc_code, class_code;
 
@@ -35,7 +29,7 @@ void Student::void csv_students_classes_reader(const string& filename, vector <s
             getline(coeff, uc_code, ',');
             v_uc_code.push_back(uc_code);
 
-            getline(coeff, class_code, ',');
+            getline(coeff, class_code, '\n');
             v_class_code.push_back(class_code);
 
             number_students++;

@@ -49,8 +49,22 @@ cmake_ninja_workdir = C$:/Users/m3ped/leic-ttm/cmake-build-debug/
 
 build cmake_object_order_depends_target_leic_ttm: phony || CMakeFiles/leic_ttm.dir
 
-build CMakeFiles/leic_ttm.dir/classes/classes.cpp.obj: CXX_COMPILER__leic_ttm_Debug C$:/Users/m3ped/leic-ttm/classes/classes.cpp || cmake_object_order_depends_target_leic_ttm
-  DEP_FILE = CMakeFiles\leic_ttm.dir\classes\classes.cpp.obj.d
+build CMakeFiles/leic_ttm.dir/classes/class.cpp.obj: CXX_COMPILER__leic_ttm_Debug C$:/Users/m3ped/leic-ttm/classes/class.cpp || cmake_object_order_depends_target_leic_ttm
+  DEP_FILE = CMakeFiles\leic_ttm.dir\classes\class.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -IC:/Users/m3ped/leic-ttm/headers
+  OBJECT_DIR = CMakeFiles\leic_ttm.dir
+  OBJECT_FILE_DIR = CMakeFiles\leic_ttm.dir\classes
+
+build CMakeFiles/leic_ttm.dir/classes/student.cpp.obj: CXX_COMPILER__leic_ttm_Debug C$:/Users/m3ped/leic-ttm/classes/student.cpp || cmake_object_order_depends_target_leic_ttm
+  DEP_FILE = CMakeFiles\leic_ttm.dir\classes\student.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -IC:/Users/m3ped/leic-ttm/headers
+  OBJECT_DIR = CMakeFiles\leic_ttm.dir
+  OBJECT_FILE_DIR = CMakeFiles\leic_ttm.dir\classes
+
+build CMakeFiles/leic_ttm.dir/classes/uc.cpp.obj: CXX_COMPILER__leic_ttm_Debug C$:/Users/m3ped/leic-ttm/classes/uc.cpp || cmake_object_order_depends_target_leic_ttm
+  DEP_FILE = CMakeFiles\leic_ttm.dir\classes\uc.cpp.obj.d
   FLAGS = -g -std=gnu++14
   INCLUDES = -IC:/Users/m3ped/leic-ttm/headers
   OBJECT_DIR = CMakeFiles\leic_ttm.dir
@@ -71,7 +85,7 @@ build CMakeFiles/leic_ttm.dir/src/main.cpp.obj: CXX_COMPILER__leic_ttm_Debug C$:
 #############################################
 # Link the executable leic_ttm.exe
 
-build leic_ttm.exe: CXX_EXECUTABLE_LINKER__leic_ttm_Debug CMakeFiles/leic_ttm.dir/classes/classes.cpp.obj CMakeFiles/leic_ttm.dir/src/main.cpp.obj
+build leic_ttm.exe: CXX_EXECUTABLE_LINKER__leic_ttm_Debug CMakeFiles/leic_ttm.dir/classes/class.cpp.obj CMakeFiles/leic_ttm.dir/classes/student.cpp.obj CMakeFiles/leic_ttm.dir/classes/uc.cpp.obj CMakeFiles/leic_ttm.dir/src/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\leic_ttm.dir

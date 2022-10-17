@@ -70,7 +70,9 @@
 			"sourceIndexes" : 
 			[
 				0,
-				4
+				1,
+				2,
+				6
 			]
 		}
 	],
@@ -108,16 +110,18 @@
 			"sourceIndexes" : 
 			[
 				0,
-				4
+				1,
+				2,
+				6
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				1,
-				2,
-				3
+				3,
+				4,
+				5
 			]
 		}
 	],
@@ -126,12 +130,24 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "classes/classes.cpp",
+			"path" : "classes/class.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/classes.h",
+			"compileGroupIndex" : 0,
+			"path" : "classes/student.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "classes/uc.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "headers/class.h",
 			"sourceGroupIndex" : 1
 		},
 		{
