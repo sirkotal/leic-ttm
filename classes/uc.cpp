@@ -2,12 +2,6 @@
 
 void UC::csv_classes_per_uc_reader(const string& filename, vector <string>& v_uc_code, vector <string>& v_class_code)
 {
-    //#include <fstream>
-    //#include <sstream>
-    #include <iostream>
-    //#include <iomanip>
-    #include <vector>
-
     // File variables.
     string uc_code, class_code;
 

@@ -35,7 +35,7 @@ void menu ()
 }
 
 int main() {
-    /*
+
     vector <string> v_student_code;
     vector <string> v_student_name;
     vector <string> v_uc_code;
@@ -47,6 +47,6 @@ int main() {
     {
         cout << element << endl;
     }
-     */
+
     menu();
 }

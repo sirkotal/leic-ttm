@@ -2,13 +2,6 @@
 
 void Class::csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type)
 {
-
-    //#include <fstream>
-    //#include <sstream>
-    #include <iostream>
-    //#include <iomanip>
-    #include <vector>
-
     // File variables.
     string class_code, uc_code, weekday, start_hour, duration, type;
 
