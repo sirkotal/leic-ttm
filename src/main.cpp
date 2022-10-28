@@ -50,3 +50,11 @@ int main() {
 
     menu();
 }
+
+/*
+gestorHor h;
+	h.lerficheiros();
+	h.guardarpedidos();
+	h.processarpedidos();
+	h.listagens(); //usar ordernaçao e pesquisa
+    */

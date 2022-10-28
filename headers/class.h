@@ -1,5 +1,5 @@
-#ifndef CLASSES_H
-#define CLASSES_H
+#ifndef CLASSESCHEDULE_H
+#define CLASSESCHEDULE_H
 
 #include <bits/stdc++.h>
 #include <string>
@@ -11,13 +11,19 @@
 
 using namespace std;
 
-class Class {
+class ClassSchedule {
     public:
-        static void csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type);
+        // static void csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type);
+
+        ClassSchedule(string ucID, string classID, list<Slot> classSchedule);
+
+        string get_UC_ID() const;
+        string get_class_ID() const;
 
     private:
-        string id;
-        vector<Student> students;
+        string ucID;
+        string classID;
+        list<Slot> classSchedule;
 };
 
 #endif

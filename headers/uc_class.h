@@ -12,10 +12,14 @@ using namespace std;
 
 class UCClass {
     public:
+    UCClass(string ucID, string classID);
+
+    string get_UC_ID() const;
+    string get_class_ID() const;
 
     private:
-        string id;
-        string classT;
+        string ucID;
+        string classID;
 };
 
 #endif

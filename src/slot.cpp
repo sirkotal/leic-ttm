@@ -1,4 +1,4 @@
-#include "slot.h"
+#include "../headers/slot.h"
 
 Slot::Slot(WeekDay day, float start, float end, string type) {
         this->day = day;
