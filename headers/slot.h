@@ -12,16 +12,18 @@ using namespace std;
 
 class Slot {
     public:
-    Slot(WeekDay day, float start, float end, string type);
+    Slot(string day, float start, float end, string type);
+
+    string getDay() const;
 
     float getStart() const;
 
     float getEnd() const;
 
-    string classType() const;
+    string type() const;
         
     private:
-        WeekDay day;
+        string day;
         float start;
         float end;
         string type;

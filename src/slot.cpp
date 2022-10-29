@@ -7,6 +7,10 @@ Slot::Slot(WeekDay day, float start, float end, string type) {
         this->type = type;
     }
 
+string Slot::getDay() const{
+    return day;
+}
+
 float Slot::getStart() const{
     return start;
 }
@@ -15,6 +19,6 @@ float Slot::getEnd() const{
     return end;
 }
 
-string Slot::classType() const{
+string Slot::type() const{
     return type;
 }
