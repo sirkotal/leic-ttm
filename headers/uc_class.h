@@ -18,8 +18,8 @@ class UCClass {
     string get_class_ID() const;
 
     private:
-        string ucID;
-        string classID;
+        string ucID;  // LEIC003
+        string classID; //1LEIC14
 };
 
 #endif

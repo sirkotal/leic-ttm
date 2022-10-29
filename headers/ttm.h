@@ -12,10 +12,11 @@ using namespace std;
 
 class TTM {
     public:
-
+    void add(Request request);
+    
     private:
         set<Student> students;
-        vector<Class> schedule;
+        vector<ClassSchedule> schedule;
         queue<Request> requests;
 };
 
