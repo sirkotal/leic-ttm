@@ -12,14 +12,16 @@ using namespace std;
 
 class ClassSchedule {
     public:
-        ClassSchedule(string ucID, string classID, list<Slot> classSchedule);
+        ClassSchedule(string ucID, string classID);
 
         string get_UC_ID() const;
         string get_class_ID() const;
 
+        // void print();
+
     private:
-        string ucID;
-        string classID;
+        //string ucID #LEIC003
+        string classID; //1LEIC14
         list<Slot> classSchedule;
 };
 

@@ -1,6 +1,6 @@
 #include "../headers/slot.h"
 
-Slot::Slot(WeekDay day, float start, float end, string type) {
+Slot::Slot(string day, float start, float end, string type) {
         this->day = day;
         this->start = start;
         this->end = end;
@@ -19,6 +19,6 @@ float Slot::getEnd() const{
     return end;
 }
 
-string Slot::type() const{
+string Slot::isType() const{
     return type;
 }

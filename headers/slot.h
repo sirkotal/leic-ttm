@@ -20,7 +20,7 @@ class Slot {
 
     float getEnd() const;
 
-    string type() const;
+    string isType() const;
         
     private:
         string day;
