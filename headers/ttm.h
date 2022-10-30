@@ -15,6 +15,7 @@ using namespace std;
 
 class TTM {
     public:
+    void csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type)
     void add_request_to_queue(Request request);
     queue<Request> get_request();
     

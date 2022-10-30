@@ -5,7 +5,7 @@ UCClass::UCClass(string ucID, string classID) {
     this->classID = classID;
 }
 
-int student_counter(const string& filename, string uc_code_input, string class_code_input) {
+int UCClass::student_counter(const string& filename, string uc_code_input, string class_code_input) {
     // File variables.
     string student_code, student_name, uc_code, class_code;
     int student_counter = 0;
