@@ -47,7 +47,7 @@ void TTM::csv_classes_reader(const string& filename, vector <string>& v_class_co
     }
 }
 
-queue<struct Request> TTM::get_request()
+queue<Request> TTM::get_request()
 {
     return this->requests;
 }
