@@ -1,13 +1,12 @@
 #include "../headers/class_schedule.h"
 
-ClassSchedule::ClassSchedule(string ucID, string classID) {
-    this->ucID = ucID;
+ClassSchedule::ClassSchedule(string classID) {
     this->classID = classID;
 }
 
-string ClassSchedule::get_UC_ID() const{
+/*string ClassSchedule::get_UC_ID() const{
     return ucID;
-}
+}*/
 
 string ClassSchedule::get_class_ID() const{
     return classID;

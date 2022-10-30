@@ -2,6 +2,7 @@
 #define CLASSESCHEDULE_H
 
 #include <bits/stdc++.h>
+#include "slot.h"
 #include <string>
 #include <vector>
 #include <fstream>
@@ -12,7 +13,7 @@ using namespace std;
 
 class ClassSchedule {
     public:
-        ClassSchedule(string ucID, string classID);
+        ClassSchedule(string classID);
 
         string get_UC_ID() const;
         string get_class_ID() const;

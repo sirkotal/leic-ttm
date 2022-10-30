@@ -2,6 +2,7 @@
 #define STUDENT_H
 
 #include <bits/stdc++.h>
+#include "uc_class.h"
 #include <string>
 #include <vector>
 #include <fstream>

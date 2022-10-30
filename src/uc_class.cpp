@@ -9,6 +9,6 @@ string UCClass:get_UC_ID() const{
     return ucID;
 }
     
-string UCClassget_class_ID() const{
+string UCClass::get_class_ID() const{
     return classID;
 }

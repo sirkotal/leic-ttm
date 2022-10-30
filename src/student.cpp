@@ -3,7 +3,7 @@
 Student::Student(string name, string id, list<UCClass> classes) {
     this->name = name;
     this->id = id;
-    this->classes = classes;
+    this->allClasses = classes;
 }
 
 string Student::getName() const{
@@ -29,19 +29,15 @@ void Student::csv_students_classes_reader(const string& filename) {
         // While the end of the file is not reached.
         while (!coeff.eof()) {
             getline(coeff, student_code, ',');
-            v_student_code.push_back(student_code);
 
             getline(coeff, student_name, ',');
-            v_student_name.push_back(student_name);
 
             getline(coeff, uc_code, ',');
-            v_uc_code.push_back(uc_code);
 
             getline(coeff, class_code, '\n');
-            v_class_code.push_back(class_code);
 
             if (student_code == this->id) {
-                UC* insc = new UCClass(uc_code, class_code);
+                UCClass* insc = new UCClass(uc_code, class_code);
                 allClasses.push_back(*insc);
             }
             else {
