@@ -18,6 +18,7 @@ class Student {
     string getName() const;
     string getID() const;
     void csv_students_classes_reader(const string& filename);
+    void sort_students_in_class_alphabetically(string class_code_input);
     
 private:
     string name;
