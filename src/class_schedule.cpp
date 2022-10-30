@@ -13,6 +13,23 @@ string ClassSchedule::get_class_ID() const{
     return classID;
 }
 
+bool sortday(Slot firsts, Slot seconds) {
+    string first = firsts.getDay();
+    string second = seconds.getDay();
+    unsigned int fcmp;
+    unsigned int scmp;
+    vector<string> days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+    for (unsigned int i = 0; i < days.size(); i++) {
+        if (first == days[i]) {
+            fcmp = i;
+        }
+        if (second == days[i]) {
+            scmp = i;
+        }
+    }
+    // cout << fcmp << "," << scmp << "|" << endl;
+    return fcmp < scmp;
+
 void ClassSchedule::csv_classes_reader(const string& filename) {
         // File variables.
         string class_code, uc_code, weekday, ctype;
@@ -60,6 +77,7 @@ void ClassSchedule::csv_classes_reader(const string& filename) {
             cout
                     << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
         }
+        sort(ClassSchedule)
     }
 
 /*void ClassSchedule::print() {
