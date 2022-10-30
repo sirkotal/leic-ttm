@@ -46,3 +46,14 @@ void TTM::csv_classes_reader(const string& filename, vector <string>& v_class_co
         cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
     }
 }
+
+queue<struct Request> TTM::get_request()
+{
+    return this->requests;
+}
+
+void TTM::add_request_to_queue(Request request)
+{
+    get_request();
+    requests.push(request);
+}

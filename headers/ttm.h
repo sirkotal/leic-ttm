@@ -15,7 +15,8 @@ using namespace std;
 
 class TTM {
     public:
-    void add(Request request);
+    void add_request_to_queue(Request request);
+    queue<Request> get_request();
     
     private:
         set<Student> students;
