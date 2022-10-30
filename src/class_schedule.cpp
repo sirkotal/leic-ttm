@@ -29,6 +29,7 @@ bool sortday(Slot firsts, Slot seconds) {
     }
     // cout << fcmp << "," << scmp << "|" << endl;
     return fcmp < scmp;
+}
 
 void ClassSchedule::csv_classes_reader(const string& filename) {
         // File variables.

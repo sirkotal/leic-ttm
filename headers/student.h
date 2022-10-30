@@ -16,6 +16,7 @@ class Student {
 
     string getName() const;
     string getID() const;
+    void csv_students_classes_reader(const string& filename);
     
 private:
     string name;

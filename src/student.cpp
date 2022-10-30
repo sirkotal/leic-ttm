@@ -13,4 +13,47 @@ string Student::getName() const{
 string Student::getID() const {
     return id;
 }
+
+void Student::csv_students_classes_reader(const string& filename) {
+    // File variables.
+    string student_code, student_name, uc_code, class_code;
+
+    // Filename
+    ifstream coeff(filename); // Opens the file.
+
+    if (coeff.is_open()) { // Checks if the file is open.
+        // Skip the first line 
+        string line;
+        getline(coeff, line);
+
+        // While the end of the file is not reached.
+        while (!coeff.eof()) {
+            getline(coeff, student_code, ',');
+            v_student_code.push_back(student_code);
+
+            getline(coeff, student_name, ',');
+            v_student_name.push_back(student_name);
+
+            getline(coeff, uc_code, ',');
+            v_uc_code.push_back(uc_code);
+
+            getline(coeff, class_code, '\n');
+            v_class_code.push_back(class_code);
+
+            if (student_code == this->id) {
+                UC* insc = new UCClass(uc_code, class_code);
+                allClasses.push_back(*insc);
+            }
+            else {
+                continue;
+            }
+        }
+
+        coeff.close(); // Closing the file.
+    }
+    else
+    {
+        cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
+    }
+}
     
