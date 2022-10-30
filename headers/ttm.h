@@ -7,6 +7,9 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
+#include "request.h"
+#include "student.h"
+#include "class_schedule.h"
 
 using namespace std;
 

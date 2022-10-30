@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Utilizador/Desktop/leic_ttm
+# Install script for directory: C:/Users/m3ped/CLionProjects/leic-ttm2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Utilizador/Desktop/leic_ttm/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/m3ped/CLionProjects/leic-ttm2/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
