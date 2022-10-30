@@ -22,7 +22,7 @@ class ClassSchedule {
     private:
         //string ucID #LEIC003
         string classID; //1LEIC14
-        list<Slot> classSchedule;
+        vector<Slot> classSchedule;
 };
 
 #endif

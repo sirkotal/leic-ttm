@@ -77,7 +77,7 @@ void ClassSchedule::csv_classes_reader(const string& filename) {
             cout
                     << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
         }
-        sort(ClassSchedule)
+        sort(classSchedule.begin(), classSchedule.end(), sortday);
     }
 
 /*void ClassSchedule::print() {
