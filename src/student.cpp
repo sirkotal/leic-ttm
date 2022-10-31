@@ -4,10 +4,9 @@
 
 using namespace std;
 
-Student::Student(string name, string id, list<UCClass> classes) {
+Student::Student(string name, string id) {
     this->name = name;
     this->id = id;
-    this->allClasses = classes;
 }
 
 string Student::getName() const{
@@ -41,8 +40,8 @@ void Student::getAllClasses(const string& filename) { // csv_students_classes_re
             getline(coeff, class_code, '\n');
 
             if (student_code == this->id) {
-                UCClass* insc = new UCClass(uc_code, class_code);
-                allClasses.push_back(*insc);
+                UCClass insc(uc_code, class_code);
+                allClasses.push_back(insc);
             }
             else {
                 continue;
@@ -56,3 +55,11 @@ void Student::getAllClasses(const string& filename) { // csv_students_classes_re
         cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
     }
 }
+
+/*void Student::getSchedule() {
+    for (UCClass element : allClasses) {
+        ClassSchedule tmp(element.get_class_ID());
+        vector<Slot> store = tmp.getClass(element.get_UC_ID());
+        schedule.assign(store.begin(), store.begin()+2);
+    }
+}*/

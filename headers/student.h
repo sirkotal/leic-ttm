@@ -4,6 +4,7 @@
 #include <bits/stdc++.h>
 #include "uc_class.h"
 #include "slot.h"
+#include "class_schedule.h"
 #include <string>
 #include <vector>
 #include <fstream>
@@ -14,12 +15,12 @@ using namespace std;
 
 class Student {
     public:
-    Student(string name, string id, list<UCClass> classes);
+    Student(string name, string id);
 
     string getName() const;
     string getID() const;
     void getAllClasses(const string& filename); // generates allClasses, csv_students_classes_reader
-    void getSchedule();
+    // void getSchedule();
     
 private:
     string name;

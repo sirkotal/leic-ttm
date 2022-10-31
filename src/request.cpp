@@ -13,6 +13,6 @@ string Request::getType() const{
     return type;
 }
 
-void setDone() {
+void Request::setDone() {
     this->completed = true;
 }

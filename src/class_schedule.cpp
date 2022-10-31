@@ -74,9 +74,9 @@ void ClassSchedule::getFullSchedule(const string& filename) { //csv_classes_read
 
 
                 if (class_code == this->classID) {
-                    Slot* time = new Slot(weekday, hour, tempf, ctype);
+                    Slot time(uc_code, weekday, hour, tempf, ctype); // try with pointer/new if it fails
                     // cout << time->getDay();
-                    classSchedule.push_back(*time);
+                    classSchedule.push_back(time);
                 }
                 else {
                     continue;
@@ -93,4 +93,14 @@ void ClassSchedule::getFullSchedule(const string& filename) { //csv_classes_read
 
 /*void ClassSchedule::print() {
     cout << classSchedule.size() << endl;
+}*/
+
+/*vector<Slot> ClassSchedule::getClass(string ucID) {
+    list<Slot> lst;
+
+    for (Slot element: classSchedule) {
+        if (ucID == element.getUC()) {
+            lst.push_back(element);
+        }
+    }
 }*/

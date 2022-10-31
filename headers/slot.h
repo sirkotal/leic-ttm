@@ -12,7 +12,9 @@ using namespace std;
 
 class Slot {
     public:
-    Slot(string day, float start, float end, string type);
+    Slot(string uc, string day, float start, float end, string type);
+
+    string getUC() const;
 
     string getDay() const;
 
@@ -23,6 +25,7 @@ class Slot {
     string isType() const;
         
     private:
+        string uc;
         string day;
         float start;
         float end;
