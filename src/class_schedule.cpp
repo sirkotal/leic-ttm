@@ -95,12 +95,10 @@ void ClassSchedule::getFullSchedule(const string& filename) { //csv_classes_read
     cout << classSchedule.size() << endl;
 }*/
 
-/*vector<Slot> ClassSchedule::getClass(string ucID) {
-    list<Slot> lst;
-
+void ClassSchedule::getClass(string ucID, vector<Slot>& vct) {
     for (Slot element: classSchedule) {
         if (ucID == element.getUC()) {
-            lst.push_back(element);
+            vct.push_back(element);
         }
     }
-}*/
+}

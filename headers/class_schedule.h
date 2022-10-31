@@ -21,6 +21,7 @@ class ClassSchedule {
         // vector<Slot> getClass(string ucID);
 
         void getFullSchedule(const string& filename); //csv_classes_reader
+        void getClass(string ucID, vector<Slot>& vct);
 
         // void print();
 

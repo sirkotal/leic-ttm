@@ -20,7 +20,8 @@ class Student {
     string getName() const;
     string getID() const;
     void getAllClasses(const string& filename); // generates allClasses, csv_students_classes_reader
-    // void getSchedule();
+    void getSchedule();
+    // void print();
     
 private:
     string name;
