@@ -12,6 +12,13 @@ string ClassSchedule::get_class_ID() const{
     return classID;
 }
 
+bool sorttime(Slot firsts, Slot seconds) {
+    float fstart = firsts.getStart();
+    float sstart = seconds.getStart();
+
+    return fstart < sstart;
+}
+
 bool sortday(Slot firsts, Slot seconds) {
     string first = firsts.getDay();
     string second = seconds.getDay();
@@ -26,15 +33,12 @@ bool sortday(Slot firsts, Slot seconds) {
             scmp = i;
         }
     }
+
+    if (fcmp == scmp) {
+        return sorttime(firsts, seconds);
+    }
     // cout << fcmp << "," << scmp << "|" << endl;
     return fcmp < scmp;
-}
-
-bool sorttime(Slot firsts, Slot seconds) {
-    float fstart = firsts.getStart();
-    float sstart = seconds.getStart();
-
-    return fstart < sstart;
 }
 
 void ClassSchedule::csv_classes_reader(const string& filename) {
@@ -85,7 +89,6 @@ void ClassSchedule::csv_classes_reader(const string& filename) {
                     << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
         }
         sort(classSchedule.begin(), classSchedule.end(), sortday);
-        sort(classSchedule.begin(), classSchedule.end(), sorttime);
     }
 
 /*void ClassSchedule::print() {
