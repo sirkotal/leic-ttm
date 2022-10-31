@@ -18,7 +18,7 @@ string Student::getID() const {
     return id;
 }
 
-void Student::csv_students_classes_reader(const string& filename) {
+void Student::getAllClasses(const string& filename) { // csv_students_classes_reader
     // File variables.
     string student_code, student_name, uc_code, class_code;
 

@@ -41,7 +41,7 @@ bool sortday(Slot firsts, Slot seconds) {
     return fcmp < scmp;
 }
 
-void ClassSchedule::csv_classes_reader(const string& filename) {
+void ClassSchedule::getFullSchedule(const string& filename) { //csv_classes_reader
         // File variables.
         string class_code, uc_code, weekday, ctype;
         string start_hour, duration;

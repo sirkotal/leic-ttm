@@ -3,6 +3,7 @@
 
 #include <bits/stdc++.h>
 #include "uc_class.h"
+#include "slot.h"
 #include <string>
 #include <vector>
 #include <fstream>
@@ -17,12 +18,14 @@ class Student {
 
     string getName() const;
     string getID() const;
-    void csv_students_classes_reader(const string& filename);
+    void getAllClasses(const string& filename); // generates allClasses, csv_students_classes_reader
+    void getSchedule();
     
 private:
     string name;
     string id;
     list<UCClass> allClasses;
+    vector<Slot> schedule;
 };
 
 #endif

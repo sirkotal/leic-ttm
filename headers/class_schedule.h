@@ -18,7 +18,7 @@ class ClassSchedule {
         string get_UC_ID() const;
         string get_class_ID() const;
 
-        void csv_classes_reader(const string& filename);
+        void getFullSchedule(const string& filename); //csv_classes_reader
 
         // void print();
 
