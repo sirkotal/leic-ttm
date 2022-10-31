@@ -23,6 +23,11 @@ class Student {
     void getAllClasses(const string& filename); // generates allClasses, csv_students_classes_reader
     void getSchedule();
     // void print();
+
+    bool operator< (const Student &next) const
+    {
+        return stoi(id) < stoi(next.getID());
+    }
     
 private:
     string name;
