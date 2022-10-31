@@ -1,5 +1,12 @@
 #include "../headers/ttm.h"
 
+// Set sorting function
+bool student_code_comparison(Student first, Student second) {
+    int x = stoi(first.getID());
+    int y = stoi(second.getID());
+    return x < y;
+}
+
 // Reader functions definitions
 
 void TTM::csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type)
@@ -84,6 +91,7 @@ void TTM::csv_classes_per_uc_reader(const string& filename, vector <string>& v_u
 
 void TTM::csv_students_classes_reader(const string& filename, vector <string>& v_student_code, vector <string>& v_student_name, vector <string>& v_uc_code, vector <string>& v_class_code)
 {
+    set<Student, student_code_comparison> set_students;
     // File variables.
     string student_code, student_name, uc_code, class_code;
 
@@ -104,7 +112,7 @@ void TTM::csv_students_classes_reader(const string& filename, vector <string>& v
             v_student_code.push_back(student_code);
 
             getline(coeff, student_name, ',');
-            v_student_name.push_back(student_name);
+            set_students.insert(student_name);
 
             getline(coeff, uc_code, ',');
             v_uc_code.push_back(uc_code);

@@ -18,6 +18,7 @@ string Student::getID() const {
     return id;
 }
 
+/*
 void Student::getAllClasses(const string& filename) { // csv_students_classes_reader
     // File variables.
     string student_code, student_name, uc_code, class_code;
@@ -56,6 +57,7 @@ void Student::getAllClasses(const string& filename) { // csv_students_classes_re
         cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
     }
 }
+*/
 
 bool sortday(Slot firsts, Slot seconds) {
     string first = firsts.getDay();
@@ -87,6 +89,11 @@ void Student::getSchedule() {
     }
     sort(schedule.begin(), schedule.end(), sortday);
 }
+
+
+
+
+
 
 /*
 void Student::print() {

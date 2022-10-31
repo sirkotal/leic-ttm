@@ -15,6 +15,9 @@ using namespace std;
 
 class TTM {
     public:
+    // Set sorting function
+    bool student_code_comparison(Student first, Student second);
+
     // Reader functions declarations
     void csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type);
     void csv_classes_per_uc_reader(const string& filename, vector <string>& v_uc_code, vector <string>& v_class_code);
