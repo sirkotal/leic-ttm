@@ -7,6 +7,12 @@ bool student_code_comparison(Student first, Student second) {
     return x < y;
 }
 
+bool student_uc_number_comparison(Student first, Student second) {
+    int x = stoi(first.getID());
+    int y = stoi(second.getID());
+    return x < y;
+}
+
 // Reader functions definitions
 
 void TTM::csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type)

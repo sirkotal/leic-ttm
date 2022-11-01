@@ -19,9 +19,12 @@ class Student {
 
     string getName() const;
     string getID() const;
+    int getNumberClasses() const;
+
     Student searchStudent(set<Student>& students, string s_student, string s_uc_code);
     void getAllClasses(const string& filename); // generates allClasses, csv_students_classes_reader
     void getSchedule();
+    void print_students_with_more_than_n_ucs(set<Student>& students);
     // void print();
 
     bool operator< (const Student &next) const;

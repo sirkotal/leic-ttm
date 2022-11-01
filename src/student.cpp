@@ -18,6 +18,10 @@ string Student::getID() const {
     return id;
 }
 
+int Student::getNumberClasses() const{
+    return allClasses.size();
+}
+
 Student Student::searchStudent(set<Student>& students, string s_student, string s_uc_code)
 {
     return *students.find(Student(s_student, s_uc_code));
