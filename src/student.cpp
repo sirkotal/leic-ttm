@@ -19,6 +19,8 @@ string Student::getID() const {
 }
 
 int Student::getNumberClasses() const{
+    // Number of UCs = Number of classes/2 (?)
+    // Each UC has a T and a TP?
     return allClasses.size();
 }
 
