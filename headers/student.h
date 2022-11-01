@@ -26,6 +26,8 @@ class Student {
 
     Student searchStudent(set<Student>& students, string s_student, string s_uc_code);
     void print_students_with_more_than_n_ucs(set<Student>& students);
+    void removeClass(UCClass uc);
+    void addClass(UCClass uc);
     // void print();
 
     bool operator< (const Student &next) const;

@@ -128,6 +128,50 @@ void print_students_with_more_than_n_ucs(set<Student>& students, int n)
         cout << temp_student.getName() << " " << temp_student.getName();
     }
 }
+void Student::removeClass(UCClass uc) {
+    bool removed = false;
+    for (auto itr = allClasses.begin(); itr != allClasses.end(); itr++) {
+        if (itr->get_class_ID() == uc.get_class_ID() && itr->get_UC_ID() == uc.get_UC_ID()) {
+            itr = allClasses.erase(itr);
+            removed = true;
+        }
+    }
+    if (removed == true) {
+        cout << "Class successfully removed" << endl;
+    }
+    else {
+        cout << "Unable to remove class" << endl;
+    }
+}
+
+void Student::addClass(UCClass uc) {
+    int min = INT_MAX;
+    int max = 0;
+    list<UCClass> tmp = allClasses;
+    if (uc.student_counter() >= 20) { // tem de se dar fix a esta função para ir aos vectors, não ao ficheiro então
+        // throw uc.student_counter();
+        cout << "The student can't be added to this class" << endl;
+    }
+    for (UCClass element : allClasses) {
+        int num_of_students = element.student_counter();
+        if (num_of_students > max) {
+            max = num_of_students;
+        }
+        if (num_of_students < min) {
+            min = num_of_students;
+        }
+    }
+
+    for (UCClass element: allClasses) {
+        if (element.get_UC_ID() == uc.get_UC_ID() && element.get_class_ID() == uc.get_class_ID()) {
+            cout << "Student already enrolled in this class" << endl;
+        }
+    }
+
+    if (max - min >= 4) {
+        cout << "The classes would be unbalanced" << endl;
+    }
+}
 
 /*
 void Student::print() {
