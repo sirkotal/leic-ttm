@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\m3ped\CLionProjects\leic-ttm4 -B C:\Users\m3ped\CLionProjects\leic-ttm4\cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\Utilizador\Desktop\fuckedup_leic_ttm\leic-ttm -B C:\Users\Utilizador\Desktop\fuckedup_leic_ttm\leic-ttm\cmake-build-debug
 -- The C compiler identification is GNU 11.2.0
 -- The CXX compiler identification is GNU 11.2.0
 -- Detecting C compiler ABI info
@@ -13,4 +13,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/m3ped/CLionProjects/leic-ttm4/cmake-build-debug
+-- Build files have been written to: C:/Users/Utilizador/Desktop/fuckedup_leic_ttm/leic-ttm/cmake-build-debug

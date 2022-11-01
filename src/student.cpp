@@ -11,6 +11,11 @@ Student::Student(string name, string id) {
     this->id = id;
 }
 
+bool Student::operator< (const Student &next) const
+{
+    return stoi(id) < stoi(next.getID());
+}
+
 string Student::getName() const{
     return name;
 }
@@ -102,12 +107,17 @@ Student Student::searchStudent(set<Student>& students, string s_student, string 
     return *students.find(Student(s_student, s_uc_code));
 }
 
+bool student_uc_number_comparison(Student first, Student second) {
+    int x = stoi(first.getID());
+    int y = stoi(second.getID());
+    return x < y;
+}
+
 void print_students_with_more_than_n_ucs(set<Student>& students, int n)
 {
-    set<Student> students_organized_by_uc_number();
-    students_organized_by_uc_number = set<Student>(students.begin(), students.end(), TTM::student_uc_number_comparison());
+    set<Student> students_organized_by_uc_number(students.begin(), students.end());
 
-    set<int>::iterator itr;
+    set<Student>::iterator itr;
 
     // Displaying students with more than n ucs
     for (itr = students_organized_by_uc_number.begin();
@@ -117,11 +127,6 @@ void print_students_with_more_than_n_ucs(set<Student>& students, int n)
         if (temp_student.getNumberClasses() > n)
         cout << temp_student.getName() << " " << temp_student.getName();
     }
-}
-
-bool Student::operator< (const Student &next) const
-{
-    return stoi(id) < stoi(next.getID());
 }
 
 /*
