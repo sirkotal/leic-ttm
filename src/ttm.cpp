@@ -111,9 +111,11 @@ void TTM::csv_students_classes_reader(const string& filename, vector <string>& v
             v_student_code.push_back(student_code);
 
             getline(coeff, student_name, ',');
+            /*
             set<int> s;
 
             s.insert(1);
+             */
 
             Student temporary_student(student_name, student_code);
             this->students.insert(temporary_student);
