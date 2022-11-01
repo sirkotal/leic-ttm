@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #define classes "../schedule/classes.csv"
+#include "../headers/ttm.h"
 
 using namespace std;
 
@@ -22,11 +23,6 @@ int Student::getNumberClasses() const{
     // Number of UCs = Number of classes/2 (?)
     // Each UC has a T and a TP?
     return allClasses.size();
-}
-
-Student Student::searchStudent(set<Student>& students, string s_student, string s_uc_code)
-{
-    return *students.find(Student(s_student, s_uc_code));
 }
 
 /*
@@ -101,13 +97,32 @@ void Student::getSchedule() {
     sort(schedule.begin(), schedule.end(), sortday);
 }
 
+Student Student::searchStudent(set<Student>& students, string s_student, string s_uc_code)
+{
+    return *students.find(Student(s_student, s_uc_code));
+}
+
+void print_students_with_more_than_n_ucs(set<Student>& students, int n)
+{
+    set<Student> students_organized_by_uc_number();
+    students_organized_by_uc_number = set<Student>(students.begin(), students.end(), TTM::student_uc_number_comparison());
+
+    set<int>::iterator itr;
+
+    // Displaying students with more than n ucs
+    for (itr = students_organized_by_uc_number.begin();
+         itr != students_organized_by_uc_number.end(); itr++)
+    {
+        Student temp_student = (Student &&) *itr;
+        if (temp_student.getNumberClasses() > n)
+        cout << temp_student.getName() << " " << temp_student.getName();
+    }
+}
+
 bool Student::operator< (const Student &next) const
 {
     return stoi(id) < stoi(next.getID());
 }
-
-
-
 
 /*
 void Student::print() {

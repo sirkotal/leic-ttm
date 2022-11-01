@@ -41,7 +41,6 @@ void TTM::csv_classes_reader(const string& filename, vector <string>& v_class_co
             v_uc_code.push_back(uc_code);
 
             getline(coeff, weekday, ',');
-
             v_weekday.push_back(weekday);
 
             getline(coeff, start_hour, ',');

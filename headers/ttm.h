@@ -29,7 +29,7 @@ class TTM {
     queue<Request> get_request();
     
     private:
-        set<Student> students;
+        set<Student, student_code_comparison()> students; // Sorted by UC.
         vector<ClassSchedule> schedule;
         queue<Request> requests;
 };
