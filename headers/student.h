@@ -24,10 +24,7 @@ class Student {
     void getSchedule();
     // void print();
 
-    bool operator< (const Student &next) const
-    {
-        return stoi(id) < stoi(next.getID());
-    }
+    bool operator< (const Student &next) const;
     
 private:
     string name;

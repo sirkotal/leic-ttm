@@ -95,7 +95,10 @@ void Student::getSchedule() {
     sort(schedule.begin(), schedule.end(), sortday);
 }
 
-
+bool Student::operator< (const Student &next) const
+{
+    return stoi(id) < stoi(next.getID());
+}
 
 
 
