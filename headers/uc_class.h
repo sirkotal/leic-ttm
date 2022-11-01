@@ -22,6 +22,7 @@ class UCClass {
     private:
         string ucID;  // LEIC003
         string classID; //1LEIC14
+        // int cap;
 };
 
 #endif
