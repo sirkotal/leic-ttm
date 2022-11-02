@@ -26,7 +26,6 @@ class Student {
     // void getAllClasses(const string& filename);  #generates allClasses, csv_students_classes_reader
     void getSchedule();
 
-    Student searchStudent(set<Student>& students, string s_student, string s_uc_code);
     void removeClass(UCClass& uc);
     void addClass(UCClass& uc);
     void modifyClass(UCClass& current, UCClass& target);

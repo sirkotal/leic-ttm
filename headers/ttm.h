@@ -19,6 +19,8 @@ class TTM {
     bool student_code_comparison(Student first, Student second);
     bool student_uc_number_comparison(Student first, Student second);
     void print_students_with_more_than_n_ucs(set<Student>& students);
+    bool searchStudent(set<Student>& students, string s_student, string s_uc_code);
+    Student getStudent(set<Student>& students, string s_student, string s_uc_code);
 
     // Reader functions declarations
     void csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type);

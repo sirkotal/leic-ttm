@@ -121,11 +121,6 @@ void Student::getSchedule() {
     sort(schedule.begin(), schedule.end(), sortday);
 }
 
-Student Student::searchStudent(set<Student>& students, string s_student, string s_uc_code)
-{
-    return *students.find(Student(s_student, s_uc_code));
-}
-
 bool student_uc_number_comparison(Student first, Student second) {
     int x = stoi(first.getID());
     int y = stoi(second.getID());
@@ -196,7 +191,7 @@ void Student::addClass(UCClass& uc) {
     }
 
     allClasses.push_back(uc);
-    
+
     /* uc.count_increment();   depending on if alterations are made to the vector/file right after the function ends
     or only after exit() is called on the program, we might need this statement to control UCClass student count;
     might need to change capacity, but it will require vector counting function for students with a specific UCClass*/
@@ -205,7 +200,15 @@ void Student::addClass(UCClass& uc) {
 }
 
 void Student::modifyClass(UCClass& current, UCClass& target) {
+    if (target.get_student_count() >= 20) {
+        cout << "The student can't be added to this class" << endl;
+        return;
+    }
 
+    if (current.get_UC_ID() != target.get_UC_ID()) {
+        cout << "Both classes need to belong to the same UC" << endl;
+        return;
+    }
 }
 
 /*

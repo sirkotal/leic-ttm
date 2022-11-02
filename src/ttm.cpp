@@ -13,6 +13,20 @@ bool student_uc_number_comparison(Student first, Student second) {
     return x < y;
 }
 
+bool TTM::searchStudent(set<Student>& students, string s_student, string s_uc_code)
+{
+    for (const Student student: students) {
+        if (student.getName() == s_student && student.getID() == s_uc_code) {
+            return true;
+        }
+    }
+    return false;
+}
+
+Student TTM::getStudent(set<Student> &students, std::string s_student, std::string s_uc_code) {
+    return *students.find(Student(s_student, s_uc_code));
+}
+
 void print_students_with_more_than_n_ucs(set<Student>& students, int n)
 {
     set<Student> students_organized_by_uc_number(students.begin(), students.end());
