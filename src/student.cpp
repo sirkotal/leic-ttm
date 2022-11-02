@@ -147,9 +147,11 @@ void Student::removeClass(UCClass& uc) {
     }
     if (removed == true) {
         cout << "Class successfully removed" << endl;
+        return;
     }
     else {
         cout << "Unable to remove class" << endl;
+        return;
     }
 
     // uc.count_decrement();    same as with addClass
@@ -172,8 +174,9 @@ void Student::addClass(UCClass& uc) {
     int min = INT_MAX;
     int max = 0;
     vector<UCClass> courseClasses;
-    for (UCClass element: vector_with_all_UCClasses) { // vector não existe, é preciso alguma função gerar um vetor com todas as UCClasses
+    for (UCClass element: vector_with_all_classes_from_a_UC) { // vector não existe, é preciso alguma função gerar um vetor com todas as UCClasses
         if (element.get_UC_ID() == uc.get_UC_ID()) {
+            element.student_counter(classes); // classes is a placeholder
             courseClasses.push_back(element);
         }
     }

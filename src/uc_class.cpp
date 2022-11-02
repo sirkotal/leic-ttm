@@ -5,7 +5,7 @@ UCClass::UCClass(string ucID, string classID) {
     this->classID = classID;
 }
 
-void UCClass::student_counter(const string& filename, string uc_code_input, string class_code_input) { //altered to store int
+void UCClass::student_counter(const string& filename) { //altered to store int
     // at member field "cap" to allow alteration of value without the need to read the vector/file again
     // File variables.
     string student_code, student_name, uc_code, class_code;
@@ -29,7 +29,7 @@ void UCClass::student_counter(const string& filename, string uc_code_input, stri
 
             getline(coeff, class_code, '\n');
 
-            if (uc_code == uc_code_input && class_code == class_code_input)
+            if (uc_code == this->ucID && class_code == this->classID)
             {
                 student_counter++;
             }
