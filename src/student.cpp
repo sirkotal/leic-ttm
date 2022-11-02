@@ -198,6 +198,11 @@ void Student::addClass(UCClass& uc) {
         uc.count_increment();
         cout << "Student successfully added to " << uc.get_class_ID() << "for " << uc.get_UC_ID() << endl;
     }
+    else {
+        cout << "The classes would be unbalanced" << endl;
+        return;
+    }
+
     /* uc.count_increment();   depending on if alterations are made to the vector/file right after the function ends
     or only after exit() is called on the program, we might need this statement to control UCClass student count;
     might need to change capacity, but it will require vector counting function for students with a specific UCClass*/
