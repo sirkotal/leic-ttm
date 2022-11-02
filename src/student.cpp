@@ -24,10 +24,22 @@ string Student::getID() const {
     return id;
 }
 
-int Student::getNumberClasses() const{
-    // Number of UCs = Number of classes/2 (?)
-    // Each UC has a T and a TP?
+int Student::getNumberClasses() const{ // class = turma
     return allClasses.size();
+}
+
+void Student::showAllClasses() const {
+    for (auto itr = allClasses.begin(); itr != allClasses.end(); itr++) {
+        cout << "|" << itr->get_UC_ID() << " -> " << itr->get_class_ID() << "|" << endl;
+        cout << "|------------------|" << endl;
+    }
+}
+
+void Student::showSchedule() const {
+    for (Slot element: schedule) {
+        cout << element.getDay() << ": " << element.getStart() << "->" << element.getEnd() << ", " << element.isType() << endl;
+        cout << "|---------------------|" << endl;
+    }
 }
 
 /*
