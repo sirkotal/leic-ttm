@@ -13,11 +13,10 @@ class Interface {
     enum operations {};
     operations type;
 
-    void showMenu();
+    void mainMenu();
+    void listingsMenu();
 
-    void isNum();
-
-    void menu();
+    int menu();
 
     void loginList();
 

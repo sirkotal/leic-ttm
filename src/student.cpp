@@ -1,6 +1,4 @@
 #include "../headers/student.h"
-#include <string>
-#include <vector>
 #define classes "../schedule/classes.csv"
 #include "../headers/ttm.h"
 
@@ -37,8 +35,8 @@ void Student::showAllClasses() const {
 
 void Student::showSchedule() const {
     for (Slot element: schedule) {
-        cout << element.getDay() << ": " << element.getStart() << "->" << element.getEnd() << ", " << element.isType() << endl;
-        cout << "|---------------------|" << endl;
+        cout << element.getUC() << "-> " << element.getDay() << ": " << element.getStart() << "->" << element.getEnd() << ", " << element.isType() << endl;
+        cout << "|-------------------------------|" << endl;
     }
 }
 
@@ -171,8 +169,6 @@ void Student::addClass(UCClass& uc) {
         }
     }
 
-    int min = INT_MAX;
-    int max = 0;
     vector<UCClass> courseClasses;
     for (UCClass element: vector_with_all_classes_from_a_UC) { // vector não existe, é preciso alguma função gerar um vetor com todas as UCClasses
         if (element.get_UC_ID() == uc.get_UC_ID()) {
@@ -185,40 +181,27 @@ void Student::addClass(UCClass& uc) {
 
     int first_balance = courseClasses.back().get_student_count() - courseClasses.front().get_student_count();
 
-    if (first_balance >= 4) {
-        for (UCClass element: courseClasses) {
-            if (element.get_UC_ID() == uc.get_UC_ID()) {
-                element.count_increment();
-            }
-        }
-        sort(courseClasses.begin(), courseClasses.end(), cap_sort);
-        int second_balance = courseClasses.back().get_student_count() - courseClasses.front().get_student_count();
-
-        if (first_balance <= second_balance) {
-            allClasses.push_back(uc);
-            cout << "Student successfully added to " << uc.get_class_ID() << "for " << uc.get_UC_ID() << endl;
-        }
-        else {
-            cout << "The classes would be unbalanced" << endl;
-            return;
+    UCClass test(uc.get_UC_ID(), uc.get_class_ID());
+    test.student_counter(classes);
+    test.count_increment();
+    for (auto itr = courseClasses.begin(); itr != courseClasses.end(); itr++) {
+        if (itr->get_class_ID() == uc.get_class_ID() && itr->get_UC_ID() == uc.get_UC_ID()) {
+            itr = courseClasses.erase(itr);
         }
     }
-    else {
+    courseClasses.push_back(test);
+    sort(courseClasses.begin(), courseClasses.end(), cap_sort);
+    int second_balance = courseClasses.back().get_student_count() - courseClasses.front().get_student_count();
 
+    if (second_balance < 4 || second_balance <= first_balance) {
+        allClasses.push_back(uc);
+        uc.count_increment();
+        cout << "Student successfully added to " << uc.get_class_ID() << "for " << uc.get_UC_ID() << endl;
     }
-
-    if (max - min >= 4) {
-        cout << "The classes would be unbalanced" << endl;
-        return;
-    }
-
-    allClasses.push_back(uc);
-
     /* uc.count_increment();   depending on if alterations are made to the vector/file right after the function ends
     or only after exit() is called on the program, we might need this statement to control UCClass student count;
     might need to change capacity, but it will require vector counting function for students with a specific UCClass*/
 
-    cout << "Student successfully added to " << uc.get_class_ID() << "for " << uc.get_UC_ID() << endl;
 }
 
 void Student::changeClass(UCClass& current, UCClass& target) {
