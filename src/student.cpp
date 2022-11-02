@@ -71,6 +71,13 @@ void Student::getAllClasses(const string& filename) { // csv_students_classes_re
 }
 */
 
+bool sorttime(Slot firsts, Slot seconds) {
+    float fstart = firsts.getStart();
+    float sstart = seconds.getStart();
+
+    return fstart < sstart;
+}
+
 bool sortday(Slot firsts, Slot seconds) {
     string first = firsts.getDay();
     string second = seconds.getDay();
@@ -113,21 +120,6 @@ bool student_uc_number_comparison(Student first, Student second) {
     return x < y;
 }
 
-void print_students_with_more_than_n_ucs(set<Student>& students, int n)
-{
-    set<Student> students_organized_by_uc_number(students.begin(), students.end());
-
-    set<Student>::iterator itr;
-
-    // Displaying students with more than n ucs
-    for (itr = students_organized_by_uc_number.begin();
-         itr != students_organized_by_uc_number.end(); itr++)
-    {
-        Student temp_student = (Student &&) *itr;
-        if (temp_student.getNumberClasses() > n)
-        cout << temp_student.getName() << " " << temp_student.getName();
-    }
-}
 void Student::removeClass(UCClass& uc) {
     bool removed = false;
     for (auto itr = allClasses.begin(); itr != allClasses.end(); itr++) {
@@ -192,6 +184,10 @@ void Student::addClass(UCClass& uc) {
     allClasses.push_back(uc);
     // might need to change capacity, but it will require vector counting function for students with a specific UCClass
     cout << "Student successfully added to " << uc.get_class_ID() << "for " << uc.get_UC_ID() << endl;
+}
+
+void Student::modifyClass(UCClass& current, UCClass& target) {
+
 }
 
 /*

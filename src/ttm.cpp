@@ -13,6 +13,22 @@ bool student_uc_number_comparison(Student first, Student second) {
     return x < y;
 }
 
+void print_students_with_more_than_n_ucs(set<Student>& students, int n)
+{
+    set<Student> students_organized_by_uc_number(students.begin(), students.end());
+
+    set<Student>::iterator itr;
+
+    // Displaying students with more than n ucs
+    for (itr = students_organized_by_uc_number.begin();
+         itr != students_organized_by_uc_number.end(); itr++)
+    {
+        Student temp_student = (Student &&) *itr;
+        if (temp_student.getNumberClasses() > n)
+            cout << temp_student.getName() << " " << temp_student.getName();
+    }
+}
+
 // Reader functions definitions
 
 void TTM::csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type)
