@@ -27,7 +27,7 @@ Student TTM::getStudent(set<Student> &students, std::string s_student, std::stri
     return *students.find(Student(s_student, s_uc_code));
 }
 
-void print_students_with_more_than_n_ucs(set<Student>& students, int n)
+void TTM::print_students_with_more_than_n_ucs(set<Student>& students, int n)
 {
     set<Student> students_organized_by_uc_number(students.begin(), students.end());
 

@@ -18,7 +18,7 @@ class TTM {
     // Set sorting function
     bool student_code_comparison(Student first, Student second);
     bool student_uc_number_comparison(Student first, Student second);
-    void print_students_with_more_than_n_ucs(set<Student>& students);
+    void print_students_with_more_than_n_ucs(set<Student>& students, int n);
     bool searchStudent(set<Student>& students, string s_student, string s_uc_code);
     Student getStudent(set<Student>& students, string s_student, string s_uc_code);
 
@@ -32,7 +32,7 @@ class TTM {
     queue<Request> get_request();
     
     private:
-        set<Student, student_code_comparison()> students; // Sorted by UC.
+        set<Student, student_code_comparison()> students; // Sorted by student code.
         vector<ClassSchedule> schedule;
         queue<Request> requests;
 };
