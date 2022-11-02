@@ -28,7 +28,7 @@ class Student {
 
     void removeClass(UCClass& uc);
     void addClass(UCClass& uc);
-    void modifyClass(UCClass& current, UCClass& target);
+    void changeClass(UCClass& current, UCClass& target);
     // void print();
 
     bool operator< (const Student &next) const;

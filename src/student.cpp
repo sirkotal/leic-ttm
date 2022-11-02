@@ -127,6 +127,16 @@ bool student_uc_number_comparison(Student first, Student second) {
     return x < y;
 }
 
+/*!
+ * Sorts a vector of UCClasses by capacity/student count.
+ * @param first The first class
+ * @param second The second class
+ * @return true or false, depending on the capacity of each class
+ */
+bool cap_sort(UCClass first, UCClass second) {
+    return first.get_student_count() < second.get_student_count();
+}
+
 void Student::removeClass(UCClass& uc) {
     bool removed = false;
     for (auto itr = allClasses.begin(); itr != allClasses.end(); itr++) {
@@ -168,21 +178,30 @@ void Student::addClass(UCClass& uc) {
         }
     }
 
-    for (UCClass element : courseClasses) {
-        int num_of_students;
-        if (element.get_class_ID() == uc.get_class_ID()) {
-            num_of_students = element.get_student_count() + 1;
+    sort(courseClasses.begin(), courseClasses.end(), cap_sort);
+
+    int first_balance = courseClasses.back().get_student_count() - courseClasses.front().get_student_count();
+
+    if (first_balance >= 4) {
+        for (UCClass element: courseClasses) {
+            if (element.get_UC_ID() == uc.get_UC_ID()) {
+                element.count_increment();
+            }
+        }
+        sort(courseClasses.begin(), courseClasses.end(), cap_sort);
+        int second_balance = courseClasses.back().get_student_count() - courseClasses.front().get_student_count();
+
+        if (first_balance <= second_balance) {
+            allClasses.push_back(uc);
+            cout << "Student successfully added to " << uc.get_class_ID() << "for " << uc.get_UC_ID() << endl;
         }
         else {
-            num_of_students = element.get_student_count();
+            cout << "The classes would be unbalanced" << endl;
+            return;
         }
+    }
+    else {
 
-        if (num_of_students > max) {
-            max = num_of_students;
-        }
-        if (num_of_students < min) {
-            min = num_of_students;
-        }
     }
 
     if (max - min >= 4) {
@@ -199,7 +218,7 @@ void Student::addClass(UCClass& uc) {
     cout << "Student successfully added to " << uc.get_class_ID() << "for " << uc.get_UC_ID() << endl;
 }
 
-void Student::modifyClass(UCClass& current, UCClass& target) {
+void Student::changeClass(UCClass& current, UCClass& target) {
     if (target.get_student_count() >= 20) {
         cout << "The student can't be added to this class" << endl;
         return;
