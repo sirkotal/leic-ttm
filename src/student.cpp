@@ -146,11 +146,13 @@ void Student::removeClass(UCClass& uc) {
     else {
         cout << "Unable to remove class" << endl;
     }
+
+    // uc.count_decrement();    same as with addClass
 }
 
 void Student::addClass(UCClass& uc) {
-    if (uc.student_counter() >= 20) { // tem de se dar fix a esta função para ir aos vectors, não ao ficheiro então
-        // throw uc.student_counter();
+    if (uc.get_student_count() >= 20) { // tem de se dar fix a esta função (student_counter) para ir aos vectors, não ao ficheiro então
+        // throw uc.student_counter() maybe?
         cout << "The student can't be added to this class" << endl;
         return;
     }
@@ -174,10 +176,10 @@ void Student::addClass(UCClass& uc) {
     for (UCClass element : courseClasses) {
         int num_of_students;
         if (element.get_class_ID() == uc.get_class_ID()) {
-            num_of_students = element.student_counter() + 1;
+            num_of_students = element.get_student_count() + 1;
         }
         else {
-            num_of_students = element.student_counter();
+            num_of_students = element.get_student_count();
         }
 
         if (num_of_students > max) {
@@ -194,7 +196,11 @@ void Student::addClass(UCClass& uc) {
     }
 
     allClasses.push_back(uc);
-    // might need to change capacity, but it will require vector counting function for students with a specific UCClass
+    
+    /* uc.count_increment();   depending on if alterations are made to the vector/file right after the function ends
+    or only after exit() is called on the program, we might need this statement to control UCClass student count;
+    might need to change capacity, but it will require vector counting function for students with a specific UCClass*/
+
     cout << "Student successfully added to " << uc.get_class_ID() << "for " << uc.get_UC_ID() << endl;
 }
 

@@ -5,7 +5,8 @@ UCClass::UCClass(string ucID, string classID) {
     this->classID = classID;
 }
 
-int UCClass::student_counter(const string& filename, string uc_code_input, string class_code_input) {
+void UCClass::student_counter(const string& filename, string uc_code_input, string class_code_input) { //altered to store int
+    // at member field "cap" to allow alteration of value without the need to read the vector/file again
     // File variables.
     string student_code, student_name, uc_code, class_code;
     int student_counter = 0;
@@ -41,7 +42,7 @@ int UCClass::student_counter(const string& filename, string uc_code_input, strin
         cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
     }
 
-    return student_counter;
+    cap = student_counter;
 }
 
 vector<string> UCClass::sort_students_in_class_alphabetically(const string& filename)
@@ -93,4 +94,16 @@ string UCClass::get_UC_ID() const{
     
 string UCClass::get_class_ID() const{
     return classID;
+}
+
+int UCClass::get_student_count() const {
+    return cap;
+}
+
+void UCClass::count_increment() {
+    cap += 1;
+}
+
+void UCClass::count_decrement() {
+    cap -= 1;
 }
