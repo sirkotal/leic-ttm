@@ -38,13 +38,13 @@ class TTM {
     // void add_request_to_queue(Request request);
     //Request get_request();
     void process();
-    bool removeClass(Student* student, UCClass& uc);
+    //bool removeClass(Student& student, UCClass& uc);
 
 
 
     //void vsize();
     private:
-        vector<Student> students; // Sorted by student code.
+        vector<Student*> students; // Sorted by student code.
         vector<UCClass> everyClass;
         // vector<ClassSchedule> schedule;
         queue<Request> requests;

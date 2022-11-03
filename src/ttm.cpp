@@ -19,8 +19,8 @@ bool TTM::student_uc_number_comparison(Student first, Student second) {
 
 bool TTM::searchStudent(string s_student, string s_uc_code)
 {
-    for (const Student student: students) {
-        if (student.getName() == s_student && student.getID() == s_uc_code) {
+    for (const Student* student: students) {
+        if (student->getName() == s_student && student->getID() == s_uc_code) {
             return true;
         }
     }
@@ -29,7 +29,7 @@ bool TTM::searchStudent(string s_student, string s_uc_code)
 
 Student TTM::getStudent(string s_name, string student_code) {
     for (auto itr = students.begin(); itr != students.end(); itr++) {
-        if (itr->getName() == s_name && itr->getID() == student_code) {
+        if ((*itr)->getName() == s_name && (*itr)->getID() == student_code) {
             Student tmp(s_name, student_code);
             return tmp;
         }
@@ -37,17 +37,17 @@ Student TTM::getStudent(string s_name, string student_code) {
 }
 
 void TTM::studentsInUC(string uc) {
-    for (Student element : students) {
-        if (element.inCourse(uc)) {
-            cout << element.getName() << ", " << element.getID() << endl;
+    for (Student* element : students) {
+        if (element->inCourse(uc)) {
+            cout << element->getName() << ", " << element->getID() << endl;
         }
     }
 }
 
 void TTM::studentsInClass(string class_ID) {
-    for (Student element : students) {
-        if (element.inClass(class_ID)) {
-            cout << element.getName() << ", " << element.getID() << endl;
+    for (Student* element : students) {
+        if (element->inClass(class_ID)) {
+            cout << element->getName() << ", " << element->getID() << endl;
         }
     }
 }
@@ -55,8 +55,8 @@ void TTM::studentsInClass(string class_ID) {
 void TTM::print_students_with_more_than_n_ucs(int n)
 {
     for (auto itr = students.begin(); itr != students.end(); itr++) {
-        if (itr->getNumberClasses() > n) {
-            cout << itr->getName() << ", " << itr->getID() << endl;
+        if ((*itr)->getNumberClasses() > n) {
+            cout << (*itr)->getName() << ", " << (*itr)->getID() << endl;
         }
     }
 }
@@ -171,10 +171,10 @@ void TTM::csv_students_classes_reader(const string& filename)
             getline(coeff, class_code, '\n');
 
             if (student_code != repeat) {
-                Student temporary_student(student_name, student_code);
+                Student* temporary_student = new Student (student_name, student_code);
                 UCClass temporary_class(uc_code, class_code);
 
-                temporary_student.getAllClasses(filename);
+                temporary_student->getAllClasses(filename);
                 this->students.push_back(temporary_student);
 
                 repeat = student_code;
