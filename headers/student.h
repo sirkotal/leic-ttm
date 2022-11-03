@@ -6,6 +6,7 @@ class Student;
 #include "slot.h"
 #include "uc_class.h"
 #include "ttm.h"
+#include "request.h"
 #include <string>
 #include <vector>
 #include <fstream>

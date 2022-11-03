@@ -12,9 +12,10 @@ bool TTM::student_uc_number_comparison(Student first, Student second) {
     int y = stoi(second.getID());
     return x < y;
 }*/
-void TTM::vsize() {
+
+/*void TTM::vsize() {
     cout << students.size() << endl;
-}
+}*/
 
 bool TTM::searchStudent(string s_student, string s_uc_code)
 {
@@ -177,13 +178,29 @@ void TTM::csv_students_classes_reader(const string& filename)
 
 // Request management functions definitions
 
-queue<Request> TTM::get_request()
+/*Request TTM::get_request()
 {
-    return this->requests;
+    return this->requests.front();
 }
 
 void TTM::add_request_to_queue(Request request)
 {
-    get_request();
     requests.push(request);
+}*/
+
+void TTM::process() {
+    do {
+        int op = requests.front().getType();
+
+        switch (op) {
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        }
+    } while(requests.size() != 0);
 }

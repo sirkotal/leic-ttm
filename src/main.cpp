@@ -45,7 +45,7 @@ int main() {
     TTM manage;
     manage.csv_students_classes_reader(students_classes);
     manage.csv_classes_per_uc_reader(classes);
-    manage.vsize();
+    //manage.vsize();
     manage.print_students_with_more_than_n_ucs(6);
     Student x("Abilio", "202040617");
     x.getAllClasses(students_classes);

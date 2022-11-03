@@ -32,10 +32,14 @@ class TTM {
     void csv_students_classes_reader(const string& filename);
 
     // Request management functions declarations
-    void add_request_to_queue(Request request);
-    queue<Request> get_request();
-    void vsize();
-    
+
+    // void add_request_to_queue(Request request);
+    //Request get_request();
+    void process();
+
+
+
+    //void vsize();
     private:
         vector<Student> students; // Sorted by student code.
         vector<UCClass> everyClass;

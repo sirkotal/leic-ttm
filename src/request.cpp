@@ -1,18 +1,19 @@
 #include "../headers/request.h"
 
-Request::Request(string type, string date) {
+Request::Request(int type, string student_code, string class_code) {
     this->type = type;
-    this->date = date;
+    this->student_code = student_code;
+    this->class_code = class_code;
 }
 
-bool Request::isDone() const{
+/*bool Request::isDone() const{
     return completed;
-}
+}*/
 
-string Request::getType() const{
+int Request::getType() const {
     return type;
 }
 
-void Request::setDone() {
+/*void Request::setDone() {
     this->completed = true;
-}
+}*/
