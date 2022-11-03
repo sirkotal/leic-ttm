@@ -51,8 +51,9 @@ int main() {
     x.getAllClasses(students_classes);
     x.getSchedule();
     x.showSchedule();
-    // manage.studentsInUC("L.EIC002");
-    manage.studentsInClass("1LEIC03");
+    manage.studentsInUC("L.EIC002", "name", '-');
+    // manage.studentsInClass("1LEIC03");
+    // manage.studentsInYear('1');
 }
 
 /*

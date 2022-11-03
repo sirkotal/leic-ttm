@@ -26,6 +26,7 @@ class Student {
     void showSchedule() const;
     bool inCourse(string uc);
     bool inClass(string class_ID);
+    bool inYear(char year);
 
     void getAllClasses(const string& filename);  // #generates allClasses, csv_students_classes_reader
     void getSchedule();

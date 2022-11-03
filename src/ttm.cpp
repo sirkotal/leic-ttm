@@ -36,8 +36,61 @@ Student TTM::getStudent(string s_name, string student_code) {
     }
 }
 
-void TTM::studentsInUC(string uc) {
-    for (Student* element : students) {
+void asc_bubbleNum(vector<Student*>& stvec) // ascending bubble sort by number
+{
+    unsigned int i, j;
+    for (i = 0; i < stvec.size()-1; i++)
+        for (j = 0; j < stvec.size() - i - 1; j++)
+            if (stvec[j]->getID() > stvec[j + 1]->getID())
+                swap(stvec[j], stvec[j + 1]);
+}
+
+void down_bubbleNum(vector<Student*>& stvec) // descending bubble sort by number
+{
+    unsigned int i, j;
+    for (i = 0; i < stvec.size()-1; i++)
+        for (j = 0; j < stvec.size() - i - 1; j++)
+            if (stvec[j]->getID() < stvec[j + 1]->getID())
+                swap(stvec[j], stvec[j + 1]);
+}
+
+void asc_bubbleName(vector<Student*>& stvec) // ascending bubble sort by name
+{
+    unsigned int i, j;
+    for (i = 0; i < stvec.size()-1; i++)
+        for (j = 0; j < stvec.size() - i - 1; j++)
+            if (stvec[j]->getName() > stvec[j + 1]->getName())
+                swap(stvec[j], stvec[j + 1]);
+}
+
+void down_bubbleName(vector<Student*>& stvec) // descending bubble sort by name
+{
+    unsigned int i, j;
+    for (i = 0; i < stvec.size()-1; i++)
+        for (j = 0; j < stvec.size() - i - 1; j++)
+            if (stvec[j]->getName() < stvec[j + 1]->getName())
+                swap(stvec[j], stvec[j + 1]);
+}
+
+void TTM::studentsInUC(string uc, string type, char flag) {
+    vector<Student*> temp = students;
+    if (type == "name") {
+        if (flag == '+') {
+            asc_bubbleName(temp);
+        }
+        else if (flag == '-') {
+            down_bubbleName(temp);
+        }
+    }
+    else if (type == "num") {
+        if (flag == '+') {
+            asc_bubbleNum(temp);
+        }
+        else if (flag == '-') {
+            down_bubbleNum(temp);
+        }
+    }
+    for (Student* element : temp) {
         if (element->inCourse(uc)) {
             cout << element->getName() << ", " << element->getID() << endl;
         }
@@ -47,6 +100,14 @@ void TTM::studentsInUC(string uc) {
 void TTM::studentsInClass(string class_ID) {
     for (Student* element : students) {
         if (element->inClass(class_ID)) {
+            cout << element->getName() << ", " << element->getID() << endl;
+        }
+    }
+}
+
+void TTM::studentsInYear(char year) {
+    for (Student* element : students) {
+        if (element->inYear(year)) {
             cout << element->getName() << ", " << element->getID() << endl;
         }
     }

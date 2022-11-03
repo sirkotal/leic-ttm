@@ -70,6 +70,15 @@ bool Student::inClass(string class_ID) {
     return false;
 }
 
+bool Student::inYear(char year) {
+    for (UCClass element : allClasses) {
+        if (element.get_class_ID()[0] == year) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void Student::getAllClasses(const string& filename) { // csv_students_classes_reader
     // File variables.
     string student_code, student_name, uc_code, class_code;
