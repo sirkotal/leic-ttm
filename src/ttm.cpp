@@ -30,8 +30,15 @@ bool TTM::searchStudent(string s_student, string s_uc_code)
 Student TTM::getStudent(string s_name, string student_code) {
     for (auto itr = students.begin(); itr != students.end(); itr++) {
         if ((*itr)->getName() == s_name && (*itr)->getID() == student_code) {
-            Student tmp(s_name, student_code);
-            return tmp;
+            return *(*itr);
+        }
+    }
+}
+
+UCClass TTM::getClass(string ucID, string classID) {
+    for (auto itr = everyClass.begin(); itr != everyClass.end(); itr++) {
+        if (itr->get_UC_ID() == ucID && itr->get_class_ID() == classID) {
+            return *itr;
         }
     }
 }
@@ -281,7 +288,7 @@ void TTM::process() {
     } while(requests.size() != 0);
 }
 
-/*bool TTM::removeClass(Student& student, UCClass& uc) {
+bool TTM::removeClass(Student& student, UCClass& uc) {
     bool removed = false;
     for (auto itr = student.allClasses.begin(); itr != student.allClasses.end(); itr++) {
         if (itr->get_class_ID() == uc.get_class_ID() && itr->get_UC_ID() == uc.get_UC_ID()) {
@@ -297,4 +304,4 @@ void TTM::process() {
     }
 
     // uc.count_decrement();    same as with addClass
-}*/
+}

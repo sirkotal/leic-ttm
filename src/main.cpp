@@ -48,10 +48,14 @@ int main() {
     //manage.vsize();
     manage.print_students_with_more_than_n_ucs(6);
     Student x = manage.getStudent("Abilio", "202040617");
-    x.getAllClasses(students_classes);
     x.getSchedule();
     x.showSchedule();
     manage.studentsInUC("L.EIC002", "name", '-');
+    cout << "----------------------" << endl;
+    Student tmp = manage.getStudent("Abilio", "202040617");
+    UCClass ctemp = manage.getClass("L.EIC021", "3LEIC08");
+    manage.removeClass(tmp, ctemp);
+    tmp.showAllClasses();
     // manage.studentsInClass("1LEIC03");
     // manage.studentsInYear('1');
 }

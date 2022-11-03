@@ -28,7 +28,7 @@ class Student {
     bool inClass(string class_ID);
     bool inYear(char year);
 
-    void getAllClasses(const string& filename);  // #generates allClasses, csv_students_classes_reader
+    void getAllClasses(const string& filename);  // #generates allClasses, csv_students_classes_reader -> replaced? check tomorrow
     void getSchedule();
 
     //void removeClass(UCClass& uc);

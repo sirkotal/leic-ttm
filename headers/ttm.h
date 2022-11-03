@@ -24,6 +24,7 @@ class TTM {
     void print_students_with_more_than_n_ucs(int n);
     bool searchStudent(string s_student, string s_uc_code);
     Student getStudent(string s_name, string student_code);
+    UCClass getClass(string ucID, string classID);
     void studentsInUC(string uc, string type, char flag);
     void studentsInClass(string class_ID);
     void studentsInYear(char year);
@@ -38,7 +39,7 @@ class TTM {
     // void add_request_to_queue(Request request);
     //Request get_request();
     void process();
-    //bool removeClass(Student& student, UCClass& uc);
+    bool removeClass(Student& student, UCClass& uc);
 
 
 
