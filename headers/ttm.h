@@ -25,6 +25,8 @@ class TTM {
     void print_students_with_more_than_n_ucs(int n);
     bool searchStudent(string s_student, string s_uc_code);
     Student getStudent(string s_name, string student_code);
+    void studentsInUC(string uc);
+    void studentsInClass(string class_ID);
 
     // Reader functions declarations
     // void csv_classes_reader(const string& filename); -> ClassSchedule has something for this, not required overall
@@ -36,6 +38,7 @@ class TTM {
     // void add_request_to_queue(Request request);
     //Request get_request();
     void process();
+    bool removeClass(Student* student, UCClass& uc);
 
 
 

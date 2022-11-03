@@ -52,6 +52,24 @@ void Student::buildClass(UCClass& x) {
     allClasses.push_back(x);
 }
 
+bool Student::inCourse(string uc) {
+    for (UCClass element : allClasses) {
+        if (element.get_UC_ID() == uc) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Student::inClass(string class_ID) {
+    for (UCClass element : allClasses) {
+        if (element.get_class_ID() == class_ID) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void Student::getAllClasses(const string& filename) { // csv_students_classes_reader
     // File variables.
     string student_code, student_name, uc_code, class_code;
@@ -146,7 +164,7 @@ bool cap_sort(UCClass first, UCClass second) {
     return first.get_student_count() < second.get_student_count();
 }
 
-void Student::removeClass(UCClass& uc) {
+/*void Student::removeClass(UCClass& uc) {
     bool removed = false;
     for (auto itr = allClasses.begin(); itr != allClasses.end(); itr++) {
         if (itr->get_class_ID() == uc.get_class_ID() && itr->get_UC_ID() == uc.get_UC_ID()) {
@@ -164,7 +182,7 @@ void Student::removeClass(UCClass& uc) {
     }
 
     // uc.count_decrement();    same as with addClass
-}
+}*/
 
 void Student::addClass(UCClass& uc, vector<UCClass>& every_class) {
     if (uc.get_student_count() >= 20) { // tem de se dar fix a esta função (student_counter) para ir aos vectors, não ao ficheiro então

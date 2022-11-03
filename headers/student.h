@@ -24,11 +24,13 @@ class Student {
     int getNumberClasses() const;
     void showAllClasses() const;
     void showSchedule() const;
+    bool inCourse(string uc);
+    bool inClass(string class_ID);
 
     void getAllClasses(const string& filename);  // #generates allClasses, csv_students_classes_reader
     void getSchedule();
 
-    void removeClass(UCClass& uc);
+    //void removeClass(UCClass& uc);
     void addClass(UCClass& uc, vector<UCClass>& every_class);
     void changeClass(UCClass& current, UCClass& target);
     // void print();

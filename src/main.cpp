@@ -51,6 +51,8 @@ int main() {
     x.getAllClasses(students_classes);
     x.getSchedule();
     x.showSchedule();
+    // manage.studentsInUC("L.EIC002");
+    manage.studentsInClass("1LEIC03");
 }
 
 /*

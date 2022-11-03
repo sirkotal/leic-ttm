@@ -36,6 +36,22 @@ Student TTM::getStudent(string s_name, string student_code) {
     }
 }
 
+void TTM::studentsInUC(string uc) {
+    for (Student element : students) {
+        if (element.inCourse(uc)) {
+            cout << element.getName() << ", " << element.getID() << endl;
+        }
+    }
+}
+
+void TTM::studentsInClass(string class_ID) {
+    for (Student element : students) {
+        if (element.inClass(class_ID)) {
+            cout << element.getName() << ", " << element.getID() << endl;
+        }
+    }
+}
+
 void TTM::print_students_with_more_than_n_ucs(int n)
 {
     for (auto itr = students.begin(); itr != students.end(); itr++) {
@@ -203,3 +219,21 @@ void TTM::process() {
         }
     } while(requests.size() != 0);
 }
+
+/*bool TTM::removeClass(Student& student, UCClass& uc) {
+    bool removed = false;
+    for (auto itr = student.allClasses.begin(); itr != student.allClasses.end(); itr++) {
+        if (itr->get_class_ID() == uc.get_class_ID() && itr->get_UC_ID() == uc.get_UC_ID()) {
+            itr = student.allClasses.erase(itr);
+            removed = true;
+        }
+    }
+    if (removed == true) {
+        return true;
+    }
+    else {
+        return false;
+    }
+
+    // uc.count_decrement();    same as with addClass
+}*/
