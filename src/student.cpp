@@ -40,6 +40,9 @@ void Student::showSchedule() const {
     }
 }
 
+void Student::buildClass(UCClass& x) {
+    allClasses.push_back(x);
+}
 /*
 void Student::getAllClasses(const string& filename) { // csv_students_classes_reader
     // File variables.
@@ -155,7 +158,7 @@ void Student::removeClass(UCClass& uc) {
     // uc.count_decrement();    same as with addClass
 }
 
-void Student::addClass(UCClass& uc) {
+void Student::addClass(UCClass& uc, vector<UCClass>& every_class) {
     if (uc.get_student_count() >= 20) { // tem de se dar fix a esta função (student_counter) para ir aos vectors, não ao ficheiro então
         // throw uc.student_counter() maybe?
         cout << "The student can't be added to this class" << endl;
@@ -170,7 +173,7 @@ void Student::addClass(UCClass& uc) {
     }
 
     vector<UCClass> courseClasses;
-    for (UCClass element: vector_with_all_classes_from_a_UC) { // vector não existe, é preciso alguma função gerar um vetor com todas as UCClasses
+    for (UCClass element: every_class) {
         if (element.get_UC_ID() == uc.get_UC_ID()) {
             element.student_counter(classes); // classes is a placeholder
             courseClasses.push_back(element);

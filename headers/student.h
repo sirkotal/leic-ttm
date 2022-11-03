@@ -5,6 +5,7 @@
 #include "uc_class.h"
 #include "slot.h"
 #include "class_schedule.h"
+#include "ttm.h"
 #include <string>
 #include <vector>
 #include <fstream>
@@ -27,17 +28,21 @@ class Student {
     void getSchedule();
 
     void removeClass(UCClass& uc);
-    void addClass(UCClass& uc);
+    addClass(UCClass& uc, vector<UCClass>& every_class);
     void changeClass(UCClass& current, UCClass& target);
     // void print();
 
     bool operator< (const Student &next) const;
-    
+
+    friend class TTM;
+
 private:
     string name;
     string id;
     list<UCClass> allClasses;
     vector<Slot> schedule;
+
+    void buildClass(UCClass& x);
 };
 
 #endif

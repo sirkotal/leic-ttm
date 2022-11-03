@@ -45,7 +45,7 @@ void TTM::print_students_with_more_than_n_ucs(set<Student>& students, int n)
 
 // Reader functions definitions
 
-void TTM::csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type)
+/* void TTM::csv_classes_reader(const string& filename)
 {
     // File variables.
     string class_code, uc_code, weekday, start_hour, duration, type;
@@ -89,9 +89,9 @@ void TTM::csv_classes_reader(const string& filename, vector <string>& v_class_co
     {
         cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
     }
-}
+}*/
 
-void TTM::csv_classes_per_uc_reader(const string& filename, vector <string>& v_uc_code, vector <string>& v_class_code)
+void TTM::csv_classes_per_uc_reader(const string& filename)
 {
     // File variables.
     string uc_code, class_code;
@@ -108,12 +108,13 @@ void TTM::csv_classes_per_uc_reader(const string& filename, vector <string>& v_u
         // While the end of the file is not reached.
         while (!coeff.eof())
         {
-            //{class_code, uc_code, weekday, start_hour, duration, type}
-            getline(coeff, uc_code, ',');
-            v_uc_code.push_back(uc_code);
+            //{class_code, uc_code}
 
+            getline(coeff, uc_code, ',');
             getline(coeff, class_code, '\n');
-            v_class_code.push_back(class_code);
+
+            UCClass temp(uc_code, class_code);
+            everyClass.push_back(temp);
         }
 
         coeff.close(); // Closing the file.
@@ -124,7 +125,7 @@ void TTM::csv_classes_per_uc_reader(const string& filename, vector <string>& v_u
     }
 }
 
-void TTM::csv_students_classes_reader(const string& filename, vector <string>& v_student_code, vector <string>& v_student_name, vector <string>& v_uc_code, vector <string>& v_class_code)
+void TTM::csv_students_classes_reader(const string& filename)
 {
     // File variables.
     string student_code, student_name, uc_code, class_code;
@@ -143,23 +144,17 @@ void TTM::csv_students_classes_reader(const string& filename, vector <string>& v
         {
             //{class_code, uc_code, weekday, start_hour, duration, type}
             getline(coeff, student_code, ',');
-            v_student_code.push_back(student_code);
-
             getline(coeff, student_name, ',');
-            /*
-            set<int> s;
-
-            s.insert(1);
-             */
+            getline(coeff, uc_code, ',');
+            getline(coeff, class_code, ',');
 
             Student temporary_student(student_name, student_code);
+            UCClass temporary_class(uc_code, class_code);
+
+            temporary_student.buildClass(temporary_class);
             this->students.insert(temporary_student);
 
-            getline(coeff, uc_code, ',');
-            v_uc_code.push_back(uc_code);
 
-            getline(coeff, class_code, ',');
-            v_class_code.push_back(class_code);
         }
 
         coeff.close(); // Closing the file.

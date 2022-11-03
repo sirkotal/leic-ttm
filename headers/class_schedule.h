@@ -15,10 +15,8 @@ class ClassSchedule {
     public:
         ClassSchedule(string classID);
 
-        string get_UC_ID() const;
+        // string get_UC_ID() const;
         string get_class_ID() const;
-        
-        // vector<Slot> getClass(string ucID);
 
         void getFullSchedule(const string& filename); //csv_classes_reader
         void getClass(string ucID, vector<Slot>& vct);
