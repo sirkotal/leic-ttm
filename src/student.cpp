@@ -43,7 +43,7 @@ string toTime(float time) {
 void Student::showSchedule() const {
     for (Slot element: schedule) {
         cout << element.getUC() << "-> " << element.getDay() << ": " << toTime(element.getStart()) << "->" << toTime(element.getEnd()) << ", " << element.isType() << endl;
-        cout << "|-------------------------------|" << endl;
+        cout << "|------------------------------------|" << endl;
     }
 }
 
