@@ -24,7 +24,7 @@ class TTM {
     bool student_uc_number_comparison(Student first, Student second);
     void print_students_with_more_than_n_ucs(int n);
     bool searchStudent(string s_student, string s_uc_code);
-    void getStudent(string s_student, string s_uc_code);
+    Student getStudent(string s_name, string student_code);
 
     // Reader functions declarations
     // void csv_classes_reader(const string& filename); -> ClassSchedule has something for this, not required overall

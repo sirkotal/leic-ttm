@@ -27,14 +27,13 @@ bool TTM::searchStudent(string s_student, string s_uc_code)
     return false;
 }
 
-void TTM::getStudent(string s_student, string s_uc_code) {
+Student TTM::getStudent(string s_name, string student_code) {
     for (auto itr = students.begin(); itr != students.end(); itr++) {
-        if (itr->getName() == s_student && itr->getID() == s_uc_code) {
-            cout << itr->getName() << " has been found!" << endl;
-            return;
+        if (itr->getName() == s_name && itr->getID() == student_code) {
+            Student tmp(s_name, student_code);
+            return tmp;
         }
     }
-    cout << "No such student was found" << endl;
 }
 
 void TTM::print_students_with_more_than_n_ucs(int n)
