@@ -21,6 +21,6 @@ class Interface {
     void loginList();
 
     void loginChange();
-}
+};
 
 #endif

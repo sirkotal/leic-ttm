@@ -6,18 +6,18 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(headers)
 
 add_executable(leic_ttm
+        src/main.cpp
         src/class_schedule.cpp
-        src/interface.cpp
-        src/request.cpp
-        src/slot.cpp
-        src/student.cpp
-        src/ttm.cpp
-        src/uc_class.cpp
         headers/class_schedule.h
+        src/interface.cpp
         headers/interface.h
+        src/request.cpp
         headers/request.h
+        src/slot.cpp
         headers/slot.h
+        src/student.cpp
         headers/student.h
+        src/ttm.cpp
         headers/ttm.h
-        headers/uc_class.h
-        src/main.cpp)
+        src/uc_class.cpp
+        headers/uc_class.h)

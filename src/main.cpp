@@ -1,11 +1,15 @@
 #include <bits/stdc++.h>
 #include "../headers/student.h"
-#include "ttm.h"
+#include "../headers/ttm.h"
+#include "../headers/slot.h"
+#include "../headers/uc_class.h"
+#include "../headers/class_schedule.h"
 
 #define students_classes "../schedule/students_classes.csv"
+#define classes "../schedule/classes.csv"
 using namespace std;
 
-void menu ()
+/*void menu ()
 {
     int option;
 
@@ -34,25 +38,15 @@ void menu ()
             cout << "Funcao 4";
             break;
     }
-}
+}*/
 
 int main() {
 
     TTM manage;
-
-    vector <string> v_student_code;
-    vector <string> v_student_name;
-    vector <string> v_uc_code;
-    vector <string> v_class_code;
-
-    manage.csv_students_classes_reader(students_classes, v_student_code, v_student_name, v_uc_code, v_class_code);
-
-    for (string element : v_student_code)
-    {
-        cout << element << endl;
-    }
-
-    menu();
+    manage.csv_students_classes_reader(students_classes);
+    manage.csv_classes_per_uc_reader(classes);
+    manage.vsize();
+    manage.print_students_with_more_than_n_ucs(4);
 }
 
 /*

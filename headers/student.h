@@ -1,10 +1,10 @@
 #ifndef STUDENT_H
 #define STUDENT_H
-
+class Student;
 #include <bits/stdc++.h>
-#include "uc_class.h"
-#include "slot.h"
 #include "class_schedule.h"
+#include "slot.h"
+#include "uc_class.h"
 #include "ttm.h"
 #include <string>
 #include <vector>
@@ -24,15 +24,15 @@ class Student {
     void showAllClasses() const;
     void showSchedule() const;
 
-    // void getAllClasses(const string& filename);  #generates allClasses, csv_students_classes_reader
+    void getAllClasses(const string& filename);  // #generates allClasses, csv_students_classes_reader
     void getSchedule();
 
     void removeClass(UCClass& uc);
-    addClass(UCClass& uc, vector<UCClass>& every_class);
+    void addClass(UCClass& uc, vector<UCClass>& every_class);
     void changeClass(UCClass& current, UCClass& target);
     // void print();
 
-    bool operator< (const Student &next) const;
+    // bool Student::operator< (const Student &next) const;
 
     friend class TTM;
 

@@ -1,19 +1,22 @@
 #include "../headers/ttm.h"
 
 // Set sorting function
-bool student_code_comparison(Student first, Student second) {
+/*bool TTM::student_code_comparison(Student first, Student second) {
     int x = stoi(first.getID());
     int y = stoi(second.getID());
     return x < y;
 }
 
-bool student_uc_number_comparison(Student first, Student second) {
+bool TTM::student_uc_number_comparison(Student first, Student second) {
     int x = stoi(first.getID());
     int y = stoi(second.getID());
     return x < y;
+}*/
+void TTM::vsize() {
+    cout << students.size() << endl;
 }
 
-bool TTM::searchStudent(set<Student>& students, string s_student, string s_uc_code)
+bool TTM::searchStudent(string s_student, string s_uc_code)
 {
     for (const Student student: students) {
         if (student.getName() == s_student && student.getID() == s_uc_code) {
@@ -23,23 +26,22 @@ bool TTM::searchStudent(set<Student>& students, string s_student, string s_uc_co
     return false;
 }
 
-Student TTM::getStudent(set<Student> &students, std::string s_student, std::string s_uc_code) {
-    return *students.find(Student(s_student, s_uc_code));
+void TTM::getStudent(string s_student, string s_uc_code) {
+    for (auto itr = students.begin(); itr != students.end(); itr++) {
+        if (itr->getName() == s_student && itr->getID() == s_uc_code) {
+            cout << itr->getName() << " has been found!" << endl;
+            return;
+        }
+    }
+    cout << "No such student was found" << endl;
 }
 
-void TTM::print_students_with_more_than_n_ucs(set<Student>& students, int n)
+void TTM::print_students_with_more_than_n_ucs(int n)
 {
-    set<Student> students_organized_by_uc_number(students.begin(), students.end());
-
-    set<Student>::iterator itr;
-
-    // Displaying students with more than n ucs
-    for (itr = students_organized_by_uc_number.begin();
-         itr != students_organized_by_uc_number.end(); itr++)
-    {
-        Student temp_student = (Student &&) *itr;
-        if (temp_student.getNumberClasses() > n)
-            cout << temp_student.getName() << " " << temp_student.getName();
+    for (auto itr = students.begin(); itr != students.end(); itr++) {
+        if (itr->getNumberClasses() > n) {
+            cout << itr->getName() << ", " << itr->getID() << endl;
+        }
     }
 }
 
@@ -91,6 +93,10 @@ void TTM::print_students_with_more_than_n_ucs(set<Student>& students, int n)
     }
 }*/
 
+/*!
+ * Function that retrieves every UCClass we can work with
+ * @param filename The .csv file to use for information retrieval
+ */
 void TTM::csv_classes_per_uc_reader(const string& filename)
 {
     // File variables.
@@ -129,6 +135,7 @@ void TTM::csv_students_classes_reader(const string& filename)
 {
     // File variables.
     string student_code, student_name, uc_code, class_code;
+    string repeat = "0"; // flag
 
     // Filename
     ifstream coeff(filename); // Opens the file.
@@ -142,18 +149,20 @@ void TTM::csv_students_classes_reader(const string& filename)
         // While the end of the file is not reached.
         while (!coeff.eof())
         {
-            //{class_code, uc_code, weekday, start_hour, duration, type}
             getline(coeff, student_code, ',');
             getline(coeff, student_name, ',');
             getline(coeff, uc_code, ',');
-            getline(coeff, class_code, ',');
+            getline(coeff, class_code, '\n');
 
-            Student temporary_student(student_name, student_code);
-            UCClass temporary_class(uc_code, class_code);
+            if (student_code != repeat) {
+                Student temporary_student(student_name, student_code);
+                UCClass temporary_class(uc_code, class_code);
 
-            temporary_student.buildClass(temporary_class);
-            this->students.insert(temporary_student);
+                temporary_student.getAllClasses(filename);
+                this->students.push_back(temporary_student);
 
+                repeat = student_code;
+            }
 
         }
 

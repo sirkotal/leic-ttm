@@ -30,7 +30,7 @@ void Interface::listingsMenu() {
     std::cout << " ------------------------------------------------------------------------------------" <<  std::endl;
 }
 
-void Interface::initialize() {
+/*void Interface::initialize() {
 
     while(true) {
         int flag = menu();
@@ -46,7 +46,7 @@ void Interface::initialize() {
             break;
         login();
     }
-}
+}*/
 
 bool isNum(const string &str) {            //verifies if the string contains only numbers
     for (int i = 0; i < str.size(); i++){

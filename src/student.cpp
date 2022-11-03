@@ -1,18 +1,15 @@
-#include "../headers/student.h"
 #define classes "../schedule/classes.csv"
-#include "../headers/ttm.h"
-
-using namespace std;
+#include "../headers/student.h"
 
 Student::Student(string name, string id) {
     this->name = name;
     this->id = id;
 }
 
-bool Student::operator< (const Student &next) const
+/*bool Student::operator< (const Student &next) const
 {
-    return stoi(id) < stoi(next.getID());
-}
+    return id < next.id;
+}*/
 
 string Student::getName() const{
     return name;
@@ -43,7 +40,7 @@ void Student::showSchedule() const {
 void Student::buildClass(UCClass& x) {
     allClasses.push_back(x);
 }
-/*
+
 void Student::getAllClasses(const string& filename) { // csv_students_classes_reader
     // File variables.
     string student_code, student_name, uc_code, class_code;
@@ -82,7 +79,7 @@ void Student::getAllClasses(const string& filename) { // csv_students_classes_re
         cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
     }
 }
-*/
+
 
 bool sorttime(Slot firsts, Slot seconds) {
     float fstart = firsts.getStart();
