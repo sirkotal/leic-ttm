@@ -29,10 +29,20 @@ void Student::showAllClasses() const {
         cout << "|------------------|" << endl;
     }
 }
+string toTime(float time) {
+    int totalseconds = time * 3600.0;
+    int hours = totalseconds/3600;
+    int minutes = (totalseconds/60) % 60;
+    string first = to_string(hours);
+    string second = to_string(minutes);
+    string final = first + ":" + second;
 
+    return final;
+
+}
 void Student::showSchedule() const {
     for (Slot element: schedule) {
-        cout << element.getUC() << "-> " << element.getDay() << ": " << element.getStart() << "->" << element.getEnd() << ", " << element.isType() << endl;
+        cout << element.getUC() << "-> " << element.getDay() << ": " << toTime(element.getStart()) << "->" << toTime(element.getEnd()) << ", " << element.isType() << endl;
         cout << "|-------------------------------|" << endl;
     }
 }
