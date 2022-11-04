@@ -26,8 +26,8 @@ class TTM {
     Student getStudent(string s_name, string student_code);
     UCClass getClass(string ucID, string classID);
     void studentsInUC(string uc, string type, char flag);
-    void studentsInClass(string class_ID);
-    void studentsInYear(char year);
+    void studentsInClass(string class_ID, string type, char flag);
+    void studentsInYear(char year, string type, char flag);
 
     // Reader functions declarations
     // void csv_classes_reader(const string& filename); -> ClassSchedule has something for this, not required overall

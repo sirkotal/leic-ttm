@@ -53,7 +53,7 @@ int main() {
     manage.studentsInUC("L.EIC002", "name", '-');
     cout << "----------------------" << endl;
     Student tmp = manage.getStudent("Abilio", "202040617");
-    UCClass ctemp = manage.getClass("L.EIC021", "3LEIC08");
+    UCClass ctemp("L.EIC021", "3LEIC12");
     manage.removeClass(tmp, ctemp);
     tmp.showAllClasses();
     // manage.studentsInClass("1LEIC03");

@@ -104,16 +104,50 @@ void TTM::studentsInUC(string uc, string type, char flag) {
     }
 }
 
-void TTM::studentsInClass(string class_ID) {
-    for (Student* element : students) {
+void TTM::studentsInClass(string class_ID, string type, char flag) {
+    vector<Student*> temp = students;
+    if (type == "name") {
+        if (flag == '+') {
+            asc_bubbleName(temp);
+        }
+        else if (flag == '-') {
+            down_bubbleName(temp);
+        }
+    }
+    else if (type == "num") {
+        if (flag == '+') {
+            asc_bubbleNum(temp);
+        }
+        else if (flag == '-') {
+            down_bubbleNum(temp);
+        }
+    }
+    for (Student* element : temp) {
         if (element->inClass(class_ID)) {
             cout << element->getName() << ", " << element->getID() << endl;
         }
     }
 }
 
-void TTM::studentsInYear(char year) {
-    for (Student* element : students) {
+void TTM::studentsInYear(char year, string type, char flag) {
+    vector<Student*> temp = students;
+    if (type == "name") {
+        if (flag == '+') {
+            asc_bubbleName(temp);
+        }
+        else if (flag == '-') {
+            down_bubbleName(temp);
+        }
+    }
+    else if (type == "num") {
+        if (flag == '+') {
+            asc_bubbleNum(temp);
+        }
+        else if (flag == '-') {
+            down_bubbleNum(temp);
+        }
+    }
+    for (Student* element : temp) {
         if (element->inYear(year)) {
             cout << element->getName() << ", " << element->getID() << endl;
         }
