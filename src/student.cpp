@@ -26,7 +26,7 @@ int Student::getNumberClasses() const{ // class = turma
 void Student::showAllClasses() const {
     for (auto itr = allClasses.begin(); itr != allClasses.end(); itr++) {
         cout << "|" << itr->get_UC_ID() << " -> " << itr->get_class_ID() << "|" << endl;
-        cout << "|------------------|" << endl;
+        cout << "|-------------------|" << endl;
     }
 }
 string toTime(float time) {
@@ -87,7 +87,7 @@ void Student::getAllClasses(const string& filename) { // csv_students_classes_re
     ifstream coeff(filename); // Opens the file.
 
     if (coeff.is_open()) { // Checks if the file is open.
-        // Skip the first line 
+        // Skip the first line
         string line;
         getline(coeff, line);
 
@@ -192,60 +192,6 @@ bool cap_sort(UCClass first, UCClass second) {
 
     // uc.count_decrement();    same as with addClass
 }*/
-
-void Student::addClass(UCClass& uc, vector<UCClass>& every_class) {
-    if (uc.get_student_count() >= 20) { // tem de se dar fix a esta função (student_counter) para ir aos vectors, não ao ficheiro então
-        // throw uc.student_counter() maybe?
-        cout << "The student can't be added to this class" << endl;
-        return;
-    }
-
-    for (UCClass element: allClasses) {
-        if (element.get_UC_ID() == uc.get_UC_ID()) {
-            cout << "Student already enrolled in this course" << endl;
-            return;
-        }
-    }
-
-    vector<UCClass> courseClasses;
-    for (UCClass element: every_class) {
-        if (element.get_UC_ID() == uc.get_UC_ID()) {
-            element.student_counter(classes); // classes is a placeholder
-            courseClasses.push_back(element);
-        }
-    }
-
-    sort(courseClasses.begin(), courseClasses.end(), cap_sort);
-
-    int first_balance = courseClasses.back().get_student_count() - courseClasses.front().get_student_count();
-
-    UCClass test(uc.get_UC_ID(), uc.get_class_ID());
-    test.student_counter(classes);
-    test.count_increment();
-    for (auto itr = courseClasses.begin(); itr != courseClasses.end(); itr++) {
-        if (itr->get_class_ID() == uc.get_class_ID() && itr->get_UC_ID() == uc.get_UC_ID()) {
-            itr = courseClasses.erase(itr);
-        }
-    }
-    courseClasses.push_back(test);
-    sort(courseClasses.begin(), courseClasses.end(), cap_sort);
-    int second_balance = courseClasses.back().get_student_count() - courseClasses.front().get_student_count();
-
-    if (second_balance < 4 || second_balance <= first_balance) {
-        allClasses.push_back(uc);
-        uc.count_increment();
-        cout << "Student successfully added to " << uc.get_class_ID() << "for " << uc.get_UC_ID() << endl;
-    }
-    else {
-        cout << "The classes would be unbalanced" << endl;
-        return;
-    }
-
-    /* uc.count_increment();   depending on if alterations are made to the vector/file right after the function ends
-    or only after exit() is called on the program, we might need this statement to control UCClass student count;
-    might need to change capacity, but it will require vector counting function for students with a specific UCClass*/
-
-}
 
 void Student::changeClass(UCClass& current, UCClass& target) {
     if (target.get_student_count() >= 20) {

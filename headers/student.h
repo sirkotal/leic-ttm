@@ -28,11 +28,11 @@ class Student {
     bool inClass(string class_ID);
     bool inYear(char year);
 
-    void getAllClasses(const string& filename);  // #generates allClasses, csv_students_classes_reader -> replaced? check tomorrow
+    void getAllClasses(const string& filename);
     void getSchedule();
 
     //void removeClass(UCClass& uc);
-    void addClass(UCClass& uc, vector<UCClass>& every_class);
+    // void addClass(UCClass& uc, vector<UCClass>& every_class);
     void changeClass(UCClass& current, UCClass& target);
     // void print();
 

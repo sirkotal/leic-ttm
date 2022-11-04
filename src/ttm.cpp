@@ -1,4 +1,5 @@
 #include "../headers/ttm.h"
+#define classes "../schedule/students_classes.csv"
 
 // Set sorting function
 /*bool TTM::student_code_comparison(Student first, Student second) {
@@ -11,10 +12,10 @@ bool TTM::student_uc_number_comparison(Student first, Student second) {
     int x = stoi(first.getID());
     int y = stoi(second.getID());
     return x < y;
-}*/
+}
 
-/*void TTM::vsize() {
-    cout << students.size() << endl;
+void TTM::vsize() {
+    cout << everyClass.size() << endl;
 }*/
 
 bool TTM::searchStudent(string s_student, string s_uc_code)
@@ -238,6 +239,7 @@ void TTM::csv_classes_per_uc_reader(const string& filename)
             getline(coeff, class_code, '\n');
 
             UCClass temp(uc_code, class_code);
+            temp.student_counter(classes);
             everyClass.push_back(temp);
         }
 
@@ -274,7 +276,6 @@ void TTM::csv_students_classes_reader(const string& filename)
 
             if (student_code != repeat) {
                 Student* temporary_student = new Student (student_name, student_code);
-                UCClass temporary_class(uc_code, class_code);
 
                 temporary_student->getAllClasses(filename);
                 this->students.push_back(temporary_student);
@@ -321,6 +322,74 @@ bool TTM::removeClass(Student& student, UCClass& uc) {
     }
 
     // uc.count_decrement();    same as with addClass
+}
+
+bool TTM::unbalanced(string course, string classID, bool flag) {
+    int result = 0;
+    int operation = 0;
+    vector<UCClass> courseClasses;
+    for (UCClass element: everyClass) {
+        if (element.get_UC_ID() == course) {
+            courseClasses.push_back(element);
+        }
+    }
+    for (unsigned int i = 0; i < courseClasses.size() - 2; i++) {
+        result = max(result, courseClasses[i+1].get_student_count() - courseClasses[i].get_student_count());
+        if (courseClasses[i+1].get_class_ID() == classID) {
+            if (flag == true) {
+                operation = max(result, (courseClasses[i+1].get_student_count() - 1) - courseClasses[i].get_student_count());
+            }
+            else {
+                operation = max(result, (courseClasses[i+1].get_student_count() + 1) - courseClasses[i].get_student_count());
+            }
+        }
+        else if (courseClasses[i].get_class_ID() == classID) {
+            if (flag == true) {
+                operation = max(result, courseClasses[i+1].get_student_count() - (courseClasses[i].get_student_count() - 1));
+            }
+            else {
+                operation = max(result, courseClasses[i+1].get_student_count() - (courseClasses[i].get_student_count() + 1));
+            }
+        }
+        operation = max(result, operation);
+    }
+    return operation > result;
+}
+
+/*bool TTM::overlap(Student& student, string course, string classID, bool flag) {
+    vector<Slot> tmp = student.schedule;
+    ClassSchedule carbon(string classID);
+    if (flag == true) {
+        for (auto itr = tmp.begin(); itr != tmp.end(); itr++) {
+            if (course == itr->getUC()) {
+                tmp.erase(itr);
+                itr--;
+            }
+        }
+    }
+    carbon.getFullSchedule
+
+}*/
+
+bool TTM::addClass(Student& student, UCClass& uc) {
+    if (student.schedule.size() == 0) {
+        student.getSchedule();
+    }
+
+    if (uc.get_student_count() >= 20) {
+        return false;
+    }
+
+    for (UCClass element: student.allClasses) {
+        if (element.get_UC_ID() == uc.get_UC_ID()) {
+            return false;
+        }
+    }
+
+    if(unbalanced(uc.get_UC_ID(), uc.get_class_ID(), false)) {
+
+    }
+
 }
 
 void TTM::process() {

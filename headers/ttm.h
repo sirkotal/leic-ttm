@@ -9,6 +9,7 @@
 #include <iomanip>
 #include "request.h"
 #include "student.h"
+#include "class_schedule.h"
 #include "slot.h"
 #include "uc_class.h"
 
@@ -42,7 +43,7 @@ class TTM {
     bool removeClass(Student& student, UCClass& uc);
     bool addClass(Student& student, UCClass& uc);
     bool changeClass(Student& student, UCClass& current, UCClass& target);
-    
+
 
 
     //void vsize();
@@ -51,6 +52,9 @@ class TTM {
         vector<UCClass> everyClass;
         // vector<ClassSchedule> schedule;
         queue<Request> requests;
+        list<Request> log;
+        bool unbalanced(string course, string classID, bool flag); // flag true for removal, false for add only
+        bool overlap(Student& student, string course, string classID, bool flag); // flag true for removal, false for add only
 };
 
 #endif
