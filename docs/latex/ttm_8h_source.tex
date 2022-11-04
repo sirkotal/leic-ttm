@@ -1,0 +1,60 @@
+\hypertarget{ttm_8h_source}{}\doxysection{ttm.\+h}
+\label{ttm_8h_source}\index{C:/Users/Utilizador/Desktop/leic-\/ttm/headers/ttm.h@{C:/Users/Utilizador/Desktop/leic-\/ttm/headers/ttm.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TTM\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TTM\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <bits/stdc++.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}request.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}student.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}slot.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}uc\_class.h"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_t_t_m}{TTM}} \{}
+\DoxyCodeLine{18     \textcolor{keyword}{public}:}
+\DoxyCodeLine{19     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_student}{Student}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{comment}{// Set sorting function}}
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool} student\_code\_comparison(\mbox{\hyperlink{class_student}{Student}} first, \mbox{\hyperlink{class_student}{Student}} second);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{bool} student\_uc\_number\_comparison(\mbox{\hyperlink{class_student}{Student}} first, \mbox{\hyperlink{class_student}{Student}} second);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} print\_students\_with\_more\_than\_n\_ucs(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{bool} searchStudent(\textcolor{keywordtype}{string} s\_student, \textcolor{keywordtype}{string} s\_uc\_code);}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_student}{Student}} getStudent(\textcolor{keywordtype}{string} s\_name, \textcolor{keywordtype}{string} student\_code);}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_u_c_class}{UCClass}} getClass(\textcolor{keywordtype}{string} ucID, \textcolor{keywordtype}{string} classID);}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} studentsInUC(\textcolor{keywordtype}{string} uc, \textcolor{keywordtype}{string} type, \textcolor{keywordtype}{char} flag);}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} studentsInClass(\textcolor{keywordtype}{string} class\_ID, \textcolor{keywordtype}{string} type, \textcolor{keywordtype}{char} flag);}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} studentsInYear(\textcolor{keywordtype}{char} year, \textcolor{keywordtype}{string} type, \textcolor{keywordtype}{char} flag);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{comment}{// Reader functions declarations}}
+\DoxyCodeLine{33     \textcolor{comment}{// void csv\_classes\_reader(const string\& filename); -\/> ClassSchedule has something for this, not required overall}}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} csv\_classes\_per\_uc\_reader(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& filename);}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} csv\_students\_classes\_reader(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& filename);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{// Request management functions declarations}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{comment}{// void add\_request\_to\_queue(Request request);}}
+\DoxyCodeLine{40     \textcolor{comment}{//Request get\_request();}}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} process();}
+\DoxyCodeLine{42     \textcolor{keywordtype}{bool} removeClass(\mbox{\hyperlink{class_student}{Student}}\& student, \mbox{\hyperlink{class_u_c_class}{UCClass}}\& uc);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{comment}{//void vsize();}}
+\DoxyCodeLine{47     \textcolor{keyword}{private}:}
+\DoxyCodeLine{48         vector<Student*> students; \textcolor{comment}{// Sorted by student code.}}
+\DoxyCodeLine{49         vector<UCClass> everyClass;}
+\DoxyCodeLine{50         \textcolor{comment}{// vector<ClassSchedule> schedule;}}
+\DoxyCodeLine{51         queue<Request> requests;}
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

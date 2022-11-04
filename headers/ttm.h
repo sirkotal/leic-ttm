@@ -40,7 +40,9 @@ class TTM {
     //Request get_request();
     void process();
     bool removeClass(Student& student, UCClass& uc);
-
+    bool addClass(Student& student, UCClass& uc);
+    bool changeClass(Student& student, UCClass& current, UCClass& target);
+    
 
 
     //void vsize();
