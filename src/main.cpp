@@ -53,7 +53,7 @@ int main() {
     x.showSchedule();*/
     //manage.studentsInUC("L.EIC002", "name", '-');
     //cout << "----------------------" << endl;
-    manage.vsize();
+    //manage.vsize();
     Student* tmp = manage.getStudent("Abilio", "202040617");
     UCClass ctemp("L.EIC011", "2LEIC10");
     tmp->getSchedule();

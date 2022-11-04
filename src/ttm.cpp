@@ -373,7 +373,7 @@ bool TTM::overlap(Student& student, string course, string classID, bool flag) {
 }
 
 void TTM::addClass(Student& student, UCClass& uc) {
-    if (student.schedule.size() == 0) {
+    if (student.schedule.size() == 0) { // failsafe, not actually important
         student.getSchedule();
     }
 
@@ -400,6 +400,53 @@ void TTM::addClass(Student& student, UCClass& uc) {
         uc.count_increment();
         requests.front().setDone();
     }
+}
+
+bool findClass(list<UCClass>& allClasses, UCClass& uc) {
+    for (auto itr = allClasses.begin(); itr != allClasses.end(); itr++) {
+        if (itr->get_UC_ID() == uc.get_UC_ID()) {
+            if (itr->get_class_ID() == uc.get_class_ID()) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+void TTM::changeClass(Student& student, UCClass& current, UCClass& target) {
+    if (current.get_student_count() >= 20 || target.get_student_count() >= 20) {
+        return;
+    }
+
+    if (current.get_UC_ID() != target.get_UC_ID()) {
+        return;
+    }
+
+    if (current.get_class_ID() == target.get_class_ID()) {
+        return;
+    }
+
+    for (UCClass element: student.allClasses) {
+        if (element.get_class_ID() == target.get_class_ID() && element.get_UC_ID() == target.get_UC_ID()) {
+            return;
+        }
+    }
+
+    if (findClass(student.allClasses, current) == false) {
+        return;
+    }
+
+    if (unbalanced(current.get_UC_ID(), current.get_class_ID(), true) ||
+    unbalanced(target.get_UC_ID(), target.get_class_ID(), false) ||
+    overlap(student, target.get_UC_ID(), target.get_class_ID(), true)) {
+        return;
+    }
+    else {
+        removeClass(student, current);
+        addClass(student, target);
+        requests.front().setDone();
+    }
+
 }
 
 void TTM::process() {

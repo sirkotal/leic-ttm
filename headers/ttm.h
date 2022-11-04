@@ -42,7 +42,7 @@ class TTM {
     void process();
     void removeClass(Student& student, UCClass& uc);
     void addClass(Student& student, UCClass& uc);
-    bool changeClass(Student& student, UCClass& current, UCClass& target);
+    void changeClass(Student& student, UCClass& current, UCClass& target);
 
 
 
