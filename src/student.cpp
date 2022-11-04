@@ -173,38 +173,6 @@ bool cap_sort(UCClass first, UCClass second) {
     return first.get_student_count() < second.get_student_count();
 }
 
-/*void Student::removeClass(UCClass& uc) {
-    bool removed = false;
-    for (auto itr = allClasses.begin(); itr != allClasses.end(); itr++) {
-        if (itr->get_class_ID() == uc.get_class_ID() && itr->get_UC_ID() == uc.get_UC_ID()) {
-            itr = allClasses.erase(itr);
-            removed = true;
-        }
-    }
-    if (removed == true) {
-        cout << "Class successfully removed" << endl;
-        return;
-    }
-    else {
-        cout << "Unable to remove class" << endl;
-        return;
-    }
-
-    // uc.count_decrement();    same as with addClass
-}*/
-
-void Student::changeClass(UCClass& current, UCClass& target) {
-    if (target.get_student_count() >= 20) {
-        cout << "The student can't be added to this class" << endl;
-        return;
-    }
-
-    if (current.get_UC_ID() != target.get_UC_ID()) {
-        cout << "Both classes need to belong to the same UC" << endl;
-        return;
-    }
-}
-
 /*
 void Student::print() {
     for (Slot element: schedule) {

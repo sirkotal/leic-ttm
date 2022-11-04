@@ -29,10 +29,10 @@ bool TTM::searchStudent(string s_student, string s_uc_code)
     return false;
 }
 
-Student TTM::getStudent(string s_name, string student_code) {
+Student* TTM::getStudent(string s_name, string student_code) {
     for (auto itr = students.begin(); itr != students.end(); itr++) {
         if ((*itr)->getName() == s_name && (*itr)->getID() == student_code) {
-            return *(*itr);
+            return (*itr);
         }
     }
 }

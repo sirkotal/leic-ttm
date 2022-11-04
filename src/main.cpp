@@ -53,15 +53,15 @@ int main() {
     x.showSchedule();*/
     manage.studentsInUC("L.EIC002", "name", '-');
     cout << "----------------------" << endl;
-    Student tmp = manage.getStudent("Abilio", "202040617");
+    Student* tmp = manage.getStudent("Abilio", "202040617");
     UCClass ctemp("L.EIC011", "2LEIC10");
-    tmp.getSchedule();
-    tmp.showSchedule();
-    manage.removeClass(tmp, ctemp);
-    Student x = manage.getStudent("Abilio", "202040617");
-    x.showAllClasses();
+    tmp->getSchedule();
+    tmp->showSchedule();
+    manage.removeClass(*tmp, ctemp);
+    Student* x = manage.getStudent("Abilio", "202040617");
+    x->showAllClasses();
     //cout << "______________________________" << endl;
-    manage.addClass(tmp, ctemp);
+    //manage.addClass(*tmp, ctemp);
     //tmp.showAllClasses();
     //tmp.getSchedule();
     //tmp.showSchedule();

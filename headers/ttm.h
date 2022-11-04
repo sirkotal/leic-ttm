@@ -24,7 +24,7 @@ class TTM {
     bool student_uc_number_comparison(Student first, Student second);
     void print_students_with_more_than_n_ucs(int n);
     bool searchStudent(string s_student, string s_uc_code);
-    Student getStudent(string s_name, string student_code);
+    Student* getStudent(string s_name, string student_code);
     UCClass getClass(string ucID, string classID);
     void studentsInUC(string uc, string type, char flag);
     void studentsInClass(string class_ID, string type, char flag);
