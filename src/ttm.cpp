@@ -305,23 +305,6 @@ void TTM::add_request_to_queue(Request request)
     requests.push(request);
 }*/
 
-void TTM::process() {
-    do {
-        int op = requests.front().getType();
-
-        switch (op) {
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-        }
-    } while(requests.size() != 0);
-}
-
 bool TTM::removeClass(Student& student, UCClass& uc) {
     bool removed = false;
     for (auto itr = student.allClasses.begin(); itr != student.allClasses.end(); itr++) {
@@ -338,4 +321,21 @@ bool TTM::removeClass(Student& student, UCClass& uc) {
     }
 
     // uc.count_decrement();    same as with addClass
+}
+
+void TTM::process() {
+    do {
+        int op = requests.front().getType();
+
+        switch (op) {
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        }
+    } while(requests.size() != 0);
 }

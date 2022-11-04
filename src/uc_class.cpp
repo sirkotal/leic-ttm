@@ -87,7 +87,10 @@ vector<string> UCClass::sort_students_in_class_alphabetically(const string& file
     return v_students_in_class;
 }
 
-
+/*!
+ * Gets a UC's unique ID number
+ * @return The UC's identification
+ */
 string UCClass::get_UC_ID() const{
     return ucID;
 }

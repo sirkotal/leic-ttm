@@ -9,7 +9,9 @@
 #include <iomanip>
 
 using namespace std;
-
+/*!
+ * Represents a single class of a specific course.
+ */
 class UCClass {
     public:
     UCClass(string ucID, string classID);
