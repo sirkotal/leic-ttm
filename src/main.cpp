@@ -56,12 +56,17 @@ int main() {
     //manage.vsize();
     Student* tmp = manage.getStudent("Abilio", "202040617");
     UCClass ctemp("L.EIC011", "2LEIC10");
+    UCClass ttemp("L.EIC011", "2LEIC13");
     tmp->getSchedule();
     tmp->showSchedule();
+    manage.changeClass(*tmp, ctemp, ttemp);
+    tmp->showAllClasses();
+    tmp->showSchedule();
+    /*
     manage.removeClass(*tmp, ctemp);
     Student* x = manage.getStudent("Abilio", "202040617");
     x->showAllClasses();
-    //cout << "______________________________" << endl;
+    cout << "______________________________" << endl;
     manage.addClass(*tmp, ctemp);
     cout << "bungus" << endl;
     tmp->showAllClasses();
@@ -69,7 +74,7 @@ int main() {
     //tmp.getSchedule();
     //tmp.showSchedule();
     // manage.studentsInClass("1LEIC03");
-    // manage.studentsInYear('1');
+    // manage.studentsInYear('1');*/
 }
 
 /*
