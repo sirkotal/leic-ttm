@@ -1,8 +1,11 @@
 #ifndef CLASSESCHEDULE_H
 #define CLASSESCHEDULE_H
 
+class ClassSchedule;
+
 #include <bits/stdc++.h>
 #include "slot.h"
+#include "ttm.h"
 #include <string>
 #include <vector>
 #include <fstream>

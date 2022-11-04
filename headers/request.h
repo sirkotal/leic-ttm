@@ -18,16 +18,16 @@ class Request {
 
         Request(int type, string student_code, string class_code);
 
-        //bool isDone() const;
+        bool isDone() const;
         int getType() const;
-        //void setDone();
+        void setDone();
 
 
     private:
         int type;
-        //bool completed;
         string student_code;
         string class_code;
+        bool done = false;
 };
 
 #endif

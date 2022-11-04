@@ -7,6 +7,7 @@
 
 #define students_classes "../schedule/students_classes.csv"
 #define classes "../schedule/classes.csv"
+#define classes_per_uc "../schedule/classes_per_uc.csv"
 using namespace std;
 
 /*void menu ()
@@ -44,18 +45,26 @@ int main() {
 
     TTM manage;
     manage.csv_students_classes_reader(students_classes);
-    manage.csv_classes_per_uc_reader(classes);
+    manage.csv_classes_per_uc_reader(classes_per_uc);
     //manage.vsize();
     manage.print_students_with_more_than_n_ucs(6);
-    Student x = manage.getStudent("Abilio", "202040617");
+    /*Student x = manage.getStudent("Abilio", "202040617");
     x.getSchedule();
-    x.showSchedule();
+    x.showSchedule();*/
     manage.studentsInUC("L.EIC002", "name", '-');
     cout << "----------------------" << endl;
     Student tmp = manage.getStudent("Abilio", "202040617");
-    UCClass ctemp("L.EIC021", "3LEIC12");
+    UCClass ctemp("L.EIC011", "2LEIC10");
+    tmp.getSchedule();
+    tmp.showSchedule();
     manage.removeClass(tmp, ctemp);
-    tmp.showAllClasses();
+    Student x = manage.getStudent("Abilio", "202040617");
+    x.showAllClasses();
+    //cout << "______________________________" << endl;
+    manage.addClass(tmp, ctemp);
+    //tmp.showAllClasses();
+    //tmp.getSchedule();
+    //tmp.showSchedule();
     // manage.studentsInClass("1LEIC03");
     // manage.studentsInYear('1');
 }

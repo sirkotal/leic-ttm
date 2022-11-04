@@ -1,5 +1,6 @@
 #include "../headers/ttm.h"
 #define classes "../schedule/students_classes.csv"
+#define class_schedule "../schedule/classes.csv"
 
 // Set sorting function
 /*bool TTM::student_code_comparison(Student first, Student second) {
@@ -164,54 +165,6 @@ void TTM::print_students_with_more_than_n_ucs(int n)
     }
 }
 
-// Reader functions definitions
-
-/* void TTM::csv_classes_reader(const string& filename)
-{
-    // File variables.
-    string class_code, uc_code, weekday, start_hour, duration, type;
-
-
-    // Filename
-    ifstream coeff(filename); // Opens the file.
-
-    if (coeff.is_open()) // Checks if the file is open.
-    {
-        // Skip the first line (ClassCode,UcCode,Weekday,StartHour,Duration,Type).
-        string line;
-        getline(coeff, line);
-
-        // While the end of the file is not reached.
-        while (!coeff.eof())
-        {
-            //{class_code, uc_code, weekday, start_hour, duration, type}
-            getline(coeff, class_code, ',');
-            v_class_code.push_back(class_code);
-
-            getline(coeff, uc_code, ',');
-            v_uc_code.push_back(uc_code);
-
-            getline(coeff, weekday, ',');
-            v_weekday.push_back(weekday);
-
-            getline(coeff, start_hour, ',');
-            v_start_hour.push_back(start_hour);
-
-            getline(coeff, duration, ',');
-            v_duration.push_back(duration);
-
-            getline(coeff, type, '\n');
-            v_type.push_back(type);
-        }
-
-        coeff.close(); // Closing the file.
-    }
-    else
-    {
-        cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
-    }
-}*/
-
 /*!
  * Function that retrieves every UCClass we can work with
  * @param filename The .csv file to use for information retrieval
@@ -306,7 +259,7 @@ void TTM::add_request_to_queue(Request request)
     requests.push(request);
 }*/
 
-bool TTM::removeClass(Student& student, UCClass& uc) {
+void TTM::removeClass(Student& student, UCClass& uc) {
     bool removed = false;
     for (auto itr = student.allClasses.begin(); itr != student.allClasses.end(); itr++) {
         if (itr->get_class_ID() == uc.get_class_ID() && itr->get_UC_ID() == uc.get_UC_ID()) {
@@ -315,10 +268,12 @@ bool TTM::removeClass(Student& student, UCClass& uc) {
         }
     }
     if (removed == true) {
-        return true;
+        uc.count_decrement();
+        requests.front().setDone();
+        return;
     }
     else {
-        return false;
+        return;
     }
 
     // uc.count_decrement();    same as with addClass
@@ -328,9 +283,9 @@ bool TTM::unbalanced(string course, string classID, bool flag) {
     int result = 0;
     int operation = 0;
     vector<UCClass> courseClasses;
-    for (UCClass element: everyClass) {
-        if (element.get_UC_ID() == course) {
-            courseClasses.push_back(element);
+    for (auto itr = everyClass.begin(); itr != everyClass.end(); itr++) {
+        if (itr->get_UC_ID() == course) {
+            courseClasses.push_back(*itr);
         }
     }
     for (unsigned int i = 0; i < courseClasses.size() - 2; i++) {
@@ -356,9 +311,38 @@ bool TTM::unbalanced(string course, string classID, bool flag) {
     return operation > result;
 }
 
-/*bool TTM::overlap(Student& student, string course, string classID, bool flag) {
+bool ttm_sorttime(Slot firsts, Slot seconds) {
+    float fstart = firsts.getStart();
+    float sstart = seconds.getStart();
+
+    return fstart < sstart;
+}
+
+bool ttm_sortday(Slot firsts, Slot seconds) {
+    string first = firsts.getDay();
+    string second = seconds.getDay();
+    unsigned int fcmp;
+    unsigned int scmp;
+    vector<string> days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+    for (unsigned int i = 0; i < days.size(); i++) {
+        if (first == days[i]) {
+            fcmp = i;
+        }
+        if (second == days[i]) {
+            scmp = i;
+        }
+    }
+
+    if (fcmp == scmp) {
+        return ttm_sorttime(firsts, seconds);
+    }
+    // cout << fcmp << "," << scmp << "|" << endl;
+    return fcmp < scmp;
+}
+
+bool TTM::overlap(Student& student, string course, string classID, bool flag) {
     vector<Slot> tmp = student.schedule;
-    ClassSchedule carbon(string classID);
+    ClassSchedule carbon(classID);
     if (flag == true) {
         for (auto itr = tmp.begin(); itr != tmp.end(); itr++) {
             if (course == itr->getUC()) {
@@ -367,29 +351,50 @@ bool TTM::unbalanced(string course, string classID, bool flag) {
             }
         }
     }
-    carbon.getFullSchedule
+    for (Slot element: tmp) {
+        cout << " " << element.getUC() << "-> " << element.getDay() << ": " << element.getStart() << "-" << element.getEnd() << ", " << element.isType() << endl;
+        cout << "|-------------------------------------|" << endl;
+    }
+    carbon.getFullSchedule(class_schedule);
+    carbon.getClass(course, tmp);
+    sort(tmp.begin(), tmp.end(), ttm_sortday);
+    cout << "|-------------------------------------|" << endl;
+    for (unsigned int i = 0; i < tmp.size()-1; i++) {
+        if (tmp[i].getDay() == tmp[i+1].getDay()) {
+            if (tmp[i].getEnd() > tmp[i+1].getStart()) {
+                if (tmp[i].isType() == "PL" || tmp[i].isType() == "TP" || tmp[i+1].isType() == "PL" || tmp[i+1].isType() == "TP") {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
 
-}*/
-
-bool TTM::addClass(Student& student, UCClass& uc) {
+void TTM::addClass(Student& student, UCClass& uc) {
     if (student.schedule.size() == 0) {
         student.getSchedule();
     }
 
     if (uc.get_student_count() >= 20) {
-        return false;
+        return;
     }
 
     for (UCClass element: student.allClasses) {
         if (element.get_UC_ID() == uc.get_UC_ID()) {
-            return false;
+            return;
         }
     }
 
-    if(unbalanced(uc.get_UC_ID(), uc.get_class_ID(), false)) {
-
+    if (unbalanced(uc.get_UC_ID(), uc.get_class_ID(), false) || overlap(student, uc.get_UC_ID(), uc.get_class_ID(), false)) {
+        cout << "x";
+        return;
     }
-
+    else {
+        student.allClasses.push_back(uc);
+        uc.count_increment();
+        requests.front().setDone();
+    }
 }
 
 void TTM::process() {
