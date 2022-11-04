@@ -13,11 +13,11 @@ bool TTM::student_uc_number_comparison(Student first, Student second) {
     int x = stoi(first.getID());
     int y = stoi(second.getID());
     return x < y;
-}
+}*/
 
 void TTM::vsize() {
-    cout << everyClass.size() << endl;
-}*/
+    cout << students.size() << endl;
+}
 
 bool TTM::searchStudent(string s_student, string s_uc_code)
 {
@@ -228,7 +228,7 @@ void TTM::csv_students_classes_reader(const string& filename)
             getline(coeff, class_code, '\n');
 
             if (student_code != repeat) {
-                Student* temporary_student = new Student (student_name, student_code);
+                Student* temporary_student = new Student(student_name, student_code);
 
                 temporary_student->getAllClasses(filename);
                 this->students.push_back(temporary_student);
@@ -268,6 +268,12 @@ void TTM::removeClass(Student& student, UCClass& uc) {
         }
     }
     if (removed == true) {
+        for (auto itr = student.schedule.begin(); itr != student.schedule.end(); itr++) {
+            if (itr->getUC() == uc.get_UC_ID()) {
+                itr = student.schedule.erase(itr);
+                itr--;
+            }
+        }
         uc.count_decrement();
         requests.front().setDone();
         return;
@@ -346,19 +352,14 @@ bool TTM::overlap(Student& student, string course, string classID, bool flag) {
     if (flag == true) {
         for (auto itr = tmp.begin(); itr != tmp.end(); itr++) {
             if (course == itr->getUC()) {
-                tmp.erase(itr);
+                itr = tmp.erase(itr);
                 itr--;
             }
         }
     }
-    for (Slot element: tmp) {
-        cout << " " << element.getUC() << "-> " << element.getDay() << ": " << element.getStart() << "-" << element.getEnd() << ", " << element.isType() << endl;
-        cout << "|-------------------------------------|" << endl;
-    }
     carbon.getFullSchedule(class_schedule);
     carbon.getClass(course, tmp);
     sort(tmp.begin(), tmp.end(), ttm_sortday);
-    cout << "|-------------------------------------|" << endl;
     for (unsigned int i = 0; i < tmp.size()-1; i++) {
         if (tmp[i].getDay() == tmp[i+1].getDay()) {
             if (tmp[i].getEnd() > tmp[i+1].getStart()) {
@@ -391,6 +392,10 @@ void TTM::addClass(Student& student, UCClass& uc) {
         return;
     }
     else {
+        ClassSchedule carbon(uc.get_class_ID());
+        carbon.getFullSchedule(class_schedule);
+        carbon.getClass(uc.get_UC_ID(), student.schedule);
+        sort(student.schedule.begin(), student.schedule.end(), ttm_sortday);
         student.allClasses.push_back(uc);
         uc.count_increment();
         requests.front().setDone();

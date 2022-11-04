@@ -46,7 +46,7 @@ class TTM {
 
 
 
-    //void vsize();
+    void vsize();
     private:
         vector<Student*> students; // Sorted by student code.
         vector<UCClass> everyClass;
