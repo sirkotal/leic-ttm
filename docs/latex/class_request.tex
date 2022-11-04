@@ -6,10 +6,40 @@
 \mbox{\Hypertarget{class_request_af63ccc1fca6a7ca1a28630041a9ba6a9}\label{class_request_af63ccc1fca6a7ca1a28630041a9ba6a9}} 
 {\bfseries Request} (int type, string student\+\_\+code, string class\+\_\+code)
 \item 
-\mbox{\Hypertarget{class_request_ad60f69df625df9ff445b0bf12bbeebe1}\label{class_request_ad60f69df625df9ff445b0bf12bbeebe1}} 
-int {\bfseries get\+Type} () const
+bool \mbox{\hyperlink{class_request_adc6ea93268803b7ec7b2f7f876c0c9ab}{is\+Done}} () const
+\item 
+int \mbox{\hyperlink{class_request_ad60f69df625df9ff445b0bf12bbeebe1}{get\+Type}} () const
+\item 
+void \mbox{\hyperlink{class_request_a8b3b80bca30b6a01b0db9700052aab8a}{set\+Done}} ()
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_request_ad60f69df625df9ff445b0bf12bbeebe1}\label{class_request_ad60f69df625df9ff445b0bf12bbeebe1}} 
+\index{Request@{Request}!getType@{getType}}
+\index{getType@{getType}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily int Request\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Retrieves the type of operation the request demands. \begin{DoxyReturn}{Returns}
+An int representing the operation\textquotesingle{}s type. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_request_adc6ea93268803b7ec7b2f7f876c0c9ab}\label{class_request_adc6ea93268803b7ec7b2f7f876c0c9ab}} 
+\index{Request@{Request}!isDone@{isDone}}
+\index{isDone@{isDone}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{isDone()}{isDone()}}
+{\footnotesize\ttfamily bool Request\+::is\+Done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Checks if a specific request has been completed \begin{DoxyReturn}{Returns}
+true if request has been completed, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_request_a8b3b80bca30b6a01b0db9700052aab8a}\label{class_request_a8b3b80bca30b6a01b0db9700052aab8a}} 
+\index{Request@{Request}!setDone@{setDone}}
+\index{setDone@{setDone}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{setDone()}{setDone()}}
+{\footnotesize\ttfamily void Request\+::set\+Done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sets the request status to completed (true). 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

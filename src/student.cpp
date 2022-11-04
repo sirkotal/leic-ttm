@@ -29,12 +29,21 @@ void Student::showAllClasses() const {
         cout << "|-------------------|" << endl;
     }
 }
+
+/*!
+ * Converts a float representing time into standard time format.
+ * @param time The time represented as a float.
+ * @return A string representing time in the standard time format.
+ */
 string toTime(float time) {
     int totalseconds = time * 3600.0;
     int hours = totalseconds/3600;
     int minutes = (totalseconds/60) % 60;
     string first = to_string(hours);
     string second = to_string(minutes);
+    if (second == "0") {
+        second = second + "0";
+    }
     string final = first + ":" + second;
 
     return final;
@@ -118,7 +127,12 @@ void Student::getAllClasses(const string& filename) { // csv_students_classes_re
     }
 }
 
-
+/*!
+ * Sorts two Slots (classes) by start time.
+ * @param firsts The first Slot to compare.
+ * @param seconds The second Slot to compare.
+ * @return true if the first Slot starts before the second; otherwise, it returns false.
+ */
 bool sorttime(Slot firsts, Slot seconds) {
     float fstart = firsts.getStart();
     float sstart = seconds.getStart();
@@ -126,6 +140,12 @@ bool sorttime(Slot firsts, Slot seconds) {
     return fstart < sstart;
 }
 
+/*!
+ * Sorts two Slots (classes) by day of the week.
+ * @param firsts The first Slot to compare.
+ * @param seconds The second Slot to compare.
+ * @return true if the first Slot occurs before the second; otherwise, it returns false.
+ */
 bool sortday(Slot firsts, Slot seconds) {
     string first = firsts.getDay();
     string second = seconds.getDay();
@@ -157,23 +177,18 @@ void Student::getSchedule() {
     sort(schedule.begin(), schedule.end(), sortday);
 }
 
-bool student_uc_number_comparison(Student first, Student second) {
+/*bool student_uc_number_comparison(Student first, Student second) {
     int x = stoi(first.getID());
     int y = stoi(second.getID());
     return x < y;
 }
 
-/*!
- * Sorts a vector of UCClasses by capacity/student count.
- * @param first The first class
- * @param second The second class
- * @return true or false, depending on the capacity of each class
- */
+
 bool cap_sort(UCClass first, UCClass second) {
     return first.get_student_count() < second.get_student_count();
 }
 
-/*
+
 void Student::print() {
     for (Slot element: schedule) {
         cout << element.getUC() << "|" << element.getStart() << "|" << element.isType() << " ";

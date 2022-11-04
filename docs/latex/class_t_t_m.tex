@@ -15,8 +15,8 @@ void {\bfseries print\+\_\+students\+\_\+with\+\_\+more\+\_\+than\+\_\+n\+\_\+uc
 \mbox{\Hypertarget{class_t_t_m_a1f55022b32fae8249508d74ba86442be}\label{class_t_t_m_a1f55022b32fae8249508d74ba86442be}} 
 bool {\bfseries search\+Student} (string s\+\_\+student, string s\+\_\+uc\+\_\+code)
 \item 
-\mbox{\Hypertarget{class_t_t_m_a66d5ae7089b3182e4c9e8b74ea44a680}\label{class_t_t_m_a66d5ae7089b3182e4c9e8b74ea44a680}} 
-\mbox{\hyperlink{class_student}{Student}} {\bfseries get\+Student} (string s\+\_\+name, string student\+\_\+code)
+\mbox{\Hypertarget{class_t_t_m_a56746f618da31f4f9717b72995503b6f}\label{class_t_t_m_a56746f618da31f4f9717b72995503b6f}} 
+\mbox{\hyperlink{class_student}{Student}} $\ast$ {\bfseries get\+Student} (string s\+\_\+name, string student\+\_\+code)
 \item 
 \mbox{\Hypertarget{class_t_t_m_a06474964c107f3c69d7d7ed183e61ad0}\label{class_t_t_m_a06474964c107f3c69d7d7ed183e61ad0}} 
 \mbox{\hyperlink{class_u_c_class}{UCClass}} {\bfseries get\+Class} (string uc\+ID, string class\+ID)
@@ -39,8 +39,17 @@ void {\bfseries csv\+\_\+students\+\_\+classes\+\_\+reader} (const string \&file
 \mbox{\Hypertarget{class_t_t_m_ab52e5b07be662da59ea1afab38bca53b}\label{class_t_t_m_ab52e5b07be662da59ea1afab38bca53b}} 
 void {\bfseries process} ()
 \item 
-\mbox{\Hypertarget{class_t_t_m_a0d1e87a477c6a6d2b56f902f02a9e74b}\label{class_t_t_m_a0d1e87a477c6a6d2b56f902f02a9e74b}} 
-bool {\bfseries remove\+Class} (\mbox{\hyperlink{class_student}{Student}} \&student, \mbox{\hyperlink{class_u_c_class}{UCClass}} \&uc)
+\mbox{\Hypertarget{class_t_t_m_a5b14d2e0ae9ac8889dadec050f686977}\label{class_t_t_m_a5b14d2e0ae9ac8889dadec050f686977}} 
+void {\bfseries remove\+Class} (\mbox{\hyperlink{class_student}{Student}} \&student, \mbox{\hyperlink{class_u_c_class}{UCClass}} \&uc)
+\item 
+\mbox{\Hypertarget{class_t_t_m_a8db9ebf9b29898248ccdbdeee9d35988}\label{class_t_t_m_a8db9ebf9b29898248ccdbdeee9d35988}} 
+void {\bfseries add\+Class} (\mbox{\hyperlink{class_student}{Student}} \&student, \mbox{\hyperlink{class_u_c_class}{UCClass}} \&uc)
+\item 
+\mbox{\Hypertarget{class_t_t_m_a369943b4159267e395c871e9417b1baa}\label{class_t_t_m_a369943b4159267e395c871e9417b1baa}} 
+void {\bfseries change\+Class} (\mbox{\hyperlink{class_student}{Student}} \&student, \mbox{\hyperlink{class_u_c_class}{UCClass}} \&current, \mbox{\hyperlink{class_u_c_class}{UCClass}} \&target)
+\item 
+\mbox{\Hypertarget{class_t_t_m_a7d3149190d9ad9139b709b14074c9e45}\label{class_t_t_m_a7d3149190d9ad9139b709b14074c9e45}} 
+void {\bfseries vsize} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}

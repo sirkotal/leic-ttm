@@ -21,7 +21,7 @@ class ClassSchedule {
         // string get_UC_ID() const;
         /*!
          * Retrieves the class to whom the schedule belongs.
-         * @return The class ID.
+         * @return The class identifier.
          */
         string get_class_ID() const;
 

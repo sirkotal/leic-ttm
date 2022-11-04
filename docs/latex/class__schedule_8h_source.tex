@@ -5,34 +5,38 @@
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CLASSESCHEDULE\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define CLASSESCHEDULE\_H}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <bits/stdc++.h>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}slot.h"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <fstream>}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <sstream>}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <iomanip>}}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{using namespace }std;}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_class_schedule}{ClassSchedule}} \{}
-\DoxyCodeLine{15     \textcolor{keyword}{public}:}
-\DoxyCodeLine{16         \mbox{\hyperlink{class_class_schedule}{ClassSchedule}}(\textcolor{keywordtype}{string} classID);}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{18         \textcolor{comment}{// string get\_UC\_ID() const;}}
-\DoxyCodeLine{19         \textcolor{keywordtype}{string} get\_class\_ID() \textcolor{keyword}{const};}
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_class_schedule}{ClassSchedule}};}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <bits/stdc++.h>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}slot.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}ttm.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_class_schedule}{ClassSchedule}} \{}
+\DoxyCodeLine{18     \textcolor{keyword}{public}:}
+\DoxyCodeLine{19         \mbox{\hyperlink{class_class_schedule}{ClassSchedule}}(\textcolor{keywordtype}{string} classID);}
 \DoxyCodeLine{20 }
-\DoxyCodeLine{21         \textcolor{keywordtype}{void} getFullSchedule(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& filename); \textcolor{comment}{//csv\_classes\_reader}}
-\DoxyCodeLine{22         \textcolor{keywordtype}{void} getClass(\textcolor{keywordtype}{string} ucID, vector<Slot>\& vct);}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24         \textcolor{comment}{// void print();}}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26     \textcolor{keyword}{private}:}
-\DoxyCodeLine{27         \textcolor{comment}{//string ucID \#LEIC003}}
-\DoxyCodeLine{28         \textcolor{keywordtype}{string} classID; \textcolor{comment}{//1LEIC14}}
-\DoxyCodeLine{29         vector<Slot> classSchedule;}
-\DoxyCodeLine{30 \};}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21         \textcolor{comment}{// string get\_UC\_ID() const;}}
+\DoxyCodeLine{26 \textcolor{comment}{}        \textcolor{keywordtype}{string} \mbox{\hyperlink{class_class_schedule_ab1bb4adaafba63532e932af7211f8eb9}{get\_class\_ID}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{32         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_class_schedule_a4df455cbbd286660765253fa658656cb}{getFullSchedule}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& filename); \textcolor{comment}{//csv\_classes\_reader}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{39         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_class_schedule_afac1d6d23eb3175435059a9a186ac25b}{getClass}}(\textcolor{keywordtype}{string} ucID, vector<Slot>\& vct);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         \textcolor{comment}{// void print();}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keyword}{private}:}
+\DoxyCodeLine{44         \textcolor{comment}{//string ucID \#LEIC003}}
+\DoxyCodeLine{45         \textcolor{keywordtype}{string} classID; \textcolor{comment}{//1LEIC14}}
+\DoxyCodeLine{46         vector<Slot> classSchedule;}
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

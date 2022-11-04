@@ -6,41 +6,25 @@
 \mbox{\Hypertarget{class_student_a8df36bf32260e741e5743ba9ac9bfeb4}\label{class_student_a8df36bf32260e741e5743ba9ac9bfeb4}} 
 {\bfseries Student} (string name, string id)
 \item 
-\mbox{\Hypertarget{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}\label{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}} 
-string {\bfseries get\+Name} () const
+string \mbox{\hyperlink{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}{get\+Name}} () const
 \item 
-\mbox{\Hypertarget{class_student_afb27011f8eaab97b114d47094e049cbf}\label{class_student_afb27011f8eaab97b114d47094e049cbf}} 
-string {\bfseries get\+ID} () const
+string \mbox{\hyperlink{class_student_afb27011f8eaab97b114d47094e049cbf}{get\+ID}} () const
 \item 
-\mbox{\Hypertarget{class_student_a0f2f7ae77c5ee306b1b6bdfe9e05d465}\label{class_student_a0f2f7ae77c5ee306b1b6bdfe9e05d465}} 
-int {\bfseries get\+Number\+Classes} () const
+int \mbox{\hyperlink{class_student_a0f2f7ae77c5ee306b1b6bdfe9e05d465}{get\+Number\+Classes}} () const
 \item 
-\mbox{\Hypertarget{class_student_ae9873e1952464c40644e826f5a46db45}\label{class_student_ae9873e1952464c40644e826f5a46db45}} 
-void {\bfseries show\+All\+Classes} () const
+void \mbox{\hyperlink{class_student_ae9873e1952464c40644e826f5a46db45}{show\+All\+Classes}} () const
 \item 
-\mbox{\Hypertarget{class_student_aebd6a4905f8b2f7b6f8e70283a2aa8d8}\label{class_student_aebd6a4905f8b2f7b6f8e70283a2aa8d8}} 
-void {\bfseries show\+Schedule} () const
+void \mbox{\hyperlink{class_student_aebd6a4905f8b2f7b6f8e70283a2aa8d8}{show\+Schedule}} () const
 \item 
-\mbox{\Hypertarget{class_student_a5c5076cb9feb2f98bc36f48b9a83939f}\label{class_student_a5c5076cb9feb2f98bc36f48b9a83939f}} 
-bool {\bfseries in\+Course} (string uc)
+bool \mbox{\hyperlink{class_student_a5c5076cb9feb2f98bc36f48b9a83939f}{in\+Course}} (string uc)
 \item 
-\mbox{\Hypertarget{class_student_a36619865bf3b09610fbcb53593199443}\label{class_student_a36619865bf3b09610fbcb53593199443}} 
-bool {\bfseries in\+Class} (string class\+\_\+\+ID)
+bool \mbox{\hyperlink{class_student_a36619865bf3b09610fbcb53593199443}{in\+Class}} (string class\+\_\+\+ID)
 \item 
-\mbox{\Hypertarget{class_student_ae33e886c118c0afd2e59dccee70b56e9}\label{class_student_ae33e886c118c0afd2e59dccee70b56e9}} 
-bool {\bfseries in\+Year} (char year)
+bool \mbox{\hyperlink{class_student_ae33e886c118c0afd2e59dccee70b56e9}{in\+Year}} (char year)
 \item 
-\mbox{\Hypertarget{class_student_ac94cb5c405590b8d7bb5a64c0e35d17b}\label{class_student_ac94cb5c405590b8d7bb5a64c0e35d17b}} 
-void {\bfseries get\+All\+Classes} (const string \&filename)
+void \mbox{\hyperlink{class_student_ac94cb5c405590b8d7bb5a64c0e35d17b}{get\+All\+Classes}} (const string \&filename)
 \item 
-\mbox{\Hypertarget{class_student_a4f8dc9020d204f2577e1354e6b7dd398}\label{class_student_a4f8dc9020d204f2577e1354e6b7dd398}} 
-void {\bfseries get\+Schedule} ()
-\item 
-\mbox{\Hypertarget{class_student_a0b174fe9e2d4a50c7b39ac76fab271e4}\label{class_student_a0b174fe9e2d4a50c7b39ac76fab271e4}} 
-void {\bfseries add\+Class} (\mbox{\hyperlink{class_u_c_class}{UCClass}} \&uc, vector$<$ \mbox{\hyperlink{class_u_c_class}{UCClass}} $>$ \&every\+\_\+class)
-\item 
-\mbox{\Hypertarget{class_student_aac7b5c4f1956da996c20bbd06ec77923}\label{class_student_aac7b5c4f1956da996c20bbd06ec77923}} 
-void {\bfseries change\+Class} (\mbox{\hyperlink{class_u_c_class}{UCClass}} \&current, \mbox{\hyperlink{class_u_c_class}{UCClass}} \&target)
+void \mbox{\hyperlink{class_student_a4f8dc9020d204f2577e1354e6b7dd398}{get\+Schedule}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -49,6 +33,107 @@ void {\bfseries change\+Class} (\mbox{\hyperlink{class_u_c_class}{UCClass}} \&cu
 class {\bfseries TTM}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_ac94cb5c405590b8d7bb5a64c0e35d17b}\label{class_student_ac94cb5c405590b8d7bb5a64c0e35d17b}} 
+\index{Student@{Student}!getAllClasses@{getAllClasses}}
+\index{getAllClasses@{getAllClasses}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getAllClasses()}{getAllClasses()}}
+{\footnotesize\ttfamily void Student\+::get\+All\+Classes (\begin{DoxyParamCaption}\item[{const string \&}]{filename }\end{DoxyParamCaption})}
+
+Retrieves all the classes a student belongs to. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The file in which students and their respective classes are stored. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_student_afb27011f8eaab97b114d47094e049cbf}\label{class_student_afb27011f8eaab97b114d47094e049cbf}} 
+\index{Student@{Student}!getID@{getID}}
+\index{getID@{getID}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily string Student\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Retrieves a student\textquotesingle{}s identification number. \begin{DoxyReturn}{Returns}
+The student\textquotesingle{}s identification number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}\label{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}} 
+\index{Student@{Student}!getName@{getName}}
+\index{getName@{getName}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Student\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Retrieves a student\textquotesingle{}s name. \begin{DoxyReturn}{Returns}
+The student\textquotesingle{}s name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_a0f2f7ae77c5ee306b1b6bdfe9e05d465}\label{class_student_a0f2f7ae77c5ee306b1b6bdfe9e05d465}} 
+\index{Student@{Student}!getNumberClasses@{getNumberClasses}}
+\index{getNumberClasses@{getNumberClasses}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getNumberClasses()}{getNumberClasses()}}
+{\footnotesize\ttfamily int Student\+::get\+Number\+Classes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Checks in how many classes a student is enrolled. \begin{DoxyReturn}{Returns}
+The number of classes the student is attending. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_a4f8dc9020d204f2577e1354e6b7dd398}\label{class_student_a4f8dc9020d204f2577e1354e6b7dd398}} 
+\index{Student@{Student}!getSchedule@{getSchedule}}
+\index{getSchedule@{getSchedule}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{getSchedule()}{getSchedule()}}
+{\footnotesize\ttfamily void Student\+::get\+Schedule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieves a student\textquotesingle{}s schedule. \mbox{\Hypertarget{class_student_a36619865bf3b09610fbcb53593199443}\label{class_student_a36619865bf3b09610fbcb53593199443}} 
+\index{Student@{Student}!inClass@{inClass}}
+\index{inClass@{inClass}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{inClass()}{inClass()}}
+{\footnotesize\ttfamily bool Student\+::in\+Class (\begin{DoxyParamCaption}\item[{string}]{class\+\_\+\+ID }\end{DoxyParamCaption})}
+
+Checks if a student belongs to a specific class. 
+\begin{DoxyParams}{Parameters}
+{\em class\+\_\+\+ID} & The class we want to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the student belongs to it; otherwise, it returns false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_a5c5076cb9feb2f98bc36f48b9a83939f}\label{class_student_a5c5076cb9feb2f98bc36f48b9a83939f}} 
+\index{Student@{Student}!inCourse@{inCourse}}
+\index{inCourse@{inCourse}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{inCourse()}{inCourse()}}
+{\footnotesize\ttfamily bool Student\+::in\+Course (\begin{DoxyParamCaption}\item[{string}]{uc }\end{DoxyParamCaption})}
+
+Checks if a student is enrolled in a specific course (UC). 
+\begin{DoxyParams}{Parameters}
+{\em uc} & The UC we want to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the student is enrolled in it; otherwise, it returns false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_ae33e886c118c0afd2e59dccee70b56e9}\label{class_student_ae33e886c118c0afd2e59dccee70b56e9}} 
+\index{Student@{Student}!inYear@{inYear}}
+\index{inYear@{inYear}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{inYear()}{inYear()}}
+{\footnotesize\ttfamily bool Student\+::in\+Year (\begin{DoxyParamCaption}\item[{char}]{year }\end{DoxyParamCaption})}
+
+Checks if a student belongs to a specific year. 
+\begin{DoxyParams}{Parameters}
+{\em year} & The year we want to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the student belongs to it; otherwise, it returns false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_student_ae9873e1952464c40644e826f5a46db45}\label{class_student_ae9873e1952464c40644e826f5a46db45}} 
+\index{Student@{Student}!showAllClasses@{showAllClasses}}
+\index{showAllClasses@{showAllClasses}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{showAllClasses()}{showAllClasses()}}
+{\footnotesize\ttfamily void Student\+::show\+All\+Classes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Shows all the classes a student is enrolled in. \mbox{\Hypertarget{class_student_aebd6a4905f8b2f7b6f8e70283a2aa8d8}\label{class_student_aebd6a4905f8b2f7b6f8e70283a2aa8d8}} 
+\index{Student@{Student}!showSchedule@{showSchedule}}
+\index{showSchedule@{showSchedule}!Student@{Student}}
+\doxysubsubsection{\texorpdfstring{showSchedule()}{showSchedule()}}
+{\footnotesize\ttfamily void Student\+::show\+Schedule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Shows a student\textquotesingle{}s schedule. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

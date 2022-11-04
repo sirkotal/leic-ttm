@@ -92,9 +92,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print_students_with_m
 <tr class="memitem:a1f55022b32fae8249508d74ba86442be"><td class="memItemLeft" align="right" valign="top"><a id="a1f55022b32fae8249508d74ba86442be" name="a1f55022b32fae8249508d74ba86442be"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>searchStudent</b> (string s_student, string s_uc_code)</td></tr>
 <tr class="separator:a1f55022b32fae8249508d74ba86442be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66d5ae7089b3182e4c9e8b74ea44a680"><td class="memItemLeft" align="right" valign="top"><a id="a66d5ae7089b3182e4c9e8b74ea44a680" name="a66d5ae7089b3182e4c9e8b74ea44a680"></a>
-<a class="el" href="class_student.html">Student</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getStudent</b> (string s_name, string student_code)</td></tr>
-<tr class="separator:a66d5ae7089b3182e4c9e8b74ea44a680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56746f618da31f4f9717b72995503b6f"><td class="memItemLeft" align="right" valign="top"><a id="a56746f618da31f4f9717b72995503b6f" name="a56746f618da31f4f9717b72995503b6f"></a>
+<a class="el" href="class_student.html">Student</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getStudent</b> (string s_name, string student_code)</td></tr>
+<tr class="separator:a56746f618da31f4f9717b72995503b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06474964c107f3c69d7d7ed183e61ad0"><td class="memItemLeft" align="right" valign="top"><a id="a06474964c107f3c69d7d7ed183e61ad0" name="a06474964c107f3c69d7d7ed183e61ad0"></a>
 <a class="el" href="class_u_c_class.html">UCClass</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getClass</b> (string ucID, string classID)</td></tr>
 <tr class="separator:a06474964c107f3c69d7d7ed183e61ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,9 +116,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>csv_students_classes_
 <tr class="memitem:ab52e5b07be662da59ea1afab38bca53b"><td class="memItemLeft" align="right" valign="top"><a id="ab52e5b07be662da59ea1afab38bca53b" name="ab52e5b07be662da59ea1afab38bca53b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>process</b> ()</td></tr>
 <tr class="separator:ab52e5b07be662da59ea1afab38bca53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d1e87a477c6a6d2b56f902f02a9e74b"><td class="memItemLeft" align="right" valign="top"><a id="a0d1e87a477c6a6d2b56f902f02a9e74b" name="a0d1e87a477c6a6d2b56f902f02a9e74b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>removeClass</b> (<a class="el" href="class_student.html">Student</a> &amp;student, <a class="el" href="class_u_c_class.html">UCClass</a> &amp;uc)</td></tr>
-<tr class="separator:a0d1e87a477c6a6d2b56f902f02a9e74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b14d2e0ae9ac8889dadec050f686977"><td class="memItemLeft" align="right" valign="top"><a id="a5b14d2e0ae9ac8889dadec050f686977" name="a5b14d2e0ae9ac8889dadec050f686977"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>removeClass</b> (<a class="el" href="class_student.html">Student</a> &amp;student, <a class="el" href="class_u_c_class.html">UCClass</a> &amp;uc)</td></tr>
+<tr class="separator:a5b14d2e0ae9ac8889dadec050f686977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8db9ebf9b29898248ccdbdeee9d35988"><td class="memItemLeft" align="right" valign="top"><a id="a8db9ebf9b29898248ccdbdeee9d35988" name="a8db9ebf9b29898248ccdbdeee9d35988"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addClass</b> (<a class="el" href="class_student.html">Student</a> &amp;student, <a class="el" href="class_u_c_class.html">UCClass</a> &amp;uc)</td></tr>
+<tr class="separator:a8db9ebf9b29898248ccdbdeee9d35988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a369943b4159267e395c871e9417b1baa"><td class="memItemLeft" align="right" valign="top"><a id="a369943b4159267e395c871e9417b1baa" name="a369943b4159267e395c871e9417b1baa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>changeClass</b> (<a class="el" href="class_student.html">Student</a> &amp;student, <a class="el" href="class_u_c_class.html">UCClass</a> &amp;current, <a class="el" href="class_u_c_class.html">UCClass</a> &amp;target)</td></tr>
+<tr class="separator:a369943b4159267e395c871e9417b1baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d3149190d9ad9139b709b14074c9e45"><td class="memItemLeft" align="right" valign="top"><a id="a7d3149190d9ad9139b709b14074c9e45" name="a7d3149190d9ad9139b709b14074c9e45"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>vsize</b> ()</td></tr>
+<tr class="separator:a7d3149190d9ad9139b709b14074c9e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>

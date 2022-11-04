@@ -6,15 +6,48 @@
 \mbox{\Hypertarget{class_class_schedule_a98b24bb438f4c63fdf9e1f5c13c35ef1}\label{class_class_schedule_a98b24bb438f4c63fdf9e1f5c13c35ef1}} 
 {\bfseries Class\+Schedule} (string class\+ID)
 \item 
-\mbox{\Hypertarget{class_class_schedule_ab1bb4adaafba63532e932af7211f8eb9}\label{class_class_schedule_ab1bb4adaafba63532e932af7211f8eb9}} 
-string {\bfseries get\+\_\+class\+\_\+\+ID} () const
+string \mbox{\hyperlink{class_class_schedule_ab1bb4adaafba63532e932af7211f8eb9}{get\+\_\+class\+\_\+\+ID}} () const
 \item 
-\mbox{\Hypertarget{class_class_schedule_a4df455cbbd286660765253fa658656cb}\label{class_class_schedule_a4df455cbbd286660765253fa658656cb}} 
-void {\bfseries get\+Full\+Schedule} (const string \&filename)
+void \mbox{\hyperlink{class_class_schedule_a4df455cbbd286660765253fa658656cb}{get\+Full\+Schedule}} (const string \&filename)
 \item 
-\mbox{\Hypertarget{class_class_schedule_afac1d6d23eb3175435059a9a186ac25b}\label{class_class_schedule_afac1d6d23eb3175435059a9a186ac25b}} 
-void {\bfseries get\+Class} (string uc\+ID, vector$<$ \mbox{\hyperlink{class_slot}{Slot}} $>$ \&vct)
+void \mbox{\hyperlink{class_class_schedule_afac1d6d23eb3175435059a9a186ac25b}{get\+Class}} (string uc\+ID, vector$<$ \mbox{\hyperlink{class_slot}{Slot}} $>$ \&vct)
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_class_schedule_ab1bb4adaafba63532e932af7211f8eb9}\label{class_class_schedule_ab1bb4adaafba63532e932af7211f8eb9}} 
+\index{ClassSchedule@{ClassSchedule}!get\_class\_ID@{get\_class\_ID}}
+\index{get\_class\_ID@{get\_class\_ID}!ClassSchedule@{ClassSchedule}}
+\doxysubsubsection{\texorpdfstring{get\_class\_ID()}{get\_class\_ID()}}
+{\footnotesize\ttfamily string Class\+Schedule\+::get\+\_\+class\+\_\+\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Retrieves the class to whom the schedule belongs. \begin{DoxyReturn}{Returns}
+The class identifier. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_class_schedule_afac1d6d23eb3175435059a9a186ac25b}\label{class_class_schedule_afac1d6d23eb3175435059a9a186ac25b}} 
+\index{ClassSchedule@{ClassSchedule}!getClass@{getClass}}
+\index{getClass@{getClass}!ClassSchedule@{ClassSchedule}}
+\doxysubsubsection{\texorpdfstring{getClass()}{getClass()}}
+{\footnotesize\ttfamily void Class\+Schedule\+::get\+Class (\begin{DoxyParamCaption}\item[{string}]{uc\+ID,  }\item[{vector$<$ \mbox{\hyperlink{class_slot}{Slot}} $>$ \&}]{vct }\end{DoxyParamCaption})}
+
+Adds a specific class (from a specific UC class) to a schedule. 
+\begin{DoxyParams}{Parameters}
+{\em uc\+ID} & The class\textquotesingle{}s UC identifier. \\
+\hline
+{\em vct} & The schedule. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_class_schedule_a4df455cbbd286660765253fa658656cb}\label{class_class_schedule_a4df455cbbd286660765253fa658656cb}} 
+\index{ClassSchedule@{ClassSchedule}!getFullSchedule@{getFullSchedule}}
+\index{getFullSchedule@{getFullSchedule}!ClassSchedule@{ClassSchedule}}
+\doxysubsubsection{\texorpdfstring{getFullSchedule()}{getFullSchedule()}}
+{\footnotesize\ttfamily void Class\+Schedule\+::get\+Full\+Schedule (\begin{DoxyParamCaption}\item[{const string \&}]{filename }\end{DoxyParamCaption})}
+
+Builds the full schedule of a specific class through all UCs. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The file from where the class\textquotesingle{}s schedule is retrieved. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
