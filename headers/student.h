@@ -19,20 +19,66 @@ class Student {
     public:
     Student(string name, string id);
 
+    /*!
+     * Retrieves a student's name.
+     * @return The student's name.
+     */
     string getName() const;
+
+    /*!
+     * Retrieves a student's identification number.
+     * @return The student's identification number.
+     */
     string getID() const;
+
+    /*!
+     * Checks in how many classes a student is enrolled.
+     * @return The number of classes the student is attending.
+     */
     int getNumberClasses() const;
+
+    /*!
+     * Shows all the classes a student is enrolled in.
+     */
     void showAllClasses() const;
+
+    /*!
+     * Shows a student's schedule.
+     */
     void showSchedule() const;
+
+    /*!
+     * Checks if a student is enrolled in a specific course (UC).
+     * @param uc The UC we want to check.
+     * @return true if the student is enrolled in it; otherwise, it returns false.
+     */
     bool inCourse(string uc);
+
+    /*!
+     * Checks if a student belongs to a specific class.
+     * @param class_ID The class we want to check.
+     * @return true if the student belongs to it; otherwise, it returns false.
+     */
     bool inClass(string class_ID);
 
-    void getAllClasses(const string& filename);  // #generates allClasses, csv_students_classes_reader
+    /*!
+     * Checks if a student belongs to a specific year.
+     * @param year The year we want to check.
+     * @return true if the student belongs to it; otherwise, it returns false.
+     */
+    bool inYear(char year);
+
+    /*!
+     * Retrieves all the classes a student belongs to.
+     * @param filename The file in which students and their respective classes are stored.
+     */
+    void getAllClasses(const string& filename);
+
+    /*!
+     * Retrieves a student's schedule.
+     */
     void getSchedule();
 
-    //void removeClass(UCClass& uc);
-    void addClass(UCClass& uc, vector<UCClass>& every_class);
-    void changeClass(UCClass& current, UCClass& target);
     // void print();
 
     // bool Student::operator< (const Student &next) const;

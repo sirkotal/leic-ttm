@@ -12,6 +12,12 @@ string ClassSchedule::get_class_ID() const{
     return classID;
 }
 
+/*!
+ * Sorts two Slots (classes) by start time.
+ * @param firsts The first Slot to compare.
+ * @param seconds The second Slot to compare.
+ * @return true if the first Slot starts before the second; otherwise, it returns false.
+ */
 bool sort_time(Slot firsts, Slot seconds) {
     float fstart = firsts.getStart();
     float sstart = seconds.getStart();
@@ -19,6 +25,12 @@ bool sort_time(Slot firsts, Slot seconds) {
     return fstart < sstart;
 }
 
+/*!
+ * Sorts two Slots (classes) by day of the week.
+ * @param firsts The first Slot to compare.
+ * @param seconds The second Slot to compare.
+ * @return true if the first Slot occurs before the second; otherwise, it returns false.
+ */
 bool sort_day(Slot firsts, Slot seconds) {
     string first = firsts.getDay();
     string second = seconds.getDay();

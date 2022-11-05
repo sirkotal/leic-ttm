@@ -1,0 +1,63 @@
+\hypertarget{student_8h_source}{}\doxysection{student.\+h}
+\label{student_8h_source}\index{C:/Users/Utilizador/Desktop/leic-\/ttm/headers/student.h@{C:/Users/Utilizador/Desktop/leic-\/ttm/headers/student.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STUDENT\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STUDENT\_H}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_student}{Student}};}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <bits/stdc++.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}class\_schedule.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}slot.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}uc\_class.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}ttm.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}request.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_student}{Student}} \{}
+\DoxyCodeLine{19     \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_student}{Student}}(\textcolor{keywordtype}{string} name, \textcolor{keywordtype}{string} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}{getName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_student_afb27011f8eaab97b114d47094e049cbf}{getID}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_student_a0f2f7ae77c5ee306b1b6bdfe9e05d465}{getNumberClasses}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_ae9873e1952464c40644e826f5a46db45}{showAllClasses}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_aebd6a4905f8b2f7b6f8e70283a2aa8d8}{showSchedule}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_student_a5c5076cb9feb2f98bc36f48b9a83939f}{inCourse}}(\textcolor{keywordtype}{string} uc);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_student_a36619865bf3b09610fbcb53593199443}{inClass}}(\textcolor{keywordtype}{string} class\_ID);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{69     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_student_ae33e886c118c0afd2e59dccee70b56e9}{inYear}}(\textcolor{keywordtype}{char} year);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_ac94cb5c405590b8d7bb5a64c0e35d17b}{getAllClasses}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& filename);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_a4f8dc9020d204f2577e1354e6b7dd398}{getSchedule}}();}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{comment}{// void print();}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{comment}{// bool Student::operator< (const Student \&next) const;}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_t_t_m}{TTM}};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{keyword}{private}:}
+\DoxyCodeLine{89     \textcolor{keywordtype}{string} name;}
+\DoxyCodeLine{90     \textcolor{keywordtype}{string} id;}
+\DoxyCodeLine{91     list<UCClass> allClasses;}
+\DoxyCodeLine{92     vector<Slot> schedule;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} buildClass(\mbox{\hyperlink{class_u_c_class}{UCClass}}\& x);}
+\DoxyCodeLine{95 \};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,78 @@
+\hypertarget{class_u_c_class}{}\doxysection{UCClass Class Reference}
+\label{class_u_c_class}\index{UCClass@{UCClass}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_u_c_class_a0268232ea6b21b5d8f0bd431faa01bab}\label{class_u_c_class_a0268232ea6b21b5d8f0bd431faa01bab}} 
+{\bfseries UCClass} (string uc\+ID, string class\+ID)
+\item 
+string \mbox{\hyperlink{class_u_c_class_aea7d37d03b56ccc22331e1af5bdbab3a}{get\+\_\+\+UC\+\_\+\+ID}} () const
+\item 
+string \mbox{\hyperlink{class_u_c_class_a484fa05f298bc5c8269731122c0867e3}{get\+\_\+class\+\_\+\+ID}} () const
+\item 
+int \mbox{\hyperlink{class_u_c_class_a67670ba3bbc296fe6475d7781fb301e7}{get\+\_\+student\+\_\+count}} () const
+\item 
+void \mbox{\hyperlink{class_u_c_class_a0ce39d7aa69b0942a44d95ad5067014b}{count\+\_\+increment}} ()
+\item 
+void \mbox{\hyperlink{class_u_c_class_a6dd8c5e76fe89638006727e6fe5e639a}{count\+\_\+decrement}} ()
+\item 
+void \mbox{\hyperlink{class_u_c_class_aa4b127d4c233bc52be9a50b4a0a2f97a}{student\+\_\+counter}} (const string \&filename)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_u_c_class_a6dd8c5e76fe89638006727e6fe5e639a}\label{class_u_c_class_a6dd8c5e76fe89638006727e6fe5e639a}} 
+\index{UCClass@{UCClass}!count\_decrement@{count\_decrement}}
+\index{count\_decrement@{count\_decrement}!UCClass@{UCClass}}
+\doxysubsubsection{\texorpdfstring{count\_decrement()}{count\_decrement()}}
+{\footnotesize\ttfamily void UCClass\+::count\+\_\+decrement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Decreases a class\textquotesingle{}s student count by 1. \mbox{\Hypertarget{class_u_c_class_a0ce39d7aa69b0942a44d95ad5067014b}\label{class_u_c_class_a0ce39d7aa69b0942a44d95ad5067014b}} 
+\index{UCClass@{UCClass}!count\_increment@{count\_increment}}
+\index{count\_increment@{count\_increment}!UCClass@{UCClass}}
+\doxysubsubsection{\texorpdfstring{count\_increment()}{count\_increment()}}
+{\footnotesize\ttfamily void UCClass\+::count\+\_\+increment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Increases a class\textquotesingle{}s student count by 1. \mbox{\Hypertarget{class_u_c_class_a484fa05f298bc5c8269731122c0867e3}\label{class_u_c_class_a484fa05f298bc5c8269731122c0867e3}} 
+\index{UCClass@{UCClass}!get\_class\_ID@{get\_class\_ID}}
+\index{get\_class\_ID@{get\_class\_ID}!UCClass@{UCClass}}
+\doxysubsubsection{\texorpdfstring{get\_class\_ID()}{get\_class\_ID()}}
+{\footnotesize\ttfamily string UCClass\+::get\+\_\+class\+\_\+\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Retrieves a class\textquotesingle{}s own identifier. \begin{DoxyReturn}{Returns}
+The class\textquotesingle{}s identifier. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_u_c_class_a67670ba3bbc296fe6475d7781fb301e7}\label{class_u_c_class_a67670ba3bbc296fe6475d7781fb301e7}} 
+\index{UCClass@{UCClass}!get\_student\_count@{get\_student\_count}}
+\index{get\_student\_count@{get\_student\_count}!UCClass@{UCClass}}
+\doxysubsubsection{\texorpdfstring{get\_student\_count()}{get\_student\_count()}}
+{\footnotesize\ttfamily int UCClass\+::get\+\_\+student\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the number of students in a specific class. \begin{DoxyReturn}{Returns}
+The number of students in the class. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_u_c_class_aea7d37d03b56ccc22331e1af5bdbab3a}\label{class_u_c_class_aea7d37d03b56ccc22331e1af5bdbab3a}} 
+\index{UCClass@{UCClass}!get\_UC\_ID@{get\_UC\_ID}}
+\index{get\_UC\_ID@{get\_UC\_ID}!UCClass@{UCClass}}
+\doxysubsubsection{\texorpdfstring{get\_UC\_ID()}{get\_UC\_ID()}}
+{\footnotesize\ttfamily string UCClass\+::get\+\_\+\+UC\+\_\+\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Retrieves a class\textquotesingle{}s associated UC. \begin{DoxyReturn}{Returns}
+The UC\textquotesingle{}s identifier. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_u_c_class_aa4b127d4c233bc52be9a50b4a0a2f97a}\label{class_u_c_class_aa4b127d4c233bc52be9a50b4a0a2f97a}} 
+\index{UCClass@{UCClass}!student\_counter@{student\_counter}}
+\index{student\_counter@{student\_counter}!UCClass@{UCClass}}
+\doxysubsubsection{\texorpdfstring{student\_counter()}{student\_counter()}}
+{\footnotesize\ttfamily void UCClass\+::student\+\_\+counter (\begin{DoxyParamCaption}\item[{const string \&}]{filename }\end{DoxyParamCaption})}
+
+Counts the number of students that are part of a specific class. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The file in which students and their respective classes are stored. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Utilizador/\+Desktop/leic-\/ttm/headers/uc\+\_\+class.\+h\end{DoxyCompactItemize}

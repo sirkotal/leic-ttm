@@ -26,15 +26,24 @@ int Student::getNumberClasses() const{ // class = turma
 void Student::showAllClasses() const {
     for (auto itr = allClasses.begin(); itr != allClasses.end(); itr++) {
         cout << "|" << itr->get_UC_ID() << " -> " << itr->get_class_ID() << "|" << endl;
-        cout << "|------------------|" << endl;
+        cout << "|-------------------|" << endl;
     }
 }
+
+/*!
+ * Converts a float representing time into standard time format.
+ * @param time The time represented as a float.
+ * @return A string representing time in the standard time format.
+ */
 string toTime(float time) {
     int totalseconds = time * 3600.0;
     int hours = totalseconds/3600;
     int minutes = (totalseconds/60) % 60;
     string first = to_string(hours);
     string second = to_string(minutes);
+    if (second == "0") {
+        second = second + "0";
+    }
     string final = first + ":" + second;
 
     return final;
@@ -43,7 +52,7 @@ string toTime(float time) {
 void Student::showSchedule() const {
     cout << "|-------------------------------------|" << endl;
     for (Slot element: schedule) {
-        cout << " " << element.getUC() << "-> " << element.getDay() << ": " << toTime(element.getStart()) << "->" << toTime(element.getEnd()) << ", " << element.isType() << endl;
+        cout << " " << element.getUC() << "-> " << element.getDay() << ": " << toTime(element.getStart()) << "-" << toTime(element.getEnd()) << ", " << element.isType() << endl;
         cout << "|-------------------------------------|" << endl;
     }
 }
@@ -70,6 +79,15 @@ bool Student::inClass(string class_ID) {
     return false;
 }
 
+bool Student::inYear(char year) {
+    for (UCClass element : allClasses) {
+        if (element.get_class_ID()[0] == year) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void Student::getAllClasses(const string& filename) { // csv_students_classes_reader
     // File variables.
     string student_code, student_name, uc_code, class_code;
@@ -78,7 +96,7 @@ void Student::getAllClasses(const string& filename) { // csv_students_classes_re
     ifstream coeff(filename); // Opens the file.
 
     if (coeff.is_open()) { // Checks if the file is open.
-        // Skip the first line 
+        // Skip the first line
         string line;
         getline(coeff, line);
 
@@ -109,7 +127,12 @@ void Student::getAllClasses(const string& filename) { // csv_students_classes_re
     }
 }
 
-
+/*!
+ * Sorts two Slots (classes) by start time.
+ * @param firsts The first Slot to compare.
+ * @param seconds The second Slot to compare.
+ * @return true if the first Slot starts before the second; otherwise, it returns false.
+ */
 bool sorttime(Slot firsts, Slot seconds) {
     float fstart = firsts.getStart();
     float sstart = seconds.getStart();
@@ -117,6 +140,12 @@ bool sorttime(Slot firsts, Slot seconds) {
     return fstart < sstart;
 }
 
+/*!
+ * Sorts two Slots (classes) by day of the week.
+ * @param firsts The first Slot to compare.
+ * @param seconds The second Slot to compare.
+ * @return true if the first Slot occurs before the second; otherwise, it returns false.
+ */
 bool sortday(Slot firsts, Slot seconds) {
     string first = firsts.getDay();
     string second = seconds.getDay();
@@ -148,109 +177,18 @@ void Student::getSchedule() {
     sort(schedule.begin(), schedule.end(), sortday);
 }
 
-bool student_uc_number_comparison(Student first, Student second) {
+/*bool student_uc_number_comparison(Student first, Student second) {
     int x = stoi(first.getID());
     int y = stoi(second.getID());
     return x < y;
 }
 
-/*!
- * Sorts a vector of UCClasses by capacity/student count.
- * @param first The first class
- * @param second The second class
- * @return true or false, depending on the capacity of each class
- */
+
 bool cap_sort(UCClass first, UCClass second) {
     return first.get_student_count() < second.get_student_count();
 }
 
-/*void Student::removeClass(UCClass& uc) {
-    bool removed = false;
-    for (auto itr = allClasses.begin(); itr != allClasses.end(); itr++) {
-        if (itr->get_class_ID() == uc.get_class_ID() && itr->get_UC_ID() == uc.get_UC_ID()) {
-            itr = allClasses.erase(itr);
-            removed = true;
-        }
-    }
-    if (removed == true) {
-        cout << "Class successfully removed" << endl;
-        return;
-    }
-    else {
-        cout << "Unable to remove class" << endl;
-        return;
-    }
 
-    // uc.count_decrement();    same as with addClass
-}*/
-
-void Student::addClass(UCClass& uc, vector<UCClass>& every_class) {
-    if (uc.get_student_count() >= 20) { // tem de se dar fix a esta função (student_counter) para ir aos vectors, não ao ficheiro então
-        // throw uc.student_counter() maybe?
-        cout << "The student can't be added to this class" << endl;
-        return;
-    }
-
-    for (UCClass element: allClasses) {
-        if (element.get_UC_ID() == uc.get_UC_ID()) {
-            cout << "Student already enrolled in this course" << endl;
-            return;
-        }
-    }
-
-    vector<UCClass> courseClasses;
-    for (UCClass element: every_class) {
-        if (element.get_UC_ID() == uc.get_UC_ID()) {
-            element.student_counter(classes); // classes is a placeholder
-            courseClasses.push_back(element);
-        }
-    }
-
-    sort(courseClasses.begin(), courseClasses.end(), cap_sort);
-
-    int first_balance = courseClasses.back().get_student_count() - courseClasses.front().get_student_count();
-
-    UCClass test(uc.get_UC_ID(), uc.get_class_ID());
-    test.student_counter(classes);
-    test.count_increment();
-    for (auto itr = courseClasses.begin(); itr != courseClasses.end(); itr++) {
-        if (itr->get_class_ID() == uc.get_class_ID() && itr->get_UC_ID() == uc.get_UC_ID()) {
-            itr = courseClasses.erase(itr);
-        }
-    }
-    courseClasses.push_back(test);
-    sort(courseClasses.begin(), courseClasses.end(), cap_sort);
-    int second_balance = courseClasses.back().get_student_count() - courseClasses.front().get_student_count();
-
-    if (second_balance < 4 || second_balance <= first_balance) {
-        allClasses.push_back(uc);
-        uc.count_increment();
-        cout << "Student successfully added to " << uc.get_class_ID() << "for " << uc.get_UC_ID() << endl;
-    }
-    else {
-        cout << "The classes would be unbalanced" << endl;
-        return;
-    }
-
-    /* uc.count_increment();   depending on if alterations are made to the vector/file right after the function ends
-    or only after exit() is called on the program, we might need this statement to control UCClass student count;
-    might need to change capacity, but it will require vector counting function for students with a specific UCClass*/
-
-}
-
-void Student::changeClass(UCClass& current, UCClass& target) {
-    if (target.get_student_count() >= 20) {
-        cout << "The student can't be added to this class" << endl;
-        return;
-    }
-
-    if (current.get_UC_ID() != target.get_UC_ID()) {
-        cout << "Both classes need to belong to the same UC" << endl;
-        return;
-    }
-}
-
-/*
 void Student::print() {
     for (Slot element: schedule) {
         cout << element.getUC() << "|" << element.getStart() << "|" << element.isType() << " ";

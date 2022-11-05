@@ -18,16 +18,29 @@ class Request {
 
         Request(int type, string student_code, string class_code);
 
-        //bool isDone() const;
+        /*!
+         * Checks if a specific request has been completed
+         * @return true if request has been completed, false otherwise.
+         */
+        bool isDone() const;
+
+        /*!
+         * Retrieves the type of operation the request demands.
+         * @return An int representing the operation's type.
+         */
         int getType() const;
-        //void setDone();
+
+        /*!
+         * Sets the request status to completed (true).
+         */
+        void setDone();
 
 
     private:
         int type;
-        //bool completed;
         string student_code;
         string class_code;
+        bool done = false;
 };
 
 #endif

@@ -45,7 +45,7 @@ void UCClass::student_counter(const string& filename) { //altered to store int
     cap = student_counter;
 }
 
-vector<string> UCClass::sort_students_in_class_alphabetically(const string& filename)
+/*vector<string> UCClass::sort_students_in_class_alphabetically(const string& filename)
 {
     vector<string> v_students_in_class;
     // File variables.
@@ -85,8 +85,7 @@ vector<string> UCClass::sort_students_in_class_alphabetically(const string& file
     sort(v_students_in_class.begin(), v_students_in_class.end());  // not sorting by name??
 
     return v_students_in_class;
-}
-
+}*/
 
 string UCClass::get_UC_ID() const{
     return ucID;

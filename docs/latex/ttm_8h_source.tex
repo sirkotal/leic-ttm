@@ -1,0 +1,66 @@
+\hypertarget{ttm_8h_source}{}\doxysection{ttm.\+h}
+\label{ttm_8h_source}\index{C:/Users/Utilizador/Desktop/leic-\/ttm/headers/ttm.h@{C:/Users/Utilizador/Desktop/leic-\/ttm/headers/ttm.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TTM\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TTM\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <bits/stdc++.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}request.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}student.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}class\_schedule.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}slot.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}uc\_class.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_t_t_m}{TTM}} \{}
+\DoxyCodeLine{19     \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_student}{Student}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{comment}{// Set sorting function}}
+\DoxyCodeLine{23     \textcolor{keywordtype}{bool} student\_code\_comparison(\mbox{\hyperlink{class_student}{Student}} first, \mbox{\hyperlink{class_student}{Student}} second);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{bool} student\_uc\_number\_comparison(\mbox{\hyperlink{class_student}{Student}} first, \mbox{\hyperlink{class_student}{Student}} second);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} print\_students\_with\_more\_than\_n\_ucs(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{bool} searchStudent(\textcolor{keywordtype}{string} s\_student, \textcolor{keywordtype}{string} s\_uc\_code);}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_student}{Student}}* getStudent(\textcolor{keywordtype}{string} s\_name, \textcolor{keywordtype}{string} student\_code);}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_u_c_class}{UCClass}} getClass(\textcolor{keywordtype}{string} ucID, \textcolor{keywordtype}{string} classID);}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} studentsInUC(\textcolor{keywordtype}{string} uc, \textcolor{keywordtype}{string} type, \textcolor{keywordtype}{char} flag);}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} studentsInClass(\textcolor{keywordtype}{string} class\_ID, \textcolor{keywordtype}{string} type, \textcolor{keywordtype}{char} flag);}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} studentsInYear(\textcolor{keywordtype}{char} year, \textcolor{keywordtype}{string} type, \textcolor{keywordtype}{char} flag);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{comment}{// Reader functions declarations}}
+\DoxyCodeLine{34     \textcolor{comment}{// void csv\_classes\_reader(const string\& filename); -\/> ClassSchedule has something for this, not required overall}}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} csv\_classes\_per\_uc\_reader(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& filename);}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} csv\_students\_classes\_reader(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& filename);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{comment}{// Request management functions declarations}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{// void add\_request\_to\_queue(Request request);}}
+\DoxyCodeLine{41     \textcolor{comment}{//Request get\_request();}}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} process();}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} removeClass(\mbox{\hyperlink{class_student}{Student}}\& student, \mbox{\hyperlink{class_u_c_class}{UCClass}}\& uc);}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} addClass(\mbox{\hyperlink{class_student}{Student}}\& student, \mbox{\hyperlink{class_u_c_class}{UCClass}}\& uc);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} changeClass(\mbox{\hyperlink{class_student}{Student}}\& student, \mbox{\hyperlink{class_u_c_class}{UCClass}}\& current, \mbox{\hyperlink{class_u_c_class}{UCClass}}\& target);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} vsize();}
+\DoxyCodeLine{50     \textcolor{keyword}{private}:}
+\DoxyCodeLine{51         vector<Student*> students; \textcolor{comment}{// Sorted by student code.}}
+\DoxyCodeLine{52         vector<UCClass> everyClass;}
+\DoxyCodeLine{53         \textcolor{comment}{// vector<ClassSchedule> schedule;}}
+\DoxyCodeLine{54         queue<Request> requests;}
+\DoxyCodeLine{55         list<Request> log;}
+\DoxyCodeLine{56         \textcolor{keywordtype}{bool} unbalanced(\textcolor{keywordtype}{string} course, \textcolor{keywordtype}{string} classID, \textcolor{keywordtype}{bool} flag); \textcolor{comment}{// flag true for removal, false for add only}}
+\DoxyCodeLine{57         \textcolor{keywordtype}{bool} overlap(\mbox{\hyperlink{class_student}{Student}}\& student, \textcolor{keywordtype}{string} course, \textcolor{keywordtype}{string} classID, \textcolor{keywordtype}{bool} flag); \textcolor{comment}{// flag true for removal, false for add only}}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

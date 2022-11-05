@@ -9,7 +9,7 @@
 #include <iomanip>
 #include "request.h"
 #include "student.h"
-#include "ttm.h"
+#include "class_schedule.h"
 #include "slot.h"
 #include "uc_class.h"
 
@@ -24,9 +24,11 @@ class TTM {
     bool student_uc_number_comparison(Student first, Student second);
     void print_students_with_more_than_n_ucs(int n);
     bool searchStudent(string s_student, string s_uc_code);
-    Student getStudent(string s_name, string student_code);
-    void studentsInUC(string uc);
-    void studentsInClass(string class_ID);
+    Student* getStudent(string s_name, string student_code);
+    UCClass getClass(string ucID, string classID);
+    void studentsInUC(string uc, string type, char flag);
+    void studentsInClass(string class_ID, string type, char flag);
+    void studentsInYear(char year, string type, char flag);
 
     // Reader functions declarations
     // void csv_classes_reader(const string& filename); -> ClassSchedule has something for this, not required overall
@@ -38,16 +40,21 @@ class TTM {
     // void add_request_to_queue(Request request);
     //Request get_request();
     void process();
-    bool removeClass(Student* student, UCClass& uc);
+    void removeClass(Student& student, UCClass& uc);
+    void addClass(Student& student, UCClass& uc);
+    void changeClass(Student& student, UCClass& current, UCClass& target);
 
 
 
-    //void vsize();
+    void vsize();
     private:
-        vector<Student> students; // Sorted by student code.
+        vector<Student*> students; // Sorted by student code.
         vector<UCClass> everyClass;
         // vector<ClassSchedule> schedule;
         queue<Request> requests;
+        list<Request> log;
+        bool unbalanced(string course, string classID, bool flag); // flag true for removal, false for add only
+        bool overlap(Student& student, string course, string classID, bool flag); // flag true for removal, false for add only
 };
 
 #endif
