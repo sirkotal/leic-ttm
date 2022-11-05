@@ -22,8 +22,20 @@ class TTM {
     // Set sorting function
     bool student_code_comparison(Student first, Student second);
     bool student_uc_number_comparison(Student first, Student second);
+
+    /*!
+     * Shows the students that are enrolled in more than a specific number of courses (UCs).
+     * @param n The number of UCs.
+     */
     void print_students_with_more_than_n_ucs(int n);
     bool searchStudent(string s_student, string s_uc_code);
+
+    /*!
+     * Returns a specific student.
+     * @param s_name The name of the student.
+     * @param student_code The student's identification number.
+     * @return A pointer to the target student.
+     */
     Student* getStudent(string s_name, string student_code);
     UCClass getClass(string ucID, string classID);
     void studentsInUC(string uc, string type, char flag);
@@ -36,9 +48,6 @@ class TTM {
     void csv_students_classes_reader(const string& filename);
 
     // Request management functions declarations
-
-    // void add_request_to_queue(Request request);
-    //Request get_request();
     void process();
     void removeClass(Student& student, UCClass& uc);
     void addClass(Student& student, UCClass& uc);
@@ -52,7 +61,7 @@ class TTM {
         vector<UCClass> everyClass;
         // vector<ClassSchedule> schedule;
         queue<Request> requests;
-        list<Request> log;
+        set<Request> log;
         bool unbalanced(string course, string classID, bool flag); // flag true for removal, false for add only
         bool overlap(Student& student, string course, string classID, bool flag); // flag true for removal, false for add only
 };

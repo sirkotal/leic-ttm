@@ -453,14 +453,37 @@ void TTM::process() {
         int op = requests.front().getType();
 
         switch (op) {
-            case 2:
+            case 2: {
+                Student *tmp = getStudent(requests.front().student_name, requests.front().student_code);
+                UCClass ctmp(requests.front().UC_code, requests.front().class_code);
+                removeClass(*tmp, ctmp);
+                if (!(requests.front().isDone())) {
+                    log.insert(requests.front());
+                }
+                requests.pop();
                 break;
-            case 3:
+            }
+            case 3: {
+                Student *tmp = getStudent(requests.front().student_name, requests.front().student_code);
+                UCClass ctmp(requests.front().UC_code, requests.front().class_code);
+                addClass(*tmp, ctmp);
+                if (!(requests.front().isDone())) {
+                    log.insert(requests.front());
+                }
+                requests.pop();
                 break;
-            case 4:
+            }
+            case 4: {
+                Student *tmp = getStudent(requests.front().student_name, requests.front().student_code);
+                UCClass ctmp(requests.front().UC_code, requests.front().class_code);
+                UCClass ttmp(requests.front().target_UC, requests.front().target_class);
+                changeClass(*tmp, ctmp, ttmp);
+                if (!(requests.front().isDone())) {
+                    log.insert(requests.front());
+                }
+                requests.pop();
                 break;
-            case 5:
-                break;
+            }
         }
     } while(requests.size() != 0);
 }
