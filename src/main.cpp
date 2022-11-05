@@ -45,7 +45,7 @@ int main() {
 
     TTM manage;
     manage.buildStudents(students_classes);
-    manage.csv_classes_per_uc_reader(classes_per_uc);
+    manage.buildUCClasses(classes_per_uc);
     //manage.vsize();
     //manage.print_students_with_more_than_n_ucs(6);
     /*Student x = manage.getStudent("Abilio", "202040617");

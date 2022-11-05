@@ -79,6 +79,8 @@ class Student {
      */
     void getSchedule();
 
+    bool isScheduleEmpty() const;
+
     // void print();
 
     // bool Student::operator< (const Student &next) const;

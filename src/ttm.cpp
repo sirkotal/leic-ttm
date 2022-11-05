@@ -169,8 +169,7 @@ void TTM::print_students_with_more_than_n_ucs(int n)
  * Function that retrieves every UCClass we can work with
  * @param filename The .csv file to use for information retrieval
  */
-void TTM::csv_classes_per_uc_reader(const string& filename)
-{
+void TTM::buildUCClasses(const string& filename) {
     // File variables.
     string uc_code, class_code;
 

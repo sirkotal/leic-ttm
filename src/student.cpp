@@ -178,6 +178,13 @@ void Student::getSchedule() {
     sort(schedule.begin(), schedule.end(), sortday);
 }
 
+bool Student::isScheduleEmpty() const {
+    if (schedule.size() == 0) {
+        return true;
+    }
+    return false;
+}
+
 /*bool student_uc_number_comparison(Student first, Student second) {
     int x = stoi(first.getID());
     int y = stoi(second.getID());

@@ -44,7 +44,7 @@ class TTM {
 
     // Reader functions declarations
     // void csv_classes_reader(const string& filename); -> ClassSchedule has something for this, not required overall
-    void csv_classes_per_uc_reader(const string& filename);
+    void buildUCClasses(const string& filename);
     void buildStudents(const string& filename);
 
     // Request management functions declarations
