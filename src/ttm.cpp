@@ -377,9 +377,9 @@ void TTM::addClass(Student& student, UCClass& uc) {
         student.getSchedule();
     }
 
-    if (uc.get_student_count() >= 20) {
+    /*if (uc.get_student_count() >= 20) {
         return;
-    }
+    }*/
 
     for (UCClass element: student.allClasses) {
         if (element.get_UC_ID() == uc.get_UC_ID()) {
@@ -388,7 +388,6 @@ void TTM::addClass(Student& student, UCClass& uc) {
     }
 
     if (unbalanced(uc.get_UC_ID(), uc.get_class_ID(), false) || overlap(student, uc.get_UC_ID(), uc.get_class_ID(), false)) {
-        cout << "x";
         return;
     }
     else {
@@ -414,9 +413,9 @@ bool findClass(list<UCClass>& allClasses, UCClass& uc) {
 }
 
 void TTM::changeClass(Student& student, UCClass& current, UCClass& target) {
-    if (current.get_student_count() >= 20 || target.get_student_count() >= 20) {
+    /*if (current.get_student_count() >= 20 || target.get_student_count() >= 20) {
         return;
-    }
+    }*/
 
     if (current.get_UC_ID() != target.get_UC_ID()) {
         return;
@@ -432,7 +431,7 @@ void TTM::changeClass(Student& student, UCClass& current, UCClass& target) {
         }
     }
 
-    if (findClass(student.allClasses, current) == false) {
+    if (!(findClass(student.allClasses, current))) {
         return;
     }
 
