@@ -40,7 +40,7 @@ class Student {
     /*!
      * Shows all the classes a student is enrolled in.
      */
-    void showAllClasses() const;
+    void showAllClasses();
 
     /*!
      * Shows a student's schedule.

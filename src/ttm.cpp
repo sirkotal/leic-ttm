@@ -204,7 +204,7 @@ void TTM::csv_classes_per_uc_reader(const string& filename)
     }
 }
 
-void TTM::csv_students_classes_reader(const string& filename)
+void TTM::buildStudents(const string& filename) // reads student_classes.csv
 {
     // File variables.
     string student_code, student_name, uc_code, class_code;
@@ -231,6 +231,7 @@ void TTM::csv_students_classes_reader(const string& filename)
                 Student* temporary_student = new Student(student_name, student_code);
 
                 temporary_student->getAllClasses(filename);
+                temporary_student->getSchedule();
                 this->students.push_back(temporary_student);
 
                 repeat = student_code;

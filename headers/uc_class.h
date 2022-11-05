@@ -50,6 +50,8 @@ class UCClass {
 
     //vector<string> sort_students_in_class_alphabetically(const string& filename);
 
+    bool operator< (const UCClass &next) const;
+
     private:
         string ucID;  // LEIC003
         string classID; //1LEIC14

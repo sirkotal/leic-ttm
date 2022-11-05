@@ -23,7 +23,8 @@ int Student::getNumberClasses() const{ // class = turma
     return allClasses.size();
 }
 
-void Student::showAllClasses() const {
+void Student::showAllClasses() {
+    allClasses.sort();
     for (auto itr = allClasses.begin(); itr != allClasses.end(); itr++) {
         cout << "|" << itr->get_UC_ID() << " -> " << itr->get_class_ID() << "|" << endl;
         cout << "|-------------------|" << endl;
@@ -57,9 +58,9 @@ void Student::showSchedule() const {
     }
 }
 
-void Student::buildClass(UCClass& x) {
+/*void Student::buildClass(UCClass& x) {
     allClasses.push_back(x);
-}
+}*/
 
 bool Student::inCourse(string uc) {
     for (UCClass element : allClasses) {
