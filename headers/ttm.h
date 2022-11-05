@@ -48,6 +48,8 @@ class TTM {
     void csv_students_classes_reader(const string& filename);
 
     // Request management functions declarations
+    void mainMenu();
+    void listingsMenu();
     void process();
     void removeClass(Student& student, UCClass& uc);
     void addClass(Student& student, UCClass& uc);

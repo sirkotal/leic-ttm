@@ -487,3 +487,30 @@ void TTM::process() {
         }
     } while(requests.size() != 0);
 }
+
+void TTM::mainMenu() {
+    std::cout << " ____________________________________________________________________________________" <<  std::endl;
+    std::cout << "|                                        MENU                                       |" <<  std::endl;
+    std::cout << "|    0. EXIT                                                                        |" <<  std::endl;
+    std::cout << "|    1. LISTINGS                                                                    |" <<  std::endl;
+    std::cout << "|    2. REMOVE A STUDENT FROM A CLASS                                               |" <<  std::endl;
+    std::cout << "|    3. ADD A STUDENT TO A CLASS                                                    |" <<  std::endl;
+    std::cout << "|    4. CHANGE A STUDENT'S CLASS                                                    |" <<  std::endl;
+    std::cout << "|                                                                                   |" <<  std::endl;
+    std::cout << "|                                                                                   |" <<  std::endl;
+    std::cout << " ------------------------------------------------------------------------------------" <<  std::endl;
+}
+
+void TTM::listingsMenu() {
+    std::cout << " ____________________________________________________________________________________" <<  std::endl;
+    std::cout << "|                                        MENU                                       |" <<  std::endl;
+    std::cout << "|    0. BACK                                                                        |" <<  std::endl;
+    std::cout << "|    1. STUDENT'S SCHEDULE                                                          |" <<  std::endl;
+    std::cout << "|    2. STUDENT'S CLASSES                                                           |" <<  std::endl;
+    std::cout << "|    3. STUDENTS IN A CLASS                                                         |" <<  std::endl;
+    std::cout << "|    4. STUDENTS IN A UC                                                            |" <<  std::endl;
+    std::cout << "|    5. STUDENTS IN A YEAR                                                          |" <<  std::endl;
+    std::cout << "|    6. CLASS'S CAPACITY                                                            |" <<  std::endl;
+    std::cout << "|                                                                                   |" <<  std::endl;
+    std::cout << " ------------------------------------------------------------------------------------" <<  std::endl;
+}
