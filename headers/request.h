@@ -35,6 +35,11 @@ class Request {
          */
         void setDone();
 
+        /*!
+         * Compares the name associated to each request.
+         * @param next The second request to be compared.
+         * @return true if the first request's student name is smaller; otherwise, it returns false.
+         */
         bool operator< (const Request &next) const;
 
         friend class TTM;

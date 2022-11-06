@@ -30,5 +30,5 @@ void Request::setDone() {
 }
 
 bool Request::operator<(const Request &next) const {
-    return student_code < next.student_name;
+    return student_name < next.student_name;
 }

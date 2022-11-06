@@ -134,31 +134,30 @@ $(document).ready(function(){initNavTree('student_8h_source.html',''); initResiz
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_student.html#a4f8dc9020d204f2577e1354e6b7dd398">getSchedule</a>();</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">bool</span> isScheduleEmpty() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// void print();</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">// bool Student::operator&lt; (const Student &amp;next) const;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_student.html#aa48c514a6b7dcf18e10e98c03ac79e64">isScheduleEmpty</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_t_t_m.html">TTM</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment">// bool Student::operator&lt; (const Student &amp;next) const;</span></div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">string</span> name;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">string</span> id;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    list&lt;UCClass&gt; allClasses;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    vector&lt;Slot&gt; schedule;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> buildClass(<a class="code hl_class" href="class_u_c_class.html">UCClass</a>&amp; x);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_t_t_m.html">TTM</a>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">string</span> name;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">string</span> id;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    list&lt;UCClass&gt; allClasses;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    vector&lt;Slot&gt; schedule;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> buildClass(<a class="code hl_class" href="class_u_c_class.html">UCClass</a>&amp; x);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>};</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_student_html"><div class="ttname"><a href="class_student.html">Student</a></div><div class="ttdef"><b>Definition:</b> student.h:18</div></div>
 <div class="ttc" id="aclass_student_html_a0f2f7ae77c5ee306b1b6bdfe9e05d465"><div class="ttname"><a href="class_student.html#a0f2f7ae77c5ee306b1b6bdfe9e05d465">Student::getNumberClasses</a></div><div class="ttdeci">int getNumberClasses() const</div><div class="ttdef"><b>Definition:</b> student.cpp:22</div></div>
 <div class="ttc" id="aclass_student_html_a1df6c28e6416e20d338b9ff11bdc1e04"><div class="ttname"><a href="class_student.html#a1df6c28e6416e20d338b9ff11bdc1e04">Student::getName</a></div><div class="ttdeci">string getName() const</div><div class="ttdef"><b>Definition:</b> student.cpp:14</div></div>
 <div class="ttc" id="aclass_student_html_a36619865bf3b09610fbcb53593199443"><div class="ttname"><a href="class_student.html#a36619865bf3b09610fbcb53593199443">Student::inClass</a></div><div class="ttdeci">bool inClass(string class_ID)</div><div class="ttdef"><b>Definition:</b> student.cpp:74</div></div>
-<div class="ttc" id="aclass_student_html_a4f8dc9020d204f2577e1354e6b7dd398"><div class="ttname"><a href="class_student.html#a4f8dc9020d204f2577e1354e6b7dd398">Student::getSchedule</a></div><div class="ttdeci">void getSchedule()</div><div class="ttdef"><b>Definition:</b> student.cpp:172</div></div>
+<div class="ttc" id="aclass_student_html_a4f8dc9020d204f2577e1354e6b7dd398"><div class="ttname"><a href="class_student.html#a4f8dc9020d204f2577e1354e6b7dd398">Student::getSchedule</a></div><div class="ttdeci">void getSchedule()</div><div class="ttdef"><b>Definition:</b> student.cpp:169</div></div>
 <div class="ttc" id="aclass_student_html_a5c5076cb9feb2f98bc36f48b9a83939f"><div class="ttname"><a href="class_student.html#a5c5076cb9feb2f98bc36f48b9a83939f">Student::inCourse</a></div><div class="ttdeci">bool inCourse(string uc)</div><div class="ttdef"><b>Definition:</b> student.cpp:65</div></div>
 <div class="ttc" id="aclass_student_html_a9aacfc32abc307bad6d5228b754ad5ab"><div class="ttname"><a href="class_student.html#a9aacfc32abc307bad6d5228b754ad5ab">Student::showAllClasses</a></div><div class="ttdeci">void showAllClasses()</div><div class="ttdef"><b>Definition:</b> student.cpp:26</div></div>
+<div class="ttc" id="aclass_student_html_aa48c514a6b7dcf18e10e98c03ac79e64"><div class="ttname"><a href="class_student.html#aa48c514a6b7dcf18e10e98c03ac79e64">Student::isScheduleEmpty</a></div><div class="ttdeci">bool isScheduleEmpty() const</div><div class="ttdef"><b>Definition:</b> student.cpp:178</div></div>
 <div class="ttc" id="aclass_student_html_ac94cb5c405590b8d7bb5a64c0e35d17b"><div class="ttname"><a href="class_student.html#ac94cb5c405590b8d7bb5a64c0e35d17b">Student::getAllClasses</a></div><div class="ttdeci">void getAllClasses(const string &amp;filename)</div><div class="ttdef"><b>Definition:</b> student.cpp:92</div></div>
 <div class="ttc" id="aclass_student_html_ae33e886c118c0afd2e59dccee70b56e9"><div class="ttname"><a href="class_student.html#ae33e886c118c0afd2e59dccee70b56e9">Student::inYear</a></div><div class="ttdeci">bool inYear(char year)</div><div class="ttdef"><b>Definition:</b> student.cpp:83</div></div>
 <div class="ttc" id="aclass_student_html_aebd6a4905f8b2f7b6f8e70283a2aa8d8"><div class="ttname"><a href="class_student.html#aebd6a4905f8b2f7b6f8e70283a2aa8d8">Student::showSchedule</a></div><div class="ttdeci">void showSchedule() const</div><div class="ttdef"><b>Definition:</b> student.cpp:53</div></div>

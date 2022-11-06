@@ -741,6 +741,9 @@ void TTM::saveout() {
     for (auto itr = students.begin(); itr != students.end(); itr++) {
         (*itr)->allClasses.sort();
         for (UCClass element : (*itr)->allClasses) {
+            if ((*itr)->getID() == "") {
+                break;
+            }
             myfile << (*itr)->getID();
             myfile << ",";
             myfile << (*itr)->getName();

@@ -48,6 +48,11 @@ class UCClass {
      */
     void student_counter(const string& filename); // maxs out at 20?
 
+    /*!
+     * Compares the UC identifier between two classes.
+     * @param next The second class to be compared.
+     * @return true if the first class's UC identifier is smaller; otherwise, it returns false.
+     */
     bool operator< (const UCClass &next) const;
 
     private:

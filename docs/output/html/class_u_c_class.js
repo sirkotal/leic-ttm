@@ -5,5 +5,6 @@ var class_u_c_class =
     [ "get_class_ID", "class_u_c_class.html#a484fa05f298bc5c8269731122c0867e3", null ],
     [ "get_student_count", "class_u_c_class.html#a67670ba3bbc296fe6475d7781fb301e7", null ],
     [ "get_UC_ID", "class_u_c_class.html#aea7d37d03b56ccc22331e1af5bdbab3a", null ],
+    [ "operator<", "class_u_c_class.html#a3761c309251988f6b1babbd8440599a5", null ],
     [ "student_counter", "class_u_c_class.html#aa4b127d4c233bc52be9a50b4a0a2f97a", null ]
 ];

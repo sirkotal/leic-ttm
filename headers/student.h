@@ -79,6 +79,10 @@ class Student {
      */
     void getSchedule();
 
+    /*!
+     * Checks if a student's schedule is empty.
+     * @return true if the student's schedule is empty; otherwise, it returns false.
+     */
     bool isScheduleEmpty() const;
 
     // bool Student::operator< (const Student &next) const;
