@@ -581,6 +581,7 @@ void TTM::menu() {
         switch(choice1) {
 
             case 1: {
+                cout << endl;
                 listings();
                 break;
             }
