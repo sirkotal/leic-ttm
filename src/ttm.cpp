@@ -230,7 +230,7 @@ void TTM::buildStudents(const string& filename) // reads student_classes.csv
                 Student* temporary_student = new Student(student_name, student_code);
 
                 temporary_student->getAllClasses(filename);
-                temporary_student->getSchedule();
+                //temporary_student->getSchedule();
                 this->students.push_back(temporary_student);
 
                 repeat = student_code;
@@ -497,6 +497,9 @@ void TTM::process() {
     } while(requests.size() != 0);
 }
 
+int choice1 = -1;
+int choice2 = -1;
+
 void TTM::mainMenu() {
     cout << " ____________________________________________________________________________________" <<  endl;
     cout << "|                                        MENU                                       |" <<  endl;
@@ -529,11 +532,141 @@ void TTM::listingsMenu() {
 }
 
 void TTM::menu() {
+    do {
+        choice2 = -1;
+        mainMenu();
 
+        switch(choice1) {
+
+            case 1: {
+                listings();
+                break;
+            }
+
+            case 2: {
+                string student_name, student_code, UC_code, class_code;
+                cout << "Student's name: ";
+                cin >> student_name;
+                cout << "Student's code: ";
+                cin >> student_code;
+                cout << "UC's code: ";
+                cin >> UC_code;
+                cout << "Class's code: ";
+                cin >> class_code;
+
+                Request tmpR(2, student_name, student_code, UC_code, class_code);
+                requests.push(tmpR);
+                break;
+            }
+
+            case 3: {
+                string student_name, student_code, UC_code, class_code;
+                cout << "Student's name: ";
+                cin >> student_name;
+                cout << "Student's code: ";
+                cin >> student_code;
+                cout << "UC's code: ";
+                cin >> UC_code;
+                cout << "Class's code: ";
+                cin >> class_code;
+
+                Request tmpR(3, student_name, student_code, UC_code, class_code);
+                requests.push(tmpR);
+                break;
+            }
+
+            case 4: {
+                string student_name, student_code, UC_code, class_code, target_UC, target_class;
+                cout << "Student's name: ";
+                cin >> student_name;
+                cout << "Student's code: ";
+                cin >> student_code;
+                cout << "Current UC's code: ";
+                cin >> UC_code;
+                cout << "Current class's code: ";
+                cin >> class_code;
+                cout << "Target UC's code: ";
+                cin >> target_UC;
+                cout << "Target class's code: ";
+                cin >> target_class;
+
+                Request tmpR(4, student_name, student_code, UC_code, class_code, target_UC, target_class);
+                requests.push(tmpR);
+                break;
+            }
+        }
+
+    } while(choice1 != 0);
 }
 
 void TTM::listings() {
+    do {
+        listingsMenu();
 
+        switch(choice2){
+
+            case 1: {
+                string student_name, student_num;
+                cout << "Student's name: ";
+                cin >> student_name;
+                cout << "Student's code: ";
+                cin >> student_num;
+                Student* tmp = getStudent(student_name, student_num);
+                if (tmp->isScheduleEmpty()) {
+                    tmp->getSchedule();
+                }
+                tmp->showSchedule();
+                break;
+            }
+            case 2: {
+                string student_name, student_num;
+                cout << "Student's name: ";
+                cin >> student_name;
+                cout << "Student's code: ";
+                cin >> student_num;
+                Student *tmp = getStudent(student_name, student_num);
+                tmp->showAllClasses();
+                break;
+            }
+            case 3: {
+                string class_name, sort_param;
+                char order;
+                cout << "Class's name: ";
+                cin >> class_name;
+                cout << "Choose the sorting parameter (name or num): ";
+                cin >> sort_param;
+                cout << "Choose the sorting order (+ or -): ";
+                cin >> order;
+                studentsInClass(class_name, sort_param, order);
+                break;
+            }
+            case 4: {
+                string uc_name, uc_sort_param;
+                char uc_order;
+                cout << "Class's name: ";
+                cin >> uc_name;
+                cout << "Choose the sorting parameter (name or num): ";
+                cin >> uc_sort_param;
+                cout << "Choose the sorting order (+ or -): ";
+                cin >> uc_order;
+                studentsInClass(uc_name, uc_sort_param, uc_order);
+                break;
+            }
+            case 5: {
+                string y_sort_param;
+                char student_year, y_order;
+                cout << "Year: ";
+                cin >> student_year;
+                cout << "Choose the sorting parameter (name or num): ";
+                cin >> y_sort_param;
+                cout << "Choose the sorting order (+ or -): ";
+                cin >> y_order;
+                studentsInYear(student_year, y_sort_param, y_order);
+                break;
+            }
+        }
+
+    } while(choice2 != 0);
 }
 
 void TTM::saveout() {

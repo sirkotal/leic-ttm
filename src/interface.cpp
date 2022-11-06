@@ -20,11 +20,11 @@ void Interface::listingsMenu() {
     std::cout << " ____________________________________________________________________________________" <<  std::endl;
     std::cout << "|                                        MENU                                       |" <<  std::endl;
     std::cout << "|    0. BACK                                                                        |" <<  std::endl;
-    std::cout << "|    1. STUDENT'S SCHEDULE                                                          |" <<  std::endl;
-    std::cout << "|    2. STUDENT'S CLASSES                                                           |" <<  std::endl;
-    std::cout << "|    3. STUDENTS IN A CLASS                                                         |" <<  std::endl;
-    std::cout << "|    4. CLASS'S SCHEDULE                                                            |" <<  std::endl;
-    std::cout << "|    5. CHANGE MULTIPLE STUDENT'S CLASSES                                           |" <<  std::endl;
+    cout << "|    1. STUDENT'S SCHEDULE                                                          |" <<  std::endl;
+    cout << "|    2. STUDENT'S CLASSES                                                           |" <<  std::endl;
+    cout << "|    3. STUDENTS IN A CLASS                                                         |" <<  std::endl;
+    cout << "|    4. STUDENTS IN A UC                                                            |" <<  std::endl;
+    cout << "|    5. STUDENTS IN A YEAR                                            |" <<  std::endl;
     std::cout << "|    6. CLASS'S CAPACITY                                                            |" <<  std::endl;
     std::cout << "|                                                                                   |" <<  std::endl;
     std::cout << " ------------------------------------------------------------------------------------" <<  std::endl;
