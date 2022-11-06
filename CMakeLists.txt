@@ -31,8 +31,6 @@ add_executable(leic_ttm
         src/main.cpp
         src/class_schedule.cpp
         headers/class_schedule.h
-        src/interface.cpp
-        headers/interface.h
         src/request.cpp
         headers/request.h
         src/slot.cpp
