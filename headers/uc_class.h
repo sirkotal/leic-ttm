@@ -48,8 +48,6 @@ class UCClass {
      */
     void student_counter(const string& filename); // maxs out at 20?
 
-    //vector<string> sort_students_in_class_alphabetically(const string& filename);
-
     bool operator< (const UCClass &next) const;
 
     private:

@@ -19,9 +19,7 @@ class TTM {
     public:
     friend class Student;
 
-    /*bool searchStudent(string s_student, string s_uc_code);
-    void vsize();
-    UCClass getClass(string ucID, string classID);*/
+    //UCClass getClass(string ucID, string classID);
 
     /*!
      * Returns a specific student.

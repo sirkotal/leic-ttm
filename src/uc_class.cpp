@@ -7,27 +7,24 @@ UCClass::UCClass(string ucID, string classID) {
 
 void UCClass::student_counter(const string& filename) { //altered to store int
     // at member field "cap" to allow alteration of value without the need to read the vector/file again
-    // File variables.
     string student_code, student_name, uc_code, class_code;
     int student_counter = 0;
 
     // Filename
-    ifstream coeff(filename); // Opens the file.
+    ifstream thefile(filename);
 
-    if (coeff.is_open()) { // Checks if the file is open.
-        // Skip the first line
+    if (thefile.is_open()) {
         string line;
-        getline(coeff, line);
+        getline(thefile, line);
 
-        // While the end of the file is not reached.
-        while (!coeff.eof()) {
-            getline(coeff, student_code, ',');
+        while (!thefile.eof()) {
+            getline(thefile, student_code, ',');
 
-            getline(coeff, student_name, ',');
+            getline(thefile, student_name, ',');
 
-            getline(coeff, uc_code, ',');
+            getline(thefile, uc_code, ',');
 
-            getline(coeff, class_code, '\n');
+            getline(thefile, class_code, '\n');
 
             if (uc_code == this->ucID && class_code == this->classID)
             {
@@ -35,57 +32,15 @@ void UCClass::student_counter(const string& filename) { //altered to store int
             }
         }
 
-        coeff.close(); // Closing the file.
+        thefile.close();
     }
     else
     {
-        cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
+        cout << "Error: The program was unable to open the file.";
     }
 
     cap = student_counter;
 }
-
-/*vector<string> UCClass::sort_students_in_class_alphabetically(const string& filename)
-{
-    vector<string> v_students_in_class;
-    // File variables.
-    string student_code, student_name, uc_code, class_code;
-
-    // Filename
-    ifstream coeff(filename); // Opens the file.
-
-    if (coeff.is_open()) { // Checks if the file is open.
-        // Skip the first line
-        string line;
-        getline(coeff, line);
-
-        // While the end of the file is not reached.
-        while (!coeff.eof()) {
-            getline(coeff, student_code, ',');
-
-            getline(coeff, student_name, ',');
-
-            getline(coeff, uc_code, ',');
-
-            getline(coeff, class_code, '\n');
-
-            if (class_code == this->classID)
-            {
-                v_students_in_class.push_back(student_name);
-            }
-        }
-
-        coeff.close(); // Closing the file.
-    }
-    else
-    {
-        cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
-    }
-
-    sort(v_students_in_class.begin(), v_students_in_class.end());  // not sorting by name??
-
-    return v_students_in_class;
-}*/
 
 string UCClass::get_UC_ID() const{
     return ucID;

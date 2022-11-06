@@ -14,8 +14,6 @@ using namespace std;
 
 class Request {
     public:
-        // static void csv_classes_reader(const string& filename, vector <string>& v_class_code, vector <string>& v_uc_code, vector <string>& v_weekday, vector <string>& v_start_hour, vector <string>& v_duration, vector <string> v_type);
-
         Request(int type, string student_name, string student_code, string UC_code, string class_code);
 
         Request(int type, string student_name, string student_code, string UC_code, string class_code, string target_class);

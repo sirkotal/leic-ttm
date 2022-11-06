@@ -2,20 +2,7 @@
 #define classes "../schedule/students_classes.csv"
 #define class_schedule "../schedule/classes.csv"
 
-/*void TTM::vsize() {
-    cout << students.size() << endl;
-}
-
-bool TTM::searchStudent(string s_student, string s_uc_code)
-{
-    for (const Student* student: students) {
-        if (student->getName() == s_student && student->getID() == s_uc_code) {
-            return true;
-        }
-    }
-    return false;
-}
-
+/*
 UCClass TTM::getClass(string ucID, string classID) {
     for (auto itr = everyClass.begin(); itr != everyClass.end(); itr++) {
         if (itr->get_UC_ID() == ucID && itr->get_class_ID() == classID) {
@@ -212,19 +199,17 @@ void TTM::buildUCClasses(const string& filename) {
     }
 }
 
-void TTM::buildStudents(const string& filename) { // reads student_classes.csv
+void TTM::buildStudents(const string& filename) {
     string student_code, student_name, uc_code, class_code;
-    string repeat = "0"; // flag
+    string repeat = "0";
 
     ifstream thefile(filename);
 
     if (thefile.is_open())
     {
-        // Skip the first line (ClassCode,UcCode,Weekday,StartHour,Duration,Type).
         string line;
         getline(thefile, line);
 
-        // While the end of the file is not reached.
         while (!thefile.eof())
         {
             getline(thefile, student_code, ',');
@@ -244,7 +229,7 @@ void TTM::buildStudents(const string& filename) { // reads student_classes.csv
 
         }
 
-        thefile.close(); // Closing the file.
+        thefile.close();
     }
     else
     {

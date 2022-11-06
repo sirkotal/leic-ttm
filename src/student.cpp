@@ -89,27 +89,24 @@ bool Student::inYear(char year) {
     return false;
 }
 
-void Student::getAllClasses(const string& filename) { // csv_students_classes_reader
-    // File variables.
+void Student::getAllClasses(const string& filename) {
     string student_code, student_name, uc_code, class_code;
 
-    // Filename
-    ifstream coeff(filename); // Opens the file.
+    ifstream thefile(filename);
 
-    if (coeff.is_open()) { // Checks if the file is open.
-        // Skip the first line
+    if (thefile.is_open()) {
         string line;
-        getline(coeff, line);
+        getline(thefile, line);
 
         // While the end of the file is not reached.
-        while (!coeff.eof()) {
-            getline(coeff, student_code, ',');
+        while (!thefile.eof()) {
+            getline(thefile, student_code, ',');
 
-            getline(coeff, student_name, ',');
+            getline(thefile, student_name, ',');
 
-            getline(coeff, uc_code, ',');
+            getline(thefile, uc_code, ',');
 
-            getline(coeff, class_code, '\n');
+            getline(thefile, class_code, '\n');
 
             if (student_code == this->id) {
                 UCClass insc(uc_code, class_code);
@@ -120,11 +117,11 @@ void Student::getAllClasses(const string& filename) { // csv_students_classes_re
             }
         }
 
-        coeff.close(); // Closing the file.
+        thefile.close(); // Closing the file.
     }
     else
     {
-        cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
+        cout << "Error: The program was unable to open the file.";
     }
 }
 
@@ -184,21 +181,3 @@ bool Student::isScheduleEmpty() const {
     }
     return false;
 }
-
-/*bool student_uc_number_comparison(Student first, Student second) {
-    int x = stoi(first.getID());
-    int y = stoi(second.getID());
-    return x < y;
-}
-
-
-bool cap_sort(UCClass first, UCClass second) {
-    return first.get_student_count() < second.get_student_count();
-}
-
-
-void Student::print() {
-    for (Slot element: schedule) {
-        cout << element.getUC() << "|" << element.getStart() << "|" << element.isType() << " ";
-    }
-}*/

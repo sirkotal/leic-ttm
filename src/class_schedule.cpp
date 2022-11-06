@@ -4,10 +4,6 @@ ClassSchedule::ClassSchedule(string classID) {
     this->classID = classID;
 }
 
-/*string ClassSchedule::get_UC_ID() const{
-    return ucID;
-}*/
-
 string ClassSchedule::get_class_ID() const{
     return classID;
 }
@@ -49,7 +45,6 @@ bool sort_day(Slot firsts, Slot seconds) {
     if (fcmp == scmp) {
         return sort_time(firsts, seconds);
     }
-    // cout << fcmp << "," << scmp << "|" << endl;
     return fcmp < scmp;
 }
 

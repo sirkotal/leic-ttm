@@ -81,8 +81,6 @@ class Student {
 
     bool isScheduleEmpty() const;
 
-    // void print();
-
     // bool Student::operator< (const Student &next) const;
 
     friend class TTM;

@@ -41,7 +41,6 @@ class ClassSchedule {
         // void print();
 
     private:
-        //string ucID #LEIC003
         string classID; //1LEIC14
         vector<Slot> classSchedule;
 };
