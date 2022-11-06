@@ -124,6 +124,13 @@ class TTM {
      * @param uc The class from which we want to remove the student.
      */
     void addClass(Student& student, UCClass& uc);
+
+    /*!
+     * Changes a student's class in a specific UC.
+     * @param student The student whose class is to be changed.
+     * @param current The student's current class.
+     * @param target The class the student wants to change to.
+     */
     void changeClass(Student& student, UCClass& current, UCClass& target);
 
     private:
