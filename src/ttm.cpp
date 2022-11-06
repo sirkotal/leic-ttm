@@ -386,6 +386,23 @@ bool TTM::overlap(Student& student, string course, string classID, bool flag) {
     return false;
 }
 
+/*!
+ * Searches for a specific class (UCClass) in a vector of classes.
+ * @param everyclass A vector of classes.
+ * @param uc The UC we're searching for.
+ * @return true if the class is found, false otherwise.
+ */
+bool searchClass(vector<UCClass>& everyclass, UCClass& uc) {
+    for (auto itr = everyclass.begin(); itr != everyclass.end(); itr++) {
+        if (itr->get_UC_ID() == uc.get_UC_ID()) {
+            if (itr->get_class_ID() == uc.get_class_ID()) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 void TTM::addClass(Student& student, UCClass& uc) {
     if (student.schedule.size() == 0) { // failsafe, not actually important
         student.getSchedule();
@@ -399,6 +416,10 @@ void TTM::addClass(Student& student, UCClass& uc) {
         if (element.get_UC_ID() == uc.get_UC_ID()) {
             return;
         }
+    }
+
+    if (!(searchClass(everyClass, uc))) {
+        return;
     }
 
     if (unbalanced(uc.get_UC_ID(), uc.get_class_ID(), false) || overlap(student, uc.get_UC_ID(), uc.get_class_ID(), false)) {
@@ -416,7 +437,7 @@ void TTM::addClass(Student& student, UCClass& uc) {
 }
 
 /*!
- * Searches for a specific class (UCClass) in a list of classes.
+ * Searches for a specific class (UCClass) in a student's list of classes.
  * @param allClasses A (student's) list of classes.
  * @param uc The UC we're searching for.
  * @return true if the class is found, false otherwise.
