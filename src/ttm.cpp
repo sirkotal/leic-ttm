@@ -488,6 +488,7 @@ void TTM::process() {
                 if (tmp->isScheduleEmpty()) {
                     tmp->getSchedule();
                 }
+                // removeClass(*tmp, getClass(requests.front().UC_code, requests.front().class_code);
                 UCClass ctmp(requests.front().UC_code, requests.front().class_code);
                 removeClass(*tmp, ctmp);
                 if (!(requests.front().isDone())) {
@@ -506,6 +507,7 @@ void TTM::process() {
                 if (tmp->isScheduleEmpty()) {
                     tmp->getSchedule();
                 }
+                // addClass(*tmp, getClass(requests.front().UC_code, requests.front().class_code);
                 UCClass ctmp(requests.front().UC_code, requests.front().class_code);
                 addClass(*tmp, ctmp);
                 if (!(requests.front().isDone())) {
@@ -524,6 +526,7 @@ void TTM::process() {
                 if (tmp->isScheduleEmpty()) {
                     tmp->getSchedule();
                 }
+                // changeClass(*tmp, getClass(requests.front().UC_code, requests.front().class_code), getClass(requests.front().UC_code, requests.front().target_class));
                 UCClass ctmp(requests.front().UC_code, requests.front().class_code);
                 UCClass ttmp(requests.front().UC_code, requests.front().target_class);
                 changeClass(*tmp, ctmp, ttmp);
@@ -754,7 +757,7 @@ void TTM::saveout() {
 
 void TTM::logout(const std::string &filename) {
     ofstream myfile;
-    myfile.open (filename);
+    myfile.open (filename, fstream::app);
     for (auto itr = log.begin(); itr != log.end(); itr++) {
         myfile << "Request type: ";
         myfile << itr->getType();
