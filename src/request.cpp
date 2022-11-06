@@ -8,14 +8,12 @@ Request::Request(int type, string student_name, string student_code, string UC_c
     this->class_code = class_code;
 }
 
-Request::Request(int type, string student_name, string student_code, string UC_code, string class_code, string target_UC,
-                 string target_class) {
+Request::Request(int type, string student_name, string student_code, string UC_code, string class_code, string target_class) {
     this->type = type;
     this->student_name = student_name;
     this->student_code = student_code;
     this->UC_code = UC_code;
     this->class_code = class_code;
-    this->target_UC = target_UC;
     this->target_class = target_class;
 }
 

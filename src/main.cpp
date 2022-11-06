@@ -16,4 +16,7 @@ int main() {
     manage.buildStudents(students_classes);
     manage.buildUCClasses(classes_per_uc);
     manage.menu();
+    manage.process();
+    manage.saveout();
+    manage.logout(logfile);
 }

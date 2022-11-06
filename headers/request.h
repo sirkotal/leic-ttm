@@ -18,8 +18,7 @@ class Request {
 
         Request(int type, string student_name, string student_code, string UC_code, string class_code);
 
-        Request(int type, string student_name, string student_code, string UC_code, string class_code, string target_UC,
-                string target_class);
+        Request(int type, string student_name, string student_code, string UC_code, string class_code, string target_class);
 
         /*!
          * Checks if a specific request has been completed
