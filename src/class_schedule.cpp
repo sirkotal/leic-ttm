@@ -53,32 +53,26 @@ bool sort_day(Slot firsts, Slot seconds) {
     return fcmp < scmp;
 }
 
-void ClassSchedule::getFullSchedule(const string& filename) { //csv_classes_reader
-        // File variables.
+void ClassSchedule::getFullSchedule(const string& filename) {
         string class_code, uc_code, weekday, ctype;
         string start_hour, duration;
 
+        ifstream thefile(filename);
 
-        // Filename
-        ifstream coeff(filename); // Opens the file.
-
-        if (coeff.is_open()) // Checks if the file is open.
+        if (thefile.is_open())
         {
-            // Skip the first line (ClassCode,UcCode,Weekday,StartHour,Duration,Type).
             string line;
-            getline(coeff, line);
+            getline(thefile, line);
 
-            // While the end of the file is not reached.
-            while (!coeff.eof()) {
-                //{class_code, uc_code, weekday, start_hour, duration, type}
-                getline(coeff, class_code, ',');
+            while (!thefile.eof()) {
+                getline(thefile, class_code, ',');
 
-                getline(coeff, uc_code, ',');
+                getline(thefile, uc_code, ',');
 
-                getline(coeff, weekday, ',');
-                getline(coeff, start_hour, ',');
-                getline(coeff, duration, ',');
-                getline(coeff, ctype, '\n');
+                getline(thefile, weekday, ',');
+                getline(thefile, start_hour, ',');
+                getline(thefile, duration, ',');
+                getline(thefile, ctype, '\n');
 
                 float hour = stof(start_hour);
                 float temp = stof(duration);
@@ -95,10 +89,10 @@ void ClassSchedule::getFullSchedule(const string& filename) { //csv_classes_read
                 }
             }
 
-            coeff.close(); // Closing the file.
-        } else {
-            cout
-                    << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
+            thefile.close();
+        }
+        else {
+            cout << "Error: The program was unable to open the file.";
         }
         sort(classSchedule.begin(), classSchedule.end(), sort_day);
     }
