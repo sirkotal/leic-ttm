@@ -595,7 +595,7 @@ void TTM::menu() {
                 cin >> UC_code;
                 cout << "Class's code: ";
                 cin >> class_code;
-
+                cout << endl;
                 Request tmpR(2, student_name, student_code, UC_code, class_code);
                 requests.push(tmpR);
                 break;
@@ -611,7 +611,7 @@ void TTM::menu() {
                 cin >> UC_code;
                 cout << "Class's code: ";
                 cin >> class_code;
-
+                cout << endl;
                 Request tmpR(3, student_name, student_code, UC_code, class_code);
                 requests.push(tmpR);
                 break;
@@ -629,7 +629,7 @@ void TTM::menu() {
                 cin >> class_code;
                 cout << "Target class's code: ";
                 cin >> target_class;
-
+                cout << endl;
                 Request tmpR(4, student_name, student_code, UC_code, class_code, target_class);
                 requests.push(tmpR);
                 break;
