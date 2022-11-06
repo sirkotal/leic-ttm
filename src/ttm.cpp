@@ -30,6 +30,7 @@ Student* TTM::getStudent(string s_name, string student_code) {
             return (*itr);
         }
     }
+    return nullptr;
 }
 
 /*!
@@ -496,6 +497,11 @@ void TTM::process() {
         switch (op) {
             case 2: {
                 Student *tmp = getStudent(requests.front().student_name, requests.front().student_code);
+                if (tmp == nullptr) {
+                    log.insert(requests.front());
+                    requests.pop();
+                    break;
+                }
                 if (tmp->isScheduleEmpty()) {
                     tmp->getSchedule();
                 }
@@ -509,6 +515,11 @@ void TTM::process() {
             }
             case 3: {
                 Student *tmp = getStudent(requests.front().student_name, requests.front().student_code);
+                if (tmp == nullptr) {
+                    log.insert(requests.front());
+                    requests.pop();
+                    break;
+                }
                 if (tmp->isScheduleEmpty()) {
                     tmp->getSchedule();
                 }
@@ -522,6 +533,11 @@ void TTM::process() {
             }
             case 4: {
                 Student *tmp = getStudent(requests.front().student_name, requests.front().student_code);
+                if (tmp == nullptr) {
+                    log.insert(requests.front());
+                    requests.pop();
+                    break;
+                }
                 if (tmp->isScheduleEmpty()) {
                     tmp->getSchedule();
                 }
@@ -651,6 +667,9 @@ void TTM::listings() {
                 cin >> student_num;
                 cout << "\n";
                 Student* tmp = getStudent(student_name, student_num);
+                if (tmp == nullptr) {
+                    break;
+                }
                 if (tmp->isScheduleEmpty()) {
                     tmp->getSchedule();
                 }
@@ -665,6 +684,9 @@ void TTM::listings() {
                 cin >> student_num;
                 cout << "\n";
                 Student *tmp = getStudent(student_name, student_num);
+                if (tmp == nullptr) {
+                    break;
+                }
                 tmp->showAllClasses();
                 break;
             }
