@@ -106,3 +106,7 @@ void UCClass::count_increment() {
 void UCClass::count_decrement() {
     cap -= 1;
 }
+
+bool UCClass::operator<(const UCClass &next) const {
+    return ucID < next.ucID;
+}
