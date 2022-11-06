@@ -186,61 +186,51 @@ void TTM::more_than_n_ucs(int n, string type, char flag) {
 }
 
 void TTM::buildUCClasses(const string& filename) {
-    // File variables.
     string uc_code, class_code;
 
-    // Filename
-    ifstream coeff(filename); // Opens the file.
+    ifstream thefile(filename);
 
-    if (coeff.is_open()) // Checks if the file is open.
+    if (thefile.is_open())
     {
-        // Skip the first line (ClassCode,UcCode,Weekday,StartHour,Duration,Type).
         string line;
-        getline(coeff, line);
+        getline(thefile, line);
 
-        // While the end of the file is not reached.
-        while (!coeff.eof())
-        {
-            //{class_code, uc_code}
-
-            getline(coeff, uc_code, ',');
-            getline(coeff, class_code, '\n');
+        while (!thefile.eof()) {
+            getline(thefile, uc_code, ',');
+            getline(thefile, class_code, '\n');
 
             UCClass temp(uc_code, class_code);
             temp.student_counter(classes);
             everyClass.push_back(temp);
         }
 
-        coeff.close(); // Closing the file.
+        thefile.close();
     }
     else
     {
-        cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
+        cout << "Error: The program was unable to open the file.";
     }
 }
 
-void TTM::buildStudents(const string& filename) // reads student_classes.csv
-{
-    // File variables.
+void TTM::buildStudents(const string& filename) { // reads student_classes.csv
     string student_code, student_name, uc_code, class_code;
     string repeat = "0"; // flag
 
-    // Filename
-    ifstream coeff(filename); // Opens the file.
+    ifstream thefile(filename);
 
-    if (coeff.is_open()) // Checks if the file is open.
+    if (thefile.is_open())
     {
         // Skip the first line (ClassCode,UcCode,Weekday,StartHour,Duration,Type).
         string line;
-        getline(coeff, line);
+        getline(thefile, line);
 
         // While the end of the file is not reached.
-        while (!coeff.eof())
+        while (!thefile.eof())
         {
-            getline(coeff, student_code, ',');
-            getline(coeff, student_name, ',');
-            getline(coeff, uc_code, ',');
-            getline(coeff, class_code, '\n');
+            getline(thefile, student_code, ',');
+            getline(thefile, student_name, ',');
+            getline(thefile, uc_code, ',');
+            getline(thefile, class_code, '\n');
 
             if (student_code != repeat) {
                 Student* temporary_student = new Student(student_name, student_code);
@@ -254,11 +244,11 @@ void TTM::buildStudents(const string& filename) // reads student_classes.csv
 
         }
 
-        coeff.close(); // Closing the file.
+        thefile.close(); // Closing the file.
     }
     else
     {
-        cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
+        cout << "Error: The program was unable to open the file.";
     }
 }
 
@@ -474,6 +464,14 @@ void TTM::changeClass(Student& student, UCClass& current, UCClass& target) {
     }
 
     if (!(findClass(student.allClasses, current))) {
+        return;
+    }
+
+    if (searchClass(everyClass, current) == false) {
+        return;
+    }
+
+    if (searchClass(everyClass, target) == false) {
         return;
     }
 
