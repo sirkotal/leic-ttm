@@ -536,9 +536,23 @@ void TTM::listings() {
 
 }
 
-void TTM::saveout(const std::string &filename) {
-    ofstream MyFile("new_students.csv");
-    
+void TTM::saveout() {
+    ofstream myfile("../schedule/new_students.csv");
+    for (auto itr = students.begin(); itr != students.end(); itr++) {
+        myfile << (*itr)->getID();
+        myfile << ",";
+        myfile << (*itr)->getName();
+        myfile << ",";
+        for (UCClass element : (*itr)->allClasses) {
+            myfile << element.get_UC_ID();
+            myfile << ",";
+            myfile << element.get_class_ID();
+            myfile << "\n";
+        }
+    }
+    myfile.close();
+    remove("../schedule/students_classes.csv");
+    rename("../schedule/new_students.csv", "../schedule/students_classes.csv");
 }
 
 void TTM::logout(const std::string &filename) {

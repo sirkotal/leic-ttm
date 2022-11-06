@@ -53,7 +53,7 @@ class TTM {
     void mainMenu();
     void listingsMenu();
     void process();
-    void saveout(const string& filename);
+    void saveout();
     void logout(const string& filename);
     void removeClass(Student& student, UCClass& uc);
     void addClass(Student& student, UCClass& uc);
