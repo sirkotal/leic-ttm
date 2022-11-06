@@ -455,6 +455,9 @@ void TTM::process() {
         switch (op) {
             case 2: {
                 Student *tmp = getStudent(requests.front().student_name, requests.front().student_code);
+                if (tmp->isScheduleEmpty()) {
+                    tmp->getSchedule();
+                }
                 UCClass ctmp(requests.front().UC_code, requests.front().class_code);
                 removeClass(*tmp, ctmp);
                 if (!(requests.front().isDone())) {
@@ -465,6 +468,9 @@ void TTM::process() {
             }
             case 3: {
                 Student *tmp = getStudent(requests.front().student_name, requests.front().student_code);
+                if (tmp->isScheduleEmpty()) {
+                    tmp->getSchedule();
+                }
                 UCClass ctmp(requests.front().UC_code, requests.front().class_code);
                 addClass(*tmp, ctmp);
                 if (!(requests.front().isDone())) {
@@ -475,6 +481,9 @@ void TTM::process() {
             }
             case 4: {
                 Student *tmp = getStudent(requests.front().student_name, requests.front().student_code);
+                if (tmp->isScheduleEmpty()) {
+                    tmp->getSchedule();
+                }
                 UCClass ctmp(requests.front().UC_code, requests.front().class_code);
                 UCClass ttmp(requests.front().target_UC, requests.front().target_class);
                 changeClass(*tmp, ctmp, ttmp);
@@ -489,28 +498,60 @@ void TTM::process() {
 }
 
 void TTM::mainMenu() {
-    std::cout << " ____________________________________________________________________________________" <<  std::endl;
-    std::cout << "|                                        MENU                                       |" <<  std::endl;
-    std::cout << "|    0. EXIT                                                                        |" <<  std::endl;
-    std::cout << "|    1. LISTINGS                                                                    |" <<  std::endl;
-    std::cout << "|    2. REMOVE A STUDENT FROM A CLASS                                               |" <<  std::endl;
-    std::cout << "|    3. ADD A STUDENT TO A CLASS                                                    |" <<  std::endl;
-    std::cout << "|    4. CHANGE A STUDENT'S CLASS                                                    |" <<  std::endl;
-    std::cout << "|                                                                                   |" <<  std::endl;
-    std::cout << "|                                                                                   |" <<  std::endl;
-    std::cout << " ------------------------------------------------------------------------------------" <<  std::endl;
+    cout << " ____________________________________________________________________________________" <<  endl;
+    cout << "|                                        MENU                                       |" <<  endl;
+    cout << "|    0. EXIT                                                                        |" <<  endl;
+    cout << "|    1. LISTINGS                                                                    |" <<  endl;
+    cout << "|    2. REMOVE A STUDENT FROM A CLASS                                               |" <<  endl;
+    cout << "|    3. ADD A STUDENT TO A CLASS                                                    |" <<  endl;
+    cout << "|    4. CHANGE A STUDENT'S CLASS                                                    |" <<  endl;
+    cout << "|                                                                                   |" <<  endl;
+    cout << "|                                                                                   |" <<  endl;
+    cout << " ------------------------------------------------------------------------------------" <<  endl;
+    cout << endl << "Please choose an option: ";
+    cin >> choice1;
 }
 
 void TTM::listingsMenu() {
-    std::cout << " ____________________________________________________________________________________" <<  std::endl;
-    std::cout << "|                                        MENU                                       |" <<  std::endl;
-    std::cout << "|    0. BACK                                                                        |" <<  std::endl;
-    std::cout << "|    1. STUDENT'S SCHEDULE                                                          |" <<  std::endl;
-    std::cout << "|    2. STUDENT'S CLASSES                                                           |" <<  std::endl;
-    std::cout << "|    3. STUDENTS IN A CLASS                                                         |" <<  std::endl;
-    std::cout << "|    4. STUDENTS IN A UC                                                            |" <<  std::endl;
-    std::cout << "|    5. STUDENTS IN A YEAR                                                          |" <<  std::endl;
-    std::cout << "|    6. CLASS'S CAPACITY                                                            |" <<  std::endl;
-    std::cout << "|                                                                                   |" <<  std::endl;
-    std::cout << " ------------------------------------------------------------------------------------" <<  std::endl;
+    cout << " ____________________________________________________________________________________" <<  std::endl;
+    cout << "|                                        MENU                                       |" <<  std::endl;
+    cout << "|    0. BACK                                                                        |" <<  std::endl;
+    cout << "|    1. STUDENT'S SCHEDULE                                                          |" <<  std::endl;
+    cout << "|    2. STUDENT'S CLASSES                                                           |" <<  std::endl;
+    cout << "|    3. STUDENTS IN A CLASS                                                         |" <<  std::endl;
+    cout << "|    4. STUDENTS IN A UC                                                            |" <<  std::endl;
+    cout << "|    5. STUDENTS IN A YEAR                                                          |" <<  std::endl;
+    cout << "|    6. CLASS'S CAPACITY                                                            |" <<  std::endl;
+    cout << "|                                                                                   |" <<  std::endl;
+    cout << " ------------------------------------------------------------------------------------" <<  std::endl;
+    cout << endl << "Please choose an option: ";
+    cin >> choice2;
+}
+
+void TTM::menu() {
+
+}
+
+void TTM::listings() {
+
+}
+
+void TTM::saveout(const std::string &filename) {
+    ofstream MyFile("new_students.csv");
+    
+}
+
+void TTM::logout(const std::string &filename) {
+    ofstream myfile;
+    myfile.open (filename);
+    for (auto itr = log.begin(); itr != log.end(); itr++) {
+        myfile << "Request type: ";
+        myfile << itr->getType();
+        myfile << ",";
+        myfile << itr->student_name;
+        myfile << ",";
+        myfile << itr->student_code;
+        myfile << "\n";
+    }
+    myfile.close();
 }

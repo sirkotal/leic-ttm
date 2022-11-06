@@ -8,6 +8,7 @@
 #define students_classes "../schedule/students_classes.csv"
 #define classes "../schedule/classes.csv"
 #define classes_per_uc "../schedule/classes_per_uc.csv"
+#define logfile "../archive/log.txt"
 using namespace std;
 
 /*void menu ()
